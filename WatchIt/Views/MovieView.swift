@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MovieView: View {
     var movie: Movie
+    @ObservedObject var viewModel = MovieViewModel()
+    
     var body: some View {
         VStack(alignment: .leading) {
             movie.image
@@ -18,7 +21,12 @@ struct MovieView: View {
                 .frame(width: 100)
                 
         }
+        .onAppear {
+            viewModel.getTrendList()
+
+        }
     }
+        
 }
 
 #Preview {
