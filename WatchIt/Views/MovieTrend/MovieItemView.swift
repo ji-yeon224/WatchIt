@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import Kingfisher
 
-struct MovieView: View {
+struct MovieItemView: View {
     var movie: Movie
     
     var body: some View {

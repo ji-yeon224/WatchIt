@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class MovieViewModel: ObservableObject {
+class MovieTrendViewModel: ObservableObject {
     private var cancellable: Set<AnyCancellable> = []
     @Published var movieData: [Movie] = []
     func getTrendList() {
