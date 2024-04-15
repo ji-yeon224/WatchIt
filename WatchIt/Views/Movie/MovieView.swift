@@ -14,13 +14,14 @@ struct MovieView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            KFImage(URL(string: BaseURL.imgURL + movie.posterUrl!)!)
-                .onFailure { error in
-                    print(error)
-                }
-                .resizable()
-                .frame(width: 100, height: 150)
-                .clipped()
+            if let url = movie.posterUrl {
+                PosterImage(url: BaseURL.imgURL + url)
+            } else {
+                
+                Rectangle()
+                    .frame(width: 100, height: 150)
+                    .foregroundStyle(.gray)
+            }
             Text(movie.title)
                 .frame(width: 100, alignment: .leading)
                 

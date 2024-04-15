@@ -11,7 +11,7 @@ struct MovieRowView: View {
     @StateObject var viewModel = MovieViewModel()
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .top) {
                 ForEach(viewModel.movieData) { movie in
                     MovieView(movie: movie)
