@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct Movie: Identifiable {
+struct Movie: Identifiable, Hashable {
     let id: Int
     let title: String
-    var image: Image {
-        Image(.movieImg)
-    }
+    let posterUrl: String?
+    let backDropUrl: String?
+    let releaseDate: String
+    
 }
