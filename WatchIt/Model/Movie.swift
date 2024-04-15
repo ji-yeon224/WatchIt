@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Movie: Identifiable {
+struct Movie: Identifiable, Hashable {
     let id: Int
     let title: String
     let posterUrl: String?

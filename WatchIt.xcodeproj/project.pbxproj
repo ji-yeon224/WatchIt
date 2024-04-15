@@ -32,6 +32,7 @@
 		CEAE72D42BCD075D00C7E5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72D32BCD075D00C7E5A6 /* ContentView.swift */; };
 		CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72D62BCD0CFD00C7E5A6 /* TopTabBarView.swift */; };
 		CEAE72D92BCD0DCA00C7E5A6 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72D82BCD0DCA00C7E5A6 /* TabBarItem.swift */; };
+		CEAE72DC2BCD204E00C7E5A6 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72DB2BCD204E00C7E5A6 /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		CEAE72D32BCD075D00C7E5A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CEAE72D62BCD0CFD00C7E5A6 /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
 		CEAE72D82BCD0DCA00C7E5A6 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		CEAE72DB2BCD204E00C7E5A6 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +117,9 @@
 		CE492FB82BC9174F00C5F1DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEAE72D52BCD0CD800C7E5A6 /* TabBar */,
 				CE492FAC2BC90DC200C5F1DC /* MovieView.swift */,
+				CEAE72DA2BCD204300C7E5A6 /* MovieDetail */,
+				CEAE72D52BCD0CD800C7E5A6 /* TabBar */,
 				CEAE72D22BCCF21700C7E5A6 /* MovieTrend */,
 				CEAE72CF2BCCEB0100C7E5A6 /* Custom */,
 				CEAE72D32BCD075D00C7E5A6 /* ContentView.swift */,
@@ -190,6 +193,14 @@
 				CEAE72D82BCD0DCA00C7E5A6 /* TabBarItem.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CEAE72DA2BCD204300C7E5A6 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CEAE72DB2BCD204E00C7E5A6 /* MovieDetailView.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 				CE492FAD2BC90DC200C5F1DC /* MovieView.swift in Sources */,
 				CE77F8C52BCA581200010151 /* TrendResDto.swift in Sources */,
 				CE492FCF2BC9222100C5F1DC /* Endpoint.swift in Sources */,
+				CEAE72DC2BCD204E00C7E5A6 /* MovieDetailView.swift in Sources */,
 				CE492FBD2BC9182900C5F1DC /* MovieItemView.swift in Sources */,
 				CE492FAB2BC90DC200C5F1DC /* WatchItApp.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,

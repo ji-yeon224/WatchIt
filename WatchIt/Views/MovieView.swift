@@ -17,10 +17,10 @@ struct MovieView: View {
                     MovieTrendRowView()
                     .listStyle(.plain)
                 }
-                Spacer()
             }
-            
+            .listStyle(.plain)
         }
+       
         
         
         
