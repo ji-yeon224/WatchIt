@@ -10,6 +10,7 @@ import Combine
 
 class MovieViewModel: ObservableObject {
     private var cancellable: Set<AnyCancellable> = []
+    @Published var movieData: [Movie] = []
     func getTrendList() {
         TMDBManager.shared.request(api: .trend(type: .movie), resultType: TrendsResDto.self)
             .sink { completion in
@@ -20,7 +21,8 @@ class MovieViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { result in
-                print(result)
+                let data = result.results
+                self.movieData = data.map { $0.toDomain() }
             }
             .store(in: &cancellable)
     }

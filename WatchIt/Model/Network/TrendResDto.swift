@@ -39,3 +39,9 @@ struct TrendResDto: Decodable {
         case voteAverage = "vote_average"
     }
 }
+
+extension TrendResDto {
+    func toDomain() -> Movie {
+        return .init(id: id, title: title, posterUrl: posterPath, backDropUrl: backdropPath, releaseDate: releaseDate)
+    }
+}

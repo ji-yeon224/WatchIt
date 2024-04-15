@@ -11,7 +11,8 @@ import SwiftUI
 struct Movie: Identifiable {
     let id: Int
     let title: String
-    var image: Image {
-        Image(.movieImg)
-    }
+    let posterUrl: String?
+    let backDropUrl: String?
+    let releaseDate: String
+    
 }

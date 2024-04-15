@@ -7,28 +7,28 @@
 
 import SwiftUI
 import Combine
+import Kingfisher
 
 struct MovieView: View {
     var movie: Movie
-    @ObservedObject var viewModel = MovieViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
-            movie.image
+            KFImage(URL(string: BaseURL.imgURL + movie.posterUrl!)!)
+                .onFailure { error in
+                    print(error)
+                }
                 .resizable()
                 .frame(width: 100, height: 150)
+                .clipped()
             Text(movie.title)
-                .frame(width: 100)
+                .frame(width: 100, alignment: .leading)
                 
-        }
-        .onAppear {
-            viewModel.getTrendList()
-
         }
     }
         
 }
 
-#Preview {
-    MovieView(movie: Movie(id: 1, title: "movie"))
-}
+//#Preview {
+//    MovieView(movie: Movie(id: 1, title: "movie"))
+//}
