@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    
+    private var poster: String = BaseURL.imgURL+"/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg"
+    private var backdrop: String = BaseURL.imgURL+"/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            MovieInfoView()
+            Spacer()
+        }
     }
 }
 

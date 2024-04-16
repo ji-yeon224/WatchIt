@@ -8,11 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct Movie: Identifiable, Hashable {
+struct MovieTrend: Identifiable, Hashable {
     let id: Int
     let title: String
     let posterUrl: String?
-    let backDropUrl: String?
-    let releaseDate: String
     
 }
