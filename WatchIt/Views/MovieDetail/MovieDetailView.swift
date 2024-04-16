@@ -9,15 +9,21 @@ import SwiftUI
 
 struct MovieDetailView: View {
     
-    private var poster: String = BaseURL.imgURL+"/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg"
-    private var backdrop: String = BaseURL.imgURL+"/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg"
+    @StateObject private var viewModel = MovieDetailViewModel()
     
     var body: some View {
         VStack(alignment: .leading) {
-            MovieInfoView()
-            Spacer()
+            if let details = viewModel.movieDetail {
+                MovieInfoView(details: details)
+                Spacer()
+            }
+            
+        }
+        .onAppear {
+            viewModel.getDetails(movieId: 693134)
         }
     }
+        
 }
 
 #Preview {

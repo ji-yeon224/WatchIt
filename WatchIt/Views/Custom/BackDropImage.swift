@@ -9,16 +9,23 @@ import SwiftUI
 import Kingfisher
 
 struct BackDropImage: View {
-    var url: String
+    var url: String?
     var body: some View {
-        KFImage(URL(string: url))
-            .onFailure { error in
-                print(error)
-            }
-            .resizable()
-            .scaledToFit()
-            .overlay(Color.black.opacity(0.4))
-            .clipped()
+        if let url = url {
+            KFImage(URL(string: url))
+                .onFailure { error in
+                    print(error)
+                }
+                .resizable()
+                .scaledToFit()
+                .overlay(Color.black.opacity(0.4))
+                .clipped()
+        } else {
+            Rectangle()
+                .frame(maxWidth: .infinity, maxHeight: 400)
+                .foregroundStyle(.gray)
+        }
+        
         
     }
         

@@ -19,5 +19,9 @@ struct DetailMovie: Hashable {
     let releaseDate: String
     let genres: [String]
     
+    var info: String {
+        return "\(releaseYear ?? "") | \(genres.joined(separator: ", ")) | \(runtime))"
+    }
+    
     
 }

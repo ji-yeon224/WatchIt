@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1FF0BA2BCE1CEF009DE604 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FF0B92BCE1CEF009DE604 /* MovieDetailViewModel.swift */; };
 		CE492FAB2BC90DC200C5F1DC /* WatchItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FAA2BC90DC200C5F1DC /* WatchItApp.swift */; };
 		CE492FAD2BC90DC200C5F1DC /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FAC2BC90DC200C5F1DC /* MovieView.swift */; };
 		CE492FAF2BC90DC300C5F1DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE492FAE2BC90DC300C5F1DC /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE1FF0B92BCE1CEF009DE604 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		CE492FA72BC90DC200C5F1DC /* WatchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE492FAA2BC90DC200C5F1DC /* WatchItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchItApp.swift; sourceTree = "<group>"; };
 		CE492FAC2BC90DC200C5F1DC /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				CEAE72DB2BCD204E00C7E5A6 /* MovieDetailView.swift */,
 				CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */,
+				CE1FF0B92BCE1CEF009DE604 /* MovieDetailViewModel.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				CEAE72E22BCD50CB00C7E5A6 /* DetailMovie.swift in Sources */,
 				CEAE72E72BCD51FC00C7E5A6 /* Int+Extension.swift in Sources */,
 				CE492FAB2BC90DC200C5F1DC /* WatchItApp.swift in Sources */,
+				CE1FF0BA2BCE1CEF009DE604 /* MovieDetailViewModel.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,
 				CE492FBB2BC9177C00C5F1DC /* MovieTrendRowView.swift in Sources */,
 				CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */,

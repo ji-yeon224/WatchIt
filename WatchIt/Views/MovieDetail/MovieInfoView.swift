@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct MovieInfoView: View {
-    var poster: String = BaseURL.imgURL+"/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg"
-    var backdrop: String = BaseURL.imgURL+"/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg"
-    var title: String = "듄: 파트 2"
-    
+    var details: DetailMovie?
     
     var body: some View {
+        
         VStack(alignment: .leading) {
-            BackDropImage(url: backdrop)
+            
+            BackDropImage(url: details?.backdropUrl)
                 .overlay(alignment: .leading) {
                     HStack {
-                        PosterImage(url: poster)
+                        PosterImage(url: details?.posterUrl)
                             .padding(10)
                         VStack(alignment: .leading) {
-                            Text(title)
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
-                                .padding(.bottom, 5)
-                            Text("2024 | SF, 모험 | 2시간 47분")
-                                .font(.system(size: 14))
+                            if let details = details {
+                                Text(details.title)
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .padding(.bottom, 5)
+                                Text(details.info)
+                                    .font(.system(size: 14))
+                            }
+                            
                         }
                         .offset(x: -10, y: 40)
                         
@@ -41,6 +43,6 @@ struct MovieInfoView: View {
     }
 }
 
-#Preview {
-    MovieInfoView()
-}
+//#Preview {
+//    MovieInfoView(de)
+//}

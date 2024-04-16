@@ -10,6 +10,7 @@ import Alamofire
 
 enum Router {
     case trend(type: MediaType)
+    case movieDetail(movieId: Int)
 }
 
 extension Router: URLRequestConvertible {
@@ -22,20 +23,22 @@ extension Router: URLRequestConvertible {
         switch self {
         case let .trend(type):
             return Endpoint.trending(type: type, time: .week).endpoint
+        case let.movieDetail(movieId):
+            return Endpoint.detailMovie(movieId: movieId).endpoint
         }
     }
     
     
     private var queryParams: [String: String] {
         switch self {
-        case .trend:
+        case .trend, .movieDetail:
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         }
     }
     
     private var method: HTTPMethod {
         switch self {
-        case .trend(let type):
+        case .trend, .movieDetail:
             return .get
         }
     }
@@ -43,7 +46,6 @@ extension Router: URLRequestConvertible {
     
     func asURLRequest() throws -> URLRequest {
         let url = baseURL.appendingPathComponent(endPoint)
-        var urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: true)
         var request = try URLRequest(url: url, method: method)
         if method == .get {
             request = try URLEncodedFormParameterEncoder(destination: .methodDependent).encode(queryParams, into: request)
