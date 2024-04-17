@@ -18,6 +18,7 @@ struct MovieInfoView: View {
                         
                     HStack(alignment: .bottom, spacing: 10) {
                         PosterImage(url: details.posterUrl)
+                            .shadow(radius: 5)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: -30, trailing: 0))
                         Text(details.title)
                             .font(.system(size: 17))
