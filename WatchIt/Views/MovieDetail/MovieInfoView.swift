@@ -11,38 +11,34 @@ struct MovieInfoView: View {
     var details: DetailMovie?
     
     var body: some View {
-        
-        VStack(alignment: .leading) {
-            
-            BackDropImage(url: details?.backdropUrl)
-                .overlay(alignment: .leading) {
-                    HStack {
-                        PosterImage(url: details?.posterUrl)
-                            .padding(10)
-                        VStack(alignment: .leading) {
-                            if let details = details {
-                                Text(details.title)
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                    .padding(.bottom, 5)
-                                Text(details.info)
-                                    .font(.system(size: 14))
-                            }
-                            
-                        }
-                        .offset(x: -10, y: 40)
-                        
+        if let details = details {
+            VStack(alignment: .leading) {
+                ZStack(alignment: .bottomLeading) {
+                    BackDropImage(url: details.backdropUrl)
+                    HStack(alignment: .bottom, spacing: 20) {
+                        PosterImage(url: details.posterUrl)
+                            .offset(x: 10, y: 30)
+                        Text(details.title)
+                            .font(.system(size: 17))
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                            .padding([.trailing, .bottom], 8)
                     }
-                    .offset(y: 68)
                     
                 }
-            
-            Spacer()
+                
+                Text(details.info)
+                    .font(.system(size: 14))
+                    .padding(.leading, 120)
+                
+                Spacer()
+            }
         }
+        
     }
 }
 
-//#Preview {
-//    MovieInfoView(de)
-//}
+#Preview {
+    let detail = DetailMovie(id: 693134, title: "듄afffjjㅇㅇㅇㅇㅇㅇㅇㅇㅇhjhjㄹ려ㅓㅓ히aㅁㄴㅇㄹ", originalTitle: "", overView: "", backdropUrl: BaseURL.imgURL + "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg", posterUrl: BaseURL.imgURL +  "/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg", runtime: "2시간 47분", releaseYear: "2024", releaseDate: "", genres: ["SF", "모험", "액션", "판타지", "ㅁㅁㅁ"])
+    return MovieInfoView(details: detail)
+}

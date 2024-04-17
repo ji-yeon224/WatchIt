@@ -13,16 +13,20 @@ struct BackDropImage: View {
     var body: some View {
         if let url = url {
             KFImage(URL(string: url))
+                .placeholder({
+                    ProgressView()
+                        .configBackdropImgRatio()
+                })
                 .onFailure { error in
                     print(error)
                 }
                 .resizable()
-                .scaledToFit()
+                .configBackdropImgRatio()
                 .overlay(Color.black.opacity(0.4))
                 .clipped()
         } else {
             Rectangle()
-                .frame(maxWidth: .infinity, maxHeight: 400)
+                .configBackdropImgRatio()
                 .foregroundStyle(.gray)
         }
         
@@ -32,5 +36,5 @@ struct BackDropImage: View {
 }
 
 #Preview {
-    BackDropImage(url: BaseURL.imgURL+"/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg")
+    BackDropImage(url: BaseURL.imgURL+"/b4xaqpUZFUkgyJ1VcFEPXmDML34.jpg")
 }

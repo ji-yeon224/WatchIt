@@ -23,7 +23,6 @@ final class MovieDetailViewModel: ObservableObject {
                 }
             } receiveValue: { result in
                 self.movieDetail = result.toDomain()
-                print(result)
             }
             .store(in: &cancellable)
 

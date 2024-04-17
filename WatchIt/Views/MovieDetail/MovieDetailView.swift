@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieDetailView: View {
     
     @StateObject private var viewModel = MovieDetailViewModel()
+    var movieId: Int?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,12 +21,15 @@ struct MovieDetailView: View {
             
         }
         .onAppear {
-            viewModel.getDetails(movieId: 693134)
+            if let movieId = movieId {
+                viewModel.getDetails(movieId: movieId)
+            }
+            
         }
     }
         
 }
 
 #Preview {
-    MovieDetailView()
+    MovieDetailView(movieId: 693134)
 }
