@@ -15,9 +15,10 @@ struct MovieInfoView: View {
             VStack(alignment: .leading) {
                 ZStack(alignment: .bottomLeading) {
                     BackDropImage(url: details.backdropUrl)
-                    HStack(alignment: .bottom, spacing: 20) {
+                        
+                    HStack(alignment: .bottom, spacing: 10) {
                         PosterImage(url: details.posterUrl)
-                            .offset(x: 10, y: 30)
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: -30, trailing: 0))
                         Text(details.title)
                             .font(.system(size: 17))
                             .fontWeight(.bold)
@@ -31,14 +32,14 @@ struct MovieInfoView: View {
                     .font(.system(size: 14))
                     .padding(.leading, 120)
                 
-                Spacer()
             }
+            
         }
         
     }
 }
 
 #Preview {
-    let detail = DetailMovie(id: 693134, title: "듄afffjjㅇㅇㅇㅇㅇㅇㅇㅇㅇhjhjㄹ려ㅓㅓ히aㅁㄴㅇㄹ", originalTitle: "", overView: "", backdropUrl: BaseURL.imgURL + "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg", posterUrl: BaseURL.imgURL +  "/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg", runtime: "2시간 47분", releaseYear: "2024", releaseDate: "", genres: ["SF", "모험", "액션", "판타지", "ㅁㅁㅁ"])
+    let detail = DetailMovie(id: 693134, title: "듄", originalTitle: "", overView: "", backdropUrl: BaseURL.imgURL + "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg", posterUrl: BaseURL.imgURL +  "/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg", runtime: "2시간 47분", releaseYear: "2024", releaseDate: "", genres: ["SF", "모험"])
     return MovieInfoView(details: detail)
 }

@@ -25,6 +25,8 @@
 		CE492FD52BC9232000C5F1DC /* TrendingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FD42BC9232000C5F1DC /* TrendingTime.swift */; };
 		CE492FD72BC925AF00C5F1DC /* LanguageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FD62BC925AF00C5F1DC /* LanguageType.swift */; };
 		CE6185CA2BCF782500D3BCE0 /* BackDropRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6185C92BCF782500D3BCE0 /* BackDropRatio.swift */; };
+		CE6185CC2BCF84F600D3BCE0 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6185CB2BCF84F600D3BCE0 /* OverviewView.swift */; };
+		CE6185CE2BCF97F400D3BCE0 /* TruncatedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */; };
 		CE77F8BF2BCA542600010151 /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8BE2BCA542600010151 /* TMDBManager.swift */; };
 		CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C02BCA562600010151 /* NetworkError.swift */; };
 		CE77F8C52BCA581200010151 /* TrendResDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C42BCA581200010151 /* TrendResDto.swift */; };
@@ -62,6 +64,8 @@
 		CE492FD42BC9232000C5F1DC /* TrendingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTime.swift; sourceTree = "<group>"; };
 		CE492FD62BC925AF00C5F1DC /* LanguageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageType.swift; sourceTree = "<group>"; };
 		CE6185C92BCF782500D3BCE0 /* BackDropRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackDropRatio.swift; sourceTree = "<group>"; };
+		CE6185CB2BCF84F600D3BCE0 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
+		CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruncatedTextView.swift; sourceTree = "<group>"; };
 		CE77F8BE2BCA542600010151 /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 		CE77F8C02BCA562600010151 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CE77F8C42BCA581200010151 /* TrendResDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendResDto.swift; sourceTree = "<group>"; };
@@ -111,9 +115,9 @@
 		CE492FA92BC90DC200C5F1DC /* WatchIt */ = {
 			isa = PBXGroup;
 			children = (
-				CE77F8C22BCA577000010151 /* Utility */,
 				CE492FC02BC91E2C00C5F1DC /* Network */,
 				CE492FB92BC9175B00C5F1DC /* Model */,
+				CE77F8C22BCA577000010151 /* Utility */,
 				CE492FB82BC9174F00C5F1DC /* Views */,
 				CE492FAA2BC90DC200C5F1DC /* WatchItApp.swift */,
 				CE492FAE2BC90DC300C5F1DC /* Assets.xcassets */,
@@ -190,6 +194,7 @@
 			children = (
 				CEAE72D02BCCEB1100C7E5A6 /* PosterImage.swift */,
 				CEAE72E82BCD53F900C7E5A6 /* BackDropImage.swift */,
+				CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				CEAE72DB2BCD204E00C7E5A6 /* MovieDetailView.swift */,
 				CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */,
 				CE1FF0B92BCE1CEF009DE604 /* MovieDetailViewModel.swift */,
+				CE6185CB2BCF84F600D3BCE0 /* OverviewView.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				CEAE72E72BCD51FC00C7E5A6 /* Int+Extension.swift in Sources */,
 				CE492FAB2BC90DC200C5F1DC /* WatchItApp.swift in Sources */,
 				CE1FF0BA2BCE1CEF009DE604 /* MovieDetailViewModel.swift in Sources */,
+				CE6185CC2BCF84F600D3BCE0 /* OverviewView.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,
 				CE492FBB2BC9177C00C5F1DC /* MovieTrendRowView.swift in Sources */,
 				CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */,
@@ -355,6 +362,7 @@
 				CE77F8C72BCA5E3E00010151 /* MovieTrendViewModel.swift in Sources */,
 				CE492FBF2BC9184800C5F1DC /* MovieTrend.swift in Sources */,
 				CEAE72E92BCD53F900C7E5A6 /* BackDropImage.swift in Sources */,
+				CE6185CE2BCF97F400D3BCE0 /* TruncatedTextView.swift in Sources */,
 				CEAE72D42BCD075D00C7E5A6 /* ContentView.swift in Sources */,
 				CE492FD12BC9223A00C5F1DC /* BaseURL.swift in Sources */,
 				CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */,

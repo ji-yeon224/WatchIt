@@ -20,6 +20,7 @@ struct MovieView: View {
             }
             .listStyle(.plain)
         }
+        
        
         
         

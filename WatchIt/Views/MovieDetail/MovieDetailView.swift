@@ -13,18 +13,21 @@ struct MovieDetailView: View {
     var movieId: Int?
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if let details = viewModel.movieDetail {
-                MovieInfoView(details: details)
-                Spacer()
+        ScrollView {
+            MovieInfoView(details: viewModel.movieDetail)
+                .padding(.bottom, 20)
+            LazyVStack(alignment: .leading) {
+                OverviewView(overViewText: viewModel.movieDetail?.overView)
             }
+            .padding(.horizontal, 10)
+            
             
         }
         .onAppear {
             if let movieId = movieId {
                 viewModel.getDetails(movieId: movieId)
             }
-            
+             
         }
     }
         
