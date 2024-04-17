@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-class MovieTrendViewModel: ObservableObject {
+final class MovieTrendViewModel: ObservableObject {
     private var cancellable: Set<AnyCancellable> = []
-    @Published var movieData: [Movie] = []
+    @Published var movieData: [MovieTrend] = []
     func getTrendList() {
         TMDBManager.shared.request(api: .trend(type: .movie), resultType: TrendsResDto.self)
             .sink { completion in

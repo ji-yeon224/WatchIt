@@ -10,7 +10,7 @@ import Combine
 import Kingfisher
 
 struct MovieItemView: View {
-    var movie: Movie
+    var movie: MovieTrend
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,6 +23,8 @@ struct MovieItemView: View {
                     .foregroundStyle(.gray)
             }
             Text(movie.title)
+                .font(.system(size: 14))
+                .lineLimit(2)
                 .frame(width: 100, alignment: .leading)
                 
         }

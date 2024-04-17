@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    
+    @StateObject private var viewModel = MovieDetailViewModel()
+    var movieId: Int?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            MovieInfoView(details: viewModel.movieDetail)
+                .padding(.bottom, 20)
+            LazyVStack(alignment: .leading) {
+                OverviewView(overViewText: viewModel.movieDetail?.overView)
+            }
+            .padding(.horizontal, 10)
+            
+            
+        }
+        .onAppear {
+            if let movieId = movieId {
+                viewModel.getDetails(movieId: movieId)
+            }
+             
+        }
     }
+        
 }
 
 #Preview {
-    MovieDetailView()
+    MovieDetailView(movieId: 693134)
 }

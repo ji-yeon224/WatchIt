@@ -12,7 +12,7 @@ struct TopTabBarView: View {
     var tabBarOptions: [String] = ["MOVIE", "TV"]
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            HStack(spacing: 10) {
                 ForEach(tabBarOptions.indices, id: \.self) { index in
                     let title = tabBarOptions[index]
                     TabBarItem(curTab: $curTab, title: title, tab: index)

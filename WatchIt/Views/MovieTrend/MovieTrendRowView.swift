@@ -25,8 +25,8 @@ struct MovieTrendRowView: View {
             
         }
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-        .navigationDestination(for: Movie.self) { item in
-            MovieDetailView()
+        .navigationDestination(for: MovieTrend.self) { item in
+            MovieDetailView(movieId: item.id)
         }
         
         
