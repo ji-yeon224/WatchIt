@@ -17,9 +17,9 @@ struct CreditItem: View {
                 .frame(width: 50)
             VStack(alignment: .leading) {
                 Text("name")
-                    .bold()
-                    .font(.system(size: 14))
+                    .font(Constants.FontStyle.boldPlain.style)
                 Text("nameaaa")
+                    .font(Constants.FontStyle.caption.style)
             }
         }
         

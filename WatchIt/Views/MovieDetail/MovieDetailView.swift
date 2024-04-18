@@ -16,10 +16,13 @@ struct MovieDetailView: View {
         ScrollView {
             MovieInfoView(details: viewModel.movieDetail)
                 .padding(.bottom, 20)
-            LazyVStack(alignment: .leading) {
+            Divider()
+            LazyVStack(alignment: .leading, spacing: 20) {
                 OverviewView(overViewText: viewModel.movieDetail?.overView)
+                Divider()
+                CreditItemsRow()
             }
-            .padding(.horizontal, 10)
+            .padding(10)
             
             
         }
