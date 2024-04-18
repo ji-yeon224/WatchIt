@@ -9,44 +9,39 @@ import Foundation
 
 
 
-struct CreditResDto: Codable {
+struct CreditResDto: Decodable {
     let id: Int
-    let cast, crew: [CastResDto]
+    let cast: [CastResDto]
+    let crew: [CrewResDto]
 }
 
 
-struct CastResDto: Codable {
+struct CastResDto: Decodable {
     let id: Int
-    let knownForDepartment: Department
     let name: String
     let profilePath: String?
-    let character: String?
-    let order: Int?
-    let job: String?
+    let character: String
 
     enum CodingKeys: String, CodingKey {
         case id
-        case knownForDepartment = "known_for_department"
         case name
         case profilePath = "profile_path"
         case character
-        case order, job
     }
 }
 
-enum Department: String, Codable {
-    case acting = "Acting"
-    case art = "Art"
-    case camera = "Camera"
-    case costumeMakeUp = "Costume & Make-Up"
-    case crew = "Crew"
-    case directing = "Directing"
-    case editing = "Editing"
-    case lighting = "Lighting"
-    case production = "Production"
-    case sound = "Sound"
-    case visualEffects = "Visual Effects"
-    case writing = "Writing"
+struct CrewResDto: Decodable {
+    let id: Int
+    let department: String
+    let name: String
+    let profilePath: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case department = "known_for_department"
+        case name
+        case profilePath = "profile_path"
+    }
 }
 
 
@@ -58,6 +53,17 @@ extension CastResDto {
         } else {
             profileUrl = nil
         }
-        return .init(id: id, department: knownForDepartment, name: name, profilePath: profileUrl, character: character, order: order, job: job)
+        return .init(id: id, name: name, profilePath: profileUrl, character: character)
+    }
+}
+extension CrewResDto {
+    func toDomain() -> Cast {
+        var profileUrl: String?
+        if let profilePath = profilePath {
+            profileUrl = BaseURL.imgURL + profilePath
+        } else {
+            profileUrl = nil
+        }
+        return .init(id: id, name: name, profilePath: profileUrl, character: department)
     }
 }

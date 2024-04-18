@@ -9,6 +9,7 @@ import Foundation
 enum Endpoint {
     case trending(type: MediaType, time: TrendingTime)
     case detailMovie(movieId: Int)
+    case credits(type: MediaType, id: Int)
     
     var endpoint: String {
         switch self {
@@ -16,6 +17,8 @@ enum Endpoint {
             return "/3/trending/\(type.rawValue)/\(time.rawValue)"
         case let .detailMovie(movieId):
             return "/3/movie/\(movieId)"
+        case let .credits(type, id):
+            return "/3/\(type.rawValue)/\(id)/credits"
         }
     }
 }

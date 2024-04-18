@@ -20,7 +20,7 @@ struct MovieDetailView: View {
             LazyVStack(alignment: .leading, spacing: 20) {
                 OverviewView(overViewText: viewModel.movieDetail?.overView)
                 Divider()
-                CreditItemsRow()
+                CreditItemsRow(id: movieId)
             }
             .padding(10)
             

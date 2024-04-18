@@ -8,22 +8,34 @@
 import SwiftUI
 
 struct CreditItemsRow: View {
+    @StateObject private var viewModel = CreditViewModel()
+    var id: Int?
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("출연진")
                 .font(Constants.FontStyle.title.style)
                 .frame(alignment: .leading)
+            
             LazyVStack(alignment: .leading, spacing: 10) {
-                CreditItem()
-                CreditItem()
-                CreditItem()
+                
+                ForEach(viewModel.castItems) { item in
+                    CreditItem(castItem: item)
+                }
             }
-            .padding(.leading, 10)
+
+        }
+        .onAppear() {
+            if let id = id {
+                viewModel.getCredits(type: .movie, id: id)
+            }
+            
+
         }
         
     }
 }
 
 #Preview {
-    CreditItemsRow()
+    CreditItemsRow(id: 693134)
 }

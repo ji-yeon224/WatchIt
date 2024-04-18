@@ -7,13 +7,18 @@
 
 import Foundation
 
-struct Cast: Hashable {
+//struct Cast: Hashable {
+//    let id: Int
+//    let name: String
+//    let profilePath: String?
+//    let character: String
+//    
+//}
+
+struct Cast: Identifiable, Hashable {
     let id: Int
-    let department: Department
     let name: String
     let profilePath: String?
-    let character: String?
-    let order: Int?
-    let job: String?
+    let character: String
     
 }
