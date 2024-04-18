@@ -23,9 +23,8 @@ struct OverviewView: View {
         if let overviewText = self.overviewText, !overviewText.isEmpty {
             VStack(alignment: .leading, spacing: 10) {
                 Text("줄거리")
-                    .font(.system(size: 16))
+                    .font(Constants.FontStyle.title.style)
                     .frame(alignment: .leading)
-                    .bold()
                 
                 TruncatedTextView(text: overviewText, lineLimit: 2)
                     .frame(alignment: .leading)

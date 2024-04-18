@@ -22,7 +22,7 @@ struct TruncatedTextView: View {
     private func calculateTruncation() -> some View {
         ViewThatFits(in: .vertical) {
             Text(text)
-                .font(.caption)
+                .font(Constants.FontStyle.caption.style)
                 .hidden()
                 .onAppear {
                     guard isTruncated == nil else { return }
@@ -40,7 +40,7 @@ struct TruncatedTextView: View {
     
     var body: some View {
         Text(text)
-            .font(.caption)
+            .font(Constants.FontStyle.caption.style)
             .lineLimit(isExpended ? nil : lineLimit)
             .frame(alignment: .leading)
             .background(calculateTruncation())
@@ -48,7 +48,7 @@ struct TruncatedTextView: View {
             .overlay(alignment: .bottomTrailing) {
                 if isTruncated == true && !isExpended {
                     Text(" ..더보기")
-                        .font(.caption)
+                        .font(Constants.FontStyle.caption.style)
                         .foregroundStyle(.blue)
                         .underline()
                         .onTapGesture {

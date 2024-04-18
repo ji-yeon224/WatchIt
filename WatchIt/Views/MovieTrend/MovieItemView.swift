@@ -23,7 +23,7 @@ struct MovieItemView: View {
                     .foregroundStyle(.gray)
             }
             Text(movie.title)
-                .font(.system(size: 14))
+                .font(Constants.FontStyle.plain.style)
                 .lineLimit(2)
                 .frame(width: 100, alignment: .leading)
                 
