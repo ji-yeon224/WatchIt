@@ -8,77 +8,33 @@
 import SwiftUI
 
 struct CreditItemsRow: View {
-    @StateObject private var viewModel = CreditViewModel()
-    var id: Int?
-    @State private var castItems: [Cast] = []
-    @State private var crewItems: [Cast] = []
+    var title: String = ""
+    var creditItems: [Cast] = []
+    
     var body: some View {
+
         
-        VStack(alignment: .leading) {
-            if viewModel.castCnt > 0 {
+        
+        ScrollView {
+            
+            LazyVStack(alignment: .leading, spacing: 10) {
+                Text(title)
+                    .font(Constants.FontStyle.title.style)
                 
-                
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    
-                    Text("출연진")
-                        .font(Constants.FontStyle.title.style)
-                        .frame(alignment: .leading)
-                    
-                    if viewModel.castCnt >= 3 {
-                        ForEach(0..<3) { i in
-                            CreditItem(castItem: viewModel.castItems[i])
-                        }
-                    } else {
-                        ForEach(castItems) { item in
-                            CreditItem(castItem: item)
-                        }
-                    }
-                    
-                    
-                    
+                ForEach(creditItems) {
+                    CreditItem(castItem: $0)
                 }
-                .padding(.bottom, 10)
-                Divider()
             }
-            
-            if viewModel.crewCnt > 0 {
-                
-                
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    Text("제작")
-                        .font(Constants.FontStyle.title.style)
-                        .frame(alignment: .leading)
-                    
-                    if viewModel.crewCnt >= 3 {
-                        ForEach(0..<3) { i in
-                            CreditItem(castItem: viewModel.crewItems[i])
-                        }
-                    } else {
-                        ForEach(crewItems) { item in
-                            CreditItem(castItem: item)
-                        }
-                    }
-                }
-                .padding(.vertical, 10)
-            }
-            
-            
-            
-
+           
         }
-        .onAppear() {
-            if let id = id {
-                viewModel.getCredits(type: .movie, id: id)
-                castItems = viewModel.castItems
-                crewItems = viewModel.crewItems
-            }
-            
-
-        }
+        .padding(20)
+        
         
     }
 }
 
 #Preview {
-    CreditItemsRow(id: 693134)
+    CreditItemsRow(title: "출연", creditItems: [
+        Cast(id: 1, name: "111", profilePath: nil, character: "111"), Cast(id: 2, name: "111", profilePath: nil, character: "111")
+    ])
 }

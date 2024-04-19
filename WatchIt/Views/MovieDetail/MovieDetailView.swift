@@ -20,7 +20,10 @@ struct MovieDetailView: View {
             LazyVStack(alignment: .leading, spacing: 20) {
                 OverviewView(overViewText: viewModel.movieDetail?.overView)
                 Divider()
-                CreditItemsRow(id: movieId)
+
+                CreditView(title: "출연", creditItems: viewModel.castItems)
+                Divider()
+                CreditView(title: "제작", creditItems: viewModel.crewItems)
             }
             .padding(10)
             
@@ -29,7 +32,9 @@ struct MovieDetailView: View {
         .onAppear {
             if let movieId = movieId {
                 viewModel.getDetails(movieId: movieId)
+                viewModel.getCredits1(type: .movie, id: movieId)
             }
+            
              
         }
     }
