@@ -14,6 +14,8 @@ final class CreditViewModel: ObservableObject {
     
     @Published var castItems: [Cast] = []
     @Published var crewItems: [Cast] = []
+    @Published var castCnt = 0
+    @Published var crewCnt = 0
     
     func getCredits(type: MediaType, id: Int) {
         TMDBManager.shared.request(api: .credits(type: type, id: id), resultType: CreditResDto.self)
@@ -26,8 +28,10 @@ final class CreditViewModel: ObservableObject {
                 }
             } receiveValue: { result in
                 self.castItems = result.cast.map { $0.toDomain() }
+                self.castCnt = self.castItems.count
                 self.crewItems = result.crew.map { $0.toDomain() }
-                print(self.crewItems.count)
+                self.crewCnt = self.crewItems.count
+                
             }
             .store(in: &cancellable)
 

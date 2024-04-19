@@ -9,11 +9,8 @@ import SwiftUI
 
 struct CreditItem: View {
     
-    private var castItem: Cast?
+    var castItem: Cast?
     
-    init(castItem: Cast?) {
-        self.castItem = castItem
-    }
     
     var body: some View {
         if let castItem = castItem {
