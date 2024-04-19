@@ -11,6 +11,7 @@ import Alamofire
 enum Router {
     case trend(type: MediaType)
     case movieDetail(movieId: Int)
+    case credits(type: MediaType, id: Int)
 }
 
 extension Router: URLRequestConvertible {
@@ -23,22 +24,24 @@ extension Router: URLRequestConvertible {
         switch self {
         case let .trend(type):
             return Endpoint.trending(type: type, time: .week).endpoint
-        case let.movieDetail(movieId):
+        case let .movieDetail(movieId):
             return Endpoint.detailMovie(movieId: movieId).endpoint
+        case let .credits(type, id):
+            return Endpoint.credits(type: type, id: id).endpoint
         }
     }
     
     
     private var queryParams: [String: String] {
         switch self {
-        case .trend, .movieDetail:
+        case .trend, .movieDetail, .credits:
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         }
     }
     
     private var method: HTTPMethod {
         switch self {
-        case .trend, .movieDetail:
+        case .trend, .movieDetail, .credits:
             return .get
         }
     }
