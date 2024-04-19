@@ -233,6 +233,7 @@
 		CE6185C82BCF77FA00D3BCE0 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */,
 				CE6185C92BCF782500D3BCE0 /* BackDropRatio.swift */,
 			);
 			path = Modifier;
@@ -255,7 +256,6 @@
 			children = (
 				CE219CC62BD0FBE40061D9D3 /* ImageView */,
 				CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */,
-				CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
