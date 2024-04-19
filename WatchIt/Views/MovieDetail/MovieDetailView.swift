@@ -11,6 +11,7 @@ struct MovieDetailView: View {
     
     @StateObject private var viewModel = MovieDetailViewModel()
     var movieId: Int?
+    var title: String = ""
     
     var body: some View {
         ScrollView {
@@ -21,9 +22,9 @@ struct MovieDetailView: View {
                 OverviewView(overViewText: viewModel.movieDetail?.overView)
                 Divider()
 
-                CreditView(title: "출연", creditItems: viewModel.castItems)
+                CreditView(creditItems: CreditItems(title: "출연진", items: viewModel.castItems))
                 Divider()
-                CreditView(title: "제작", creditItems: viewModel.crewItems)
+                CreditView(creditItems: CreditItems(title: "제작", items: viewModel.crewItems))
             }
             .padding(10)
             
@@ -37,10 +38,11 @@ struct MovieDetailView: View {
             
              
         }
+        .navigationTitle(title)
     }
         
 }
 
 #Preview {
-    MovieDetailView(movieId: 693134)
+    MovieDetailView(movieId: 693134, title: "듄: 파트2")
 }

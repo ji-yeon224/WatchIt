@@ -8,33 +8,33 @@
 import SwiftUI
 
 struct CreditItemsRow: View {
-    var title: String = ""
-    var creditItems: [Cast] = []
+    private var creditItems: CreditItems = CreditItems(title: "", items: [])
+    
+    init(creditItems: CreditItems) {
+        self.creditItems = creditItems
+    }
     
     var body: some View {
 
         
-        
         ScrollView {
             
             LazyVStack(alignment: .leading, spacing: 10) {
-                Text(title)
-                    .font(Constants.FontStyle.title.style)
-                
-                ForEach(creditItems) {
+                ForEach(creditItems.items, id: \._id) {
                     CreditItem(castItem: $0)
                 }
             }
            
         }
+        .navigationTitle(creditItems.title)
         .padding(20)
         
         
     }
 }
 
-#Preview {
-    CreditItemsRow(title: "출연", creditItems: [
-        Cast(id: 1, name: "111", profilePath: nil, character: "111"), Cast(id: 2, name: "111", profilePath: nil, character: "111")
-    ])
-}
+//#Preview {
+//    CreditItemsRow(title: "", creditItems: [
+//        Cast(id: 1, name: "111", profilePath: nil, character: "111"), Cast(id: 2, name: "111", profilePath: nil, character: "111")
+//    ])
+//}

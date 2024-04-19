@@ -16,9 +16,11 @@ import Foundation
 //}
 
 struct Cast: Identifiable, Hashable {
+    let _id = UUID()
     let id: Int
     let name: String
     let profilePath: String?
     let character: String
     
 }
+

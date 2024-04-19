@@ -8,43 +8,61 @@
 import SwiftUI
 
 struct CreditView: View {
-    var title: String = ""
-    var creditItems: [Cast] = []
+    var creditItems: CreditItems = CreditItems(title: "", items: [])
     
     var body: some View {
+        
         VStack {
-            Button(action: {}, label: {
+            NavigationLink {
+                CreditItemsRow(creditItems: creditItems)
+            } label: {
                 HStack {
-                    Text(title)
+                    
+                    Text(creditItems.title)
                         .font(Constants.FontStyle.title.style)
                         .frame(alignment: .leading)
                         .foregroundStyle(.black)
                     Spacer()
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(.rightArrow)
-                    })
-                    .padding(.trailing, 5)
+                    Image(.rightArrow)
+                        .padding(.trailing, 5)
                 }
-                
-            })
+            }
+
+//            NavigationLink(value: creditItems) {
+//                HStack {
+//                    
+//                    Text(creditItems.title)
+//                        .font(Constants.FontStyle.title.style)
+//                        .frame(alignment: .leading)
+//                        .foregroundStyle(.black)
+//                    Spacer()
+//                    Image(.rightArrow)
+//                        .padding(.trailing, 5)
+//                }
+//            }
+//            .navigationDestination(for: CreditItems.self) { item in
+//                CreditItemsRow(creditItems: item)
+//            }
             
-            if creditItems.count >= 3 {
+            
+            
+            if creditItems.items.count >= 3 {
                 ForEach(0..<3) { i in
-                    CreditItem(castItem: creditItems[i])
+                    CreditItem(castItem: creditItems.items[i])
                 }
             } else {
-                ForEach(creditItems) { item in
+                ForEach(creditItems.items) { item in
                     CreditItem(castItem: item)
                 }
             }
-            
         }
+        
+        
+        
         
     }
 }
 
-#Preview {
-    CreditView(title: "출연")
-}
+//#Preview {
+//    CreditView(title: "")
+//}
