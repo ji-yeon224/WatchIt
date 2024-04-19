@@ -10,6 +10,9 @@ import SwiftUI
 struct MovieDetailView: View {
     
     @StateObject private var viewModel = MovieDetailViewModel()
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+//    @Environment(\.dismiss) private var dismiss
+    
     var movieId: Int?
     var title: String = ""
     
@@ -39,8 +42,26 @@ struct MovieDetailView: View {
              
         }
         .navigationTitle(title)
+        .customNavBackButton()
     }
+    
+    
         
+}
+
+extension MovieDetailView {
+    var backButton : some View {
+            Button{
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack {
+                    Image(systemName: "chevron.left") // 화살표 Image
+                        .aspectRatio(contentMode: .fit)
+                        
+                    
+                }
+            }
+        }
 }
 
 #Preview {

@@ -28,6 +28,7 @@ struct CreditItemsRow: View {
         }
         .navigationTitle(creditItems.title)
         .padding(20)
+        .customNavBackButton()
         
         
     }
