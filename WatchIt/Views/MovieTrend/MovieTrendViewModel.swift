@@ -8,9 +8,32 @@
 import Foundation
 import Combine
 
-final class MovieTrendViewModel: ObservableObject {
+final class MovieTrendViewModel: ViewModelProtocol {
+    
     private var cancellable: Set<AnyCancellable> = []
-    @Published var movieData: [MovieTrend] = []
+    @Published var state: State
+    
+    enum Action {
+        case getMovieTrend
+    }
+    
+    enum State {
+        case trendData([MovieTrend])
+    }
+    
+    func action(_ action: Action) {
+        switch action {
+        case .getMovieTrend:
+            getTrendList()
+        }
+    }
+    
+    init() {
+        state = .trendData([])
+    }
+    
+    
+    
     func getTrendList() {
         TMDBManager.shared.request(api: .trend(type: .movie), resultType: TrendsResDto.self)
             .sink { completion in
@@ -22,7 +45,7 @@ final class MovieTrendViewModel: ObservableObject {
                 }
             } receiveValue: { result in
                 let data = result.results
-                self.movieData = data.map { $0.toDomain() }
+                self.state = .trendData(data.map { $0.toDomain() })
             }
             .store(in: &cancellable)
     }
