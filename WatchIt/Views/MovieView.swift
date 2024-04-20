@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MovieView: View {
-    @StateObject var viewModel = MovieTrendViewModel()
+    @StateObject var viewModel = MovieListViewModel()
     @State private var tabIdx = 0
     var body: some View {
         NavigationStack {
             VStack {
                 TopTabBarView(curTab: $tabIdx)
                 if tabIdx == 0 {
-                    MovieTrendRowView(viewModel)
+                    MovieListView(viewModel)
                     .listStyle(.plain)
                 }
             }
@@ -23,6 +23,7 @@ struct MovieView: View {
         }
         .onAppear {
             viewModel.action(.getMovieTrend)
+            viewModel.action(.getTopRated)
         }
        
         
