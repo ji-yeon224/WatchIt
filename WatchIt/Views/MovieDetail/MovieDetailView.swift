@@ -10,58 +10,47 @@ import SwiftUI
 struct MovieDetailView: View {
     
     @StateObject private var viewModel = MovieDetailViewModel()
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-//    @Environment(\.dismiss) private var dismiss
     
     var movieId: Int?
     var title: String = ""
     
     var body: some View {
-        ScrollView {
-            MovieInfoView(details: viewModel.movieDetail)
-                .padding(.bottom, 20)
-            Divider()
-            LazyVStack(alignment: .leading, spacing: 20) {
-                OverviewView(overViewText: viewModel.movieDetail?.overView)
+        switch viewModel.state {
+        case .detailInfo(let movie):
+            ScrollView {
+                
+                MovieInfoView(details: movie)
+                    .padding(.bottom, 20)
                 Divider()
+                LazyVStack(alignment: .leading, spacing: 20) {
+                    OverviewView(overViewText: movie?.overView)
+                    Divider()
 
-                CreditView(creditItems: CreditItems(title: "출연진", items: viewModel.castItems))
-                Divider()
-                CreditView(creditItems: CreditItems(title: "제작", items: viewModel.crewItems))
+                    CreditView(creditItems: CreditItems(title: "출연진", items: viewModel.castItems))
+                    Divider()
+                    CreditView(creditItems: CreditItems(title: "제작", items: viewModel.crewItems))
+                }
+                .padding(10)
+                
             }
-            .padding(10)
-            
+            .onAppear {
+                if let movieId = movieId {
+                    viewModel.action(.getDetailInfo(movieId))
+                    viewModel.action(.getCreditInfo(.movie, movieId))
+                }
+                
+                 
+            }
+            .navigationTitle(title)
+            .customNavBackButton()
             
         }
-        .onAppear {
-            if let movieId = movieId {
-                viewModel.getDetails(movieId: movieId)
-                viewModel.getCredits1(type: .movie, id: movieId)
-            }
-            
-             
-        }
-        .navigationTitle(title)
-        .customNavBackButton()
+        
+        
     }
     
     
         
-}
-
-extension MovieDetailView {
-    var backButton : some View {
-            Button{
-                self.presentationMode.wrappedValue.dismiss()
-            } label: {
-                HStack {
-                    Image(systemName: "chevron.left") // 화살표 Image
-                        .aspectRatio(contentMode: .fit)
-                        
-                    
-                }
-            }
-        }
 }
 
 #Preview {
