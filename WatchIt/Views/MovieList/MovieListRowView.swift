@@ -19,7 +19,7 @@ struct MovieListRowView: View {
                 .font(Constants.FontStyle.title.style)
                 
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .top) {
+                HStack(alignment: .top) {
                     ForEach(itemList) { item in
                         NavigationLink(value: item) {
                             MovieItemView(movie: item)
@@ -30,8 +30,17 @@ struct MovieListRowView: View {
                 }
                 
             }
+            
         }
         
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
     }
+}
+
+#Preview {
+    MovieListRowView(title: "Trend", itemList: [
+        MovieItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
+        MovieItem(id: 2, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
+        MovieItem(id: 3, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil)
+    ])
 }

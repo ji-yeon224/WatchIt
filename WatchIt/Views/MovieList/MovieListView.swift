@@ -15,22 +15,21 @@ struct MovieListView: View {
     }
     
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 18) {
-                MovieListRowView(title: "TREND",itemList: viewModel.trendData)
-                MovieListRowView(title: "TOP RATED", itemList: viewModel.topRatedData)
-            }
+        ScrollView(.vertical) {
+
+            MovieListRowView(title: "TREND", itemList: viewModel.trendData)
+            MovieListRowView(title: "TOP RATED", itemList: viewModel.topRatedData)
+            
         }
-        
-        
         .navigationDestination(for: MovieItem.self) { item in
             MovieDetailView(movieId: item.id, title: item.title)
         }
         
         
     }
+    
 }
     
-    //#Preview {
-    //    return MovieTrendRowView()
-    //}
+#Preview {
+    return MovieListView(MovieListViewModel())
+}
