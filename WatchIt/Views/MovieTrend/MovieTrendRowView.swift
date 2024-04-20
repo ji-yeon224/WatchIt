@@ -8,40 +8,46 @@
 import SwiftUI
 
 struct MovieTrendRowView: View {
-    @StateObject var viewModel = MovieTrendViewModel()
+    @StateObject private var viewModel: MovieTrendViewModel
+    
+    init(_ viewModel: MovieTrendViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
-        
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(alignment: .top) {
-                ForEach(viewModel.movieData) { movie in
-                    NavigationLink(value: movie) {
-                        MovieItemView(movie: movie)
+        switch viewModel.state {
+        case let .trendData(movieData):
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top) {
+                    ForEach(movieData) { movie in
+                        NavigationLink(value: movie) {
+                            MovieItemView(movie: movie)
+                        }
+                        .buttonStyle(.plain)
+                        
                     }
-                    .buttonStyle(.plain)
-                    
                 }
+                
+            }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .navigationDestination(for: MovieTrend.self) { item in
+                MovieDetailView(movieId: item.id, title: item.title)
             }
             
         }
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-        .navigationDestination(for: MovieTrend.self) { item in
-            MovieDetailView(movieId: item.id, title: item.title)
-        }
         
         
         
         
         
         
-        .onAppear {
-            viewModel.getTrendList()
-        }
+        
+        
         
     }
     
 }
 
-#Preview {
-    return MovieTrendRowView()
-}
+//#Preview {
+//    return MovieTrendRowView()
+//}
