@@ -11,8 +11,8 @@ import Combine
 final class MovieListViewModel: ViewModelProtocol {
     
     private var cancellable: Set<AnyCancellable> = []
-    @Published var trendData: [MovieTrend] = []
-    @Published var topRatedData: [MovieTrend] = []
+    @Published var trendData: [MovieItem] = []
+    @Published var topRatedData: [MovieItem] = []
     
     enum Action {
         case getMovieTrend
@@ -29,7 +29,7 @@ final class MovieListViewModel: ViewModelProtocol {
     }
     
     private func getTrendList() {
-        TMDBManager.shared.request(api: .trend(type: .movie), resultType: TrendsResDto.self)
+        TMDBManager.shared.request(api: .trend(type: .movie), resultType: MovieListDto.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -45,7 +45,7 @@ final class MovieListViewModel: ViewModelProtocol {
     }
     
     private func getTopRatedList() {
-        TMDBManager.shared.request(api: .topRated(type: .movie, region: .kr), resultType: TrendsResDto.self)
+        TMDBManager.shared.request(api: .topRated(type: .movie, region: .kr), resultType: MovieListDto.self)
             .sink { completion in
                 switch completion {
                 case .finished: break

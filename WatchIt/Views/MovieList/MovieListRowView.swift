@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieListRowView: View {
     
     var title: String = "Trend"
-    var itemList: [MovieTrend] = []
+    var itemList: [MovieItem] = []
     
     var body: some View {
         

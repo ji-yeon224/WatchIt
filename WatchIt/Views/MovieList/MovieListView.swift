@@ -23,7 +23,7 @@ struct MovieListView: View {
         }
         
         
-        .navigationDestination(for: MovieTrend.self) { item in
+        .navigationDestination(for: MovieItem.self) { item in
             MovieDetailView(movieId: item.id, title: item.title)
         }
         

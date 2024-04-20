@@ -10,7 +10,7 @@ import Combine
 import Kingfisher
 
 struct MovieItemView: View {
-    var movie: MovieTrend
+    var movie: MovieItem
     
     var body: some View {
         VStack(alignment: .leading) {
