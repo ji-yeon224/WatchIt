@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TrendsResDto: Decodable {
+struct MovieListDto: Decodable {
     let page: Int
-    let results: [TrendResDto]
+    let results: [MovieItemDto]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -20,7 +20,7 @@ struct TrendsResDto: Decodable {
 }
 
 // MARK: - Result
-struct TrendResDto: Decodable {
+struct MovieItemDto: Decodable {
     let id: Int
     let posterPath: String
     let title: String
@@ -32,8 +32,8 @@ struct TrendResDto: Decodable {
     }
 }
 
-extension TrendResDto {
-    func toDomain() -> MovieTrend {
+extension MovieItemDto {
+    func toDomain() -> MovieItem {
         return .init(id: id, title: title, posterUrl: posterPath)
     }
 }

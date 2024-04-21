@@ -10,10 +10,10 @@ import Combine
 import Kingfisher
 
 struct MovieItemView: View {
-    var movie: MovieTrend
+    var movie: MovieItem
     
     var body: some View {
-        VStack(alignment: .leading) {
+        LazyVStack(alignment: .leading) {
             if let url = movie.posterUrl {
                 PosterImage(url: BaseURL.imgURL + url)
             } else {
@@ -25,13 +25,14 @@ struct MovieItemView: View {
             Text(movie.title)
                 .font(Constants.FontStyle.plain.style)
                 .lineLimit(2)
-                .frame(width: 100, alignment: .leading)
+                .frame(maxWidth: 100, alignment: .topLeading)
+                
                 
         }
     }
         
 }
 
-//#Preview {
-//    MovieView(movie: Movie(id: 1, title: "movie"))
-//}
+#Preview {
+    MovieItemView(movie: MovieItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil))
+}

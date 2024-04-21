@@ -18,9 +18,11 @@ struct PosterImage: View {
                 }
                 .resizable()
                 .frame(width: 100, height: 150)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .shadow(radius: 1)
                 .foregroundStyle(.gray)
-                .clipped()
-        } 
+                
+        }
         
     }
 }
