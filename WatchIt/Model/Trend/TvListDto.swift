@@ -1,15 +1,15 @@
 //
-//  TrendResDto.swift
+//  TvListDto.swift
 //  WatchIt
 //
-//  Created by 김지연 on 4/13/24.
+//  Created by 김지연 on 4/21/24.
 //
 
 import Foundation
 
-struct MovieListDto: Decodable {
+struct TvListDto: Decodable {
     let page: Int
-    let results: [MovieItemDto]
+    let results: [TvItemDto]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -19,25 +19,22 @@ struct MovieListDto: Decodable {
     }
 }
 
-// MARK: - Result
-struct MovieItemDto: Decodable {
+
+struct TvItemDto: Decodable {
     let id: Int
     let posterPath: String
-    let title: String
+    let adult: Bool
+    let name: String
 
     enum CodingKeys: String, CodingKey {
         case id
         case posterPath = "poster_path"
-        case title
+        case adult, name
     }
 }
 
-extension MovieItemDto {
-//    func toDomain() -> MovieItem {
-//        return .init(id: id, title: title, posterUrl: posterPath)
-//    }
-    
+extension TvItemDto {
     func toDomain() -> MediaItem {
-        return .init(id: id, title: title, posterUrl: posterPath)
+        return .init(id: id, title: name, posterUrl: posterPath)
     }
 }
