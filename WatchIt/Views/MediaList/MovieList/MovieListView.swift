@@ -40,6 +40,6 @@ struct MovieListView: View {
     
 }
     
-//#Preview {
-//    return MovieListView(MovieListViewModel(), viewLoad: <#T##Binding<Bool>#>)
-//}
+#Preview {
+    return MovieListView(MovieListViewModel(), viewLoaded: .constant(false))
+}

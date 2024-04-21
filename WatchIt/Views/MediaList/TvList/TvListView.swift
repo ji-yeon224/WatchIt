@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct TvListView: View {
+    @StateObject private var viewModel: TvListViewModel
+    @Binding var viewLoaded: Bool
+    init(_ viewModel: TvListViewModel, viewLoaded: Binding<Bool>) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._viewLoaded = Binding(projectedValue: viewLoaded)
+    }
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Spacer()
+        
+        ScrollView(.vertical) {
+            MediaListRowView(title: "Trend", itemList: viewModel.tvTrendData)
+        }
+        .task {
+            if !viewLoaded {
+                viewLoaded = true
+                viewModel.action(.tvTrend)
+            }
         }
     }
 }
 
 #Preview {
-    TvListView()
+    TvListView(TvListViewModel(), viewLoaded: .constant(false))
 }

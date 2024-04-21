@@ -9,19 +9,21 @@ import SwiftUI
 
 struct MainMediaListView: View {
     @Environment(\.scenePhase) var scenePhase
-    @StateObject var viewModel = MovieListViewModel()
+    @StateObject var movieViewModel = MovieListViewModel()
+    @StateObject private var tvViewModel = TvListViewModel()
     @State private var tabIdx = 0
     @State private var movieListViewLoaded = false
+    @State private var tvListViewLoaded = false
     
     var body: some View {
         NavigationStack {
             VStack {
                 TopTabBarView(curTab: $tabIdx)
                 if tabIdx == 0 {
-                    MovieListView(viewModel, viewLoaded: $movieListViewLoaded)
+                    MovieListView(movieViewModel, viewLoaded: $movieListViewLoaded)
                     
                 } else if tabIdx == 1 {
-                    TvListView()
+                    TvListView(tvViewModel, viewLoaded: $tvListViewLoaded)
                     
                 }
             }
