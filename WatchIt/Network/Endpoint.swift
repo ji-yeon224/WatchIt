@@ -11,6 +11,7 @@ enum Endpoint {
     case detailMovie(movieId: Int)
     case credits(type: MediaType, id: Int)
     case topRated(type: MediaType)
+    case nowPlaying(type: MediaType)
     
     var endpoint: String {
         switch self {
@@ -22,6 +23,8 @@ enum Endpoint {
             return "/3/\(type.rawValue)/\(id)/credits"
         case let .topRated(type):
             return "/3/\(type.rawValue)/top_rated"
+        case let .nowPlaying(type):
+            return "/3/\(type.rawValue)/now_playing"
         }
     }
 }

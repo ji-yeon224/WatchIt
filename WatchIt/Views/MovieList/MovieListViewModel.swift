@@ -13,10 +13,12 @@ final class MovieListViewModel: ViewModelProtocol {
     private var cancellable: Set<AnyCancellable> = []
     @Published var trendData: [MovieItem] = []
     @Published var topRatedData: [MovieItem] = []
+    @Published var nowPlayingData: [MovieItem] = []
     
     enum Action {
         case getMovieTrend
         case getTopRated
+        case nowPlaying
     }
     
     func action(_ action: Action) {
@@ -25,6 +27,8 @@ final class MovieListViewModel: ViewModelProtocol {
             getTrendList()
         case .getTopRated:
             getTopRatedList()
+        case .nowPlaying:
+            getNowPlayingList()
         }
     }
     
@@ -57,6 +61,22 @@ final class MovieListViewModel: ViewModelProtocol {
             }
             .store(in: &cancellable)
 
+
+    }
+    
+    private func getNowPlayingList() {
+        TMDBManager.shared.request(api: .nowPlaying(type: .movie, region: .kr), resultType: MovieListDto.self)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            } receiveValue: { result in
+                self.nowPlayingData = result.results.map { $0.toDomain() }
+            }
+            .store(in: &cancellable)
 
     }
 }

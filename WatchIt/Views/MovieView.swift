@@ -21,9 +21,11 @@ struct MovieView: View {
             }
             .listStyle(.plain)
         }
-        .onAppear {
+        .task {
             viewModel.action(.getMovieTrend)
             viewModel.action(.getTopRated)
+            viewModel.action(.nowPlaying)
+            
         }
        
         
