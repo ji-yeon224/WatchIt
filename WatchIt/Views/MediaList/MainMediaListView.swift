@@ -7,34 +7,31 @@
 
 import SwiftUI
 
-struct MovieView: View {
+struct MainMediaListView: View {
+    @Environment(\.scenePhase) var scenePhase
     @StateObject var viewModel = MovieListViewModel()
     @State private var tabIdx = 0
+    @State private var movieListViewLoaded = false
+    
     var body: some View {
         NavigationStack {
             VStack {
                 TopTabBarView(curTab: $tabIdx)
                 if tabIdx == 0 {
-                    MovieListView(viewModel)
-                    .listStyle(.plain)
+                    MovieListView(viewModel, viewLoaded: $movieListViewLoaded)
+                    
+                } else if tabIdx == 1 {
+                    TvListView()
+                    
                 }
             }
             .listStyle(.plain)
         }
-        .task {
-            viewModel.action(.getMovieTrend)
-            viewModel.action(.getTopRated)
-            viewModel.action(.nowPlaying)
-            
-        }
-       
-        
-        
         
         
     }
 }
 
 #Preview {
-    MovieView()
+    MainMediaListView()
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import Kingfisher
 
-struct MovieItemView: View {
+struct MediaItemView: View {
     var movie: MediaItem
     
     var body: some View {
@@ -34,5 +34,5 @@ struct MovieItemView: View {
 }
 
 #Preview {
-    MovieItemView(movie: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil))
+    MediaItemView(movie: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil))
 }
