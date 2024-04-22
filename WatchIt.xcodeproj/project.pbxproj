@@ -60,6 +60,7 @@
 		CEAE72E72BCD51FC00C7E5A6 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72E62BCD51FC00C7E5A6 /* Int+Extension.swift */; };
 		CEAE72E92BCD53F900C7E5A6 /* BackDropImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72E82BCD53F900C7E5A6 /* BackDropImage.swift */; };
 		CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */; };
+		CEB939972BD6336C00DB6954 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB939962BD6336C00DB6954 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		CEAE72E62BCD51FC00C7E5A6 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		CEAE72E82BCD53F900C7E5A6 /* BackDropImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackDropImage.swift; sourceTree = "<group>"; };
 		CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
+		CEB939962BD6336C00DB6954 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +362,7 @@
 			children = (
 				CEAE72E42BCD517400C7E5A6 /* String+Extenstion.swift */,
 				CEAE72E62BCD51FC00C7E5A6 /* Int+Extension.swift */,
+				CEB939962BD6336C00DB6954 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				CE219CBF2BD0EEA90061D9D3 /* Cast.swift in Sources */,
 				CE8E1B242BD25ADB003F91BD /* NavBackButton.swift in Sources */,
 				CEAE72E02BCD4FE600C7E5A6 /* MovieDetailResDto.swift in Sources */,
+				CEB939972BD6336C00DB6954 /* Date+Extension.swift in Sources */,
 				CEAE72D12BCCEB1100C7E5A6 /* PosterImage.swift in Sources */,
 				CE492FD72BC925AF00C5F1DC /* LanguageType.swift in Sources */,
 				CE219CB52BD0E5260061D9D3 /* CreditItem.swift in Sources */,

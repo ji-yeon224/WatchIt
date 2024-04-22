@@ -13,10 +13,12 @@ final class TvListViewModel: ViewModelProtocol {
     private var cancellable: Set<AnyCancellable> = []
     @Published var tvTrendData: [MediaItem] = []
     @Published var tvTopRated: [MediaItem] = []
+    @Published var thisYearTv: [MediaItem] = []
     
     enum Action {
         case tvTrend
         case tvTopRated
+        case thisYear
     }
     
     func action(_ action: Action) {
@@ -25,6 +27,8 @@ final class TvListViewModel: ViewModelProtocol {
             getTrendData()
         case .tvTopRated:
             getTopRated()
+        case .thisYear:
+            getThisYearTv()
         }
     }
     
@@ -55,6 +59,22 @@ final class TvListViewModel: ViewModelProtocol {
                 }
             } receiveValue: { result in
                 self.tvTopRated = result.results.map { $0.toDomain() }
+            }
+            .store(in: &cancellable)
+
+    }
+    
+    private func getThisYearTv() {
+        TMDBManager.shared.request(api: .thisYearTv(originCountry: .kr, year: Date().getYearToStr), resultType: TvListDto.self)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .finished:
+                    break
+                }
+            } receiveValue: { result in
+                self.thisYearTv = result.results.map { $0.toDomain() }
             }
             .store(in: &cancellable)
 
