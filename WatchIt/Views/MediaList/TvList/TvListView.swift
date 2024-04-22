@@ -18,11 +18,13 @@ struct TvListView: View {
         
         ScrollView(.vertical) {
             MediaListRowView(title: "Trend", itemList: viewModel.tvTrendData)
+            MediaListRowView(title: "Top Rated", itemList: viewModel.tvTopRated)
         }
         .task {
             if !viewLoaded {
                 viewLoaded = true
                 viewModel.action(.tvTrend)
+                viewModel.action(.tvTopRated)
             }
         }
     }

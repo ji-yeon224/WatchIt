@@ -12,8 +12,8 @@ enum Router {
     case trend(type: MediaType)
     case movieDetail(movieId: Int)
     case credits(type: MediaType, id: Int)
-    case topRated(type: MediaType, region: RegionType)
-    case nowPlaying(type: MediaType, region: RegionType)
+    case topRated(type: MediaType, region: RegionType?)
+    case nowPlaying(type: MediaType, region: RegionType?)
 }
 
 extension Router: URLRequestConvertible {
@@ -43,7 +43,12 @@ extension Router: URLRequestConvertible {
         case .trend, .movieDetail, .credits:
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         case .topRated(_, let region), .nowPlaying(_, let region):
-            return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
+            if let region = region {
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
+            } else {
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
+            }
+            
         }
     }
     
