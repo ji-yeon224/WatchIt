@@ -25,7 +25,8 @@ struct MovieListView: View {
             
         }
         .navigationDestination(for: MediaItem.self) { item in
-            MovieDetailView(movieId: item.id, title: item.title)
+//            MediaDetailView(movieId: item.id, title: item.title)
+            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
         }
         .task {
             if !viewLoaded {

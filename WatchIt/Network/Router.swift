@@ -10,7 +10,7 @@ import Alamofire
 
 enum Router {
     case trend(type: MediaType)
-    case movieDetail(movieId: Int)
+    case details(type: MediaType, id: Int)
     case credits(type: MediaType, id: Int)
     case topRated(type: MediaType, region: RegionType?)
     case nowPlaying(type: MediaType, region: RegionType?)
@@ -27,8 +27,8 @@ extension Router: URLRequestConvertible {
         switch self {
         case let .trend(type):
             return Endpoint.trending(type: type, time: .week).endpoint
-        case let .movieDetail(movieId):
-            return Endpoint.detailMovie(movieId: movieId).endpoint
+        case let .details(type, id):
+            return Endpoint.details(type: type, id: id).endpoint
         case let .credits(type, id):
             return Endpoint.credits(type: type, id: id).endpoint
         case let .topRated(type, _):
@@ -43,7 +43,7 @@ extension Router: URLRequestConvertible {
     
     private var queryParams: [String: String] {
         switch self {
-        case .trend, .movieDetail, .credits:
+        case .trend, .details, .credits:
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         case .topRated(_, let region), .nowPlaying(_, let region):
             if let region = region {
@@ -59,7 +59,7 @@ extension Router: URLRequestConvertible {
     
     private var method: HTTPMethod {
         switch self {
-        case .trend, .movieDetail, .credits, .topRated, .nowPlaying, .thisYearTv:
+        case .trend, .details, .credits, .topRated, .nowPlaying, .thisYearTv:
             return .get
         }
     }

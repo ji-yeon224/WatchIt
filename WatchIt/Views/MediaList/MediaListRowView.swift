@@ -22,7 +22,7 @@ struct MediaListRowView: View {
                 HStack(alignment: .top) {
                     ForEach(itemList) { item in
                         NavigationLink(value: item) {
-                            MediaItemView(movie: item)
+                            MediaItemView(item: item)
                         }
                         .buttonStyle(.plain)
                         

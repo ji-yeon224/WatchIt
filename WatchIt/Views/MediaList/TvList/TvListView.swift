@@ -22,6 +22,9 @@ struct TvListView: View {
             MediaListRowView(title: "Top Rated", itemList: viewModel.tvTopRated)
             
         }
+        .navigationDestination(for: MediaItem.self) { item in
+            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .tv)
+        }
         .task {
             if !viewLoaded {
                 viewLoaded = true

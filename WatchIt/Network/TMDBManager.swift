@@ -18,7 +18,8 @@ final class TMDBManager {
         AF.request(api)
             .publishDecodable(type: T.self)
             .value()
-            .mapError { _ in
+            .mapError { error in
+                debugPrint(error)
                 return NetworkError.responseError
             }
             .eraseToAnyPublisher()

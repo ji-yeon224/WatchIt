@@ -10,11 +10,11 @@ import Combine
 import Kingfisher
 
 struct MediaItemView: View {
-    var movie: MediaItem
+    var item: MediaItem
     
     var body: some View {
         LazyVStack(alignment: .leading) {
-            if let url = movie.posterUrl {
+            if let url = item.posterUrl {
                 PosterImage(url: BaseURL.imgURL + url)
             } else {
                 
@@ -22,7 +22,7 @@ struct MediaItemView: View {
                     .frame(width: 100, height: 150)
                     .foregroundStyle(.gray)
             }
-            Text(movie.title)
+            Text(item.title)
                 .font(Constants.FontStyle.plain.style)
                 .lineLimit(2)
                 .frame(maxWidth: 100, alignment: .topLeading)
@@ -34,5 +34,5 @@ struct MediaItemView: View {
 }
 
 #Preview {
-    MediaItemView(movie: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil))
+    MediaItemView(item: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil))
 }
