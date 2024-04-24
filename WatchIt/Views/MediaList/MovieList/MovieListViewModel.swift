@@ -11,9 +11,9 @@ import Combine
 final class MovieListViewModel: ViewModelProtocol {
     
     private var cancellable: Set<AnyCancellable> = []
-    @Published var trendData: [MovieItem] = []
-    @Published var topRatedData: [MovieItem] = []
-    @Published var nowPlayingData: [MovieItem] = []
+    @Published var trendData: [MediaItem] = []
+    @Published var topRatedData: [MediaItem] = []
+    @Published var nowPlayingData: [MediaItem] = []
     
     enum Action {
         case getMovieTrend

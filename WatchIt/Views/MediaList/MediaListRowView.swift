@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct MovieListRowView: View {
+struct MediaListRowView: View {
     
     var title: String = "Trend"
-    var itemList: [MovieItem] = []
+    var itemList: [MediaItem] = []
     
     var body: some View {
         
@@ -22,7 +22,7 @@ struct MovieListRowView: View {
                 HStack(alignment: .top) {
                     ForEach(itemList) { item in
                         NavigationLink(value: item) {
-                            MovieItemView(movie: item)
+                            MediaItemView(movie: item)
                         }
                         .buttonStyle(.plain)
                         
@@ -38,9 +38,9 @@ struct MovieListRowView: View {
 }
 
 #Preview {
-    MovieListRowView(title: "Trend", itemList: [
-        MovieItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
-        MovieItem(id: 2, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
-        MovieItem(id: 3, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil)
+    MediaListRowView(title: "Trend", itemList: [
+        MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
+        MediaItem(id: 2, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
+        MediaItem(id: 3, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil)
     ])
 }
