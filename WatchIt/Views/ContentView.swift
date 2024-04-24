@@ -7,9 +7,55 @@
 
 import SwiftUI
 
+enum TabTag {
+    case home
+    case search
+}
+
 struct ContentView: View {
+    @State private var selected: TabTag = .home
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            TabView(selection: $selected) {
+                MainMediaListView()
+                    .tabItem {
+                        selected == .home ? Image(.mainSelected) : Image(.mainUnselected)
+                    }
+                    .tag(TabTag.home)
+                SearchView()
+                    .tabItem {
+                        selected == .search ? Image(.searchSelected) : Image(.searchUnselected)
+                    }
+                    .tag(TabTag.search)
+            }
+        }
+        
+    }
+    
+    var tabbar: some View {
+        HStack {
+            Button {
+                selected = .home
+            } label: {
+                VStack(alignment: .center) {
+                    Image(systemName: "star")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 22)
+                    if selected == .home {
+                        Text("View A")
+                            .font(.system(size: 11))
+                    }
+                }
+            }
+            
+            Image(systemName: "star")
+            Image(systemName: "star")
+        }
+        .frame(width: .infinity, height: 200)
+        .cornerRadius(5)
+        .shadow(radius: 5)
     }
 }
 
