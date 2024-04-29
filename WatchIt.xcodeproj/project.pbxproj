@@ -61,6 +61,8 @@
 		CEAE72E72BCD51FC00C7E5A6 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72E62BCD51FC00C7E5A6 /* Int+Extension.swift */; };
 		CEAE72E92BCD53F900C7E5A6 /* BackDropImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72E82BCD53F900C7E5A6 /* BackDropImage.swift */; };
 		CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */; };
+		CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E22BDF4450009ED2F0 /* SearchBar.swift */; };
+		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,8 @@
 		CEAE72E62BCD51FC00C7E5A6 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		CEAE72E82BCD53F900C7E5A6 /* BackDropImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackDropImage.swift; sourceTree = "<group>"; };
 		CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
+		CEF094E22BDF4450009ED2F0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +316,7 @@
 			children = (
 				CE219CC62BD0FBE40061D9D3 /* ImageView */,
 				CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */,
+				CEF094E22BDF4450009ED2F0 /* SearchBar.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			children = (
 				CEAE72E42BCD517400C7E5A6 /* String+Extenstion.swift */,
 				CEAE72E62BCD51FC00C7E5A6 /* Int+Extension.swift */,
+				CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				CE77F8C52BCA581200010151 /* MovieItemDto.swift in Sources */,
 				CEAE72E52BCD517400C7E5A6 /* String+Extenstion.swift in Sources */,
 				CE492FCF2BC9222100C5F1DC /* Endpoint.swift in Sources */,
+				CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */,
 				CEAE72DC2BCD204E00C7E5A6 /* MovieDetailView.swift in Sources */,
 				CEA368602BD3B4650054FCFA /* MediaListRowView.swift in Sources */,
 				CE492FBD2BC9182900C5F1DC /* MediaItemView.swift in Sources */,
@@ -472,6 +479,7 @@
 				CE1FF0BA2BCE1CEF009DE604 /* MovieDetailViewModel.swift in Sources */,
 				CEA368622BD4D40D0054FCFA /* ViewDidLoadModifier.swift in Sources */,
 				CE6185CC2BCF84F600D3BCE0 /* OverviewView.swift in Sources */,
+				CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */,
 				CEA368732BD4E8EB0054FCFA /* TvListViewModel.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,
 				CE492FBB2BC9177C00C5F1DC /* MovieListView.swift in Sources */,
