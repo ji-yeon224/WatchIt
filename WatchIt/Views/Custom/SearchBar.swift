@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchBar: View {
     @Binding var searchText: String
+    @Binding var searchAction: CurrentValueSubject<String, Never>
+//    @State private var textLen: Int
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .padding(.leading, 8)
-            TextField("영화나 TV 시리즈를 검색하세요!", text: $searchText)
+            TextField("영화 또는 TV 시리즈를 검색해보세요!", text: $searchText)
+                .onSubmit {
+                    if !searchText.isEmpty {
+                        searchAction.send(searchText.trimmingCharacters(in: .whitespaces))
+                    }
+                    
+                }
                 .autocorrectionDisabled(true)
                 .tint(.black)
                 .overlay(

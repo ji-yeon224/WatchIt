@@ -14,6 +14,7 @@ enum Router {
     case credits(type: MediaType, id: Int)
     case topRated(type: MediaType, region: RegionType)
     case nowPlaying(type: MediaType, region: RegionType)
+    case search(type: MediaType, region: RegionType?, query: String)
 }
 
 extension Router: URLRequestConvertible {
@@ -34,6 +35,8 @@ extension Router: URLRequestConvertible {
             return Endpoint.topRated(type: type).endpoint
         case let .nowPlaying(type, _):
             return Endpoint.nowPlaying(type: type).endpoint
+        case let .search(type, _, _):
+            return Endpoint.search(type: type).endpoint
         }
     }
     
@@ -44,12 +47,19 @@ extension Router: URLRequestConvertible {
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         case .topRated(_, let region), .nowPlaying(_, let region):
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
+        case let .search(_, region, query):
+            if let region = region {
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue, "query": query]
+            } else {
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "query": query]
+            }
+            
         }
     }
     
     private var method: HTTPMethod {
         switch self {
-        case .trend, .movieDetail, .credits, .topRated, .nowPlaying:
+        case .trend, .movieDetail, .credits, .topRated, .nowPlaying, .search:
             return .get
         }
     }

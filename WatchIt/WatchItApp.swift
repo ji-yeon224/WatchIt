@@ -11,7 +11,7 @@ import SwiftUI
 struct WatchItApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMediaListView()
+            ContentView()
         }
     }
 }
