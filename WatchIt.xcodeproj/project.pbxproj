@@ -63,6 +63,8 @@
 		CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */; };
 		CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E22BDF4450009ED2F0 /* SearchBar.swift */; };
 		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
+		CEF094E72BE0F3BA009ED2F0 /* SearchFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */; };
+		CEF094E92BE0F6CB009ED2F0 /* SearchFilterButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E82BE0F6CB009ED2F0 /* SearchFilterButtonList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +123,8 @@
 		CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
 		CEF094E22BDF4450009ED2F0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterButton.swift; sourceTree = "<group>"; };
+		CEF094E82BE0F6CB009ED2F0 /* SearchFilterButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterButtonList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				CE98F2982BD8F5A900A135F6 /* SearchView.swift */,
+				CEF094E82BE0F6CB009ED2F0 /* SearchFilterButtonList.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				CE219CC62BD0FBE40061D9D3 /* ImageView */,
 				CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */,
 				CEF094E22BDF4450009ED2F0 /* SearchBar.swift */,
+				CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 				CE1FF0BA2BCE1CEF009DE604 /* MovieDetailViewModel.swift in Sources */,
 				CEA368622BD4D40D0054FCFA /* ViewDidLoadModifier.swift in Sources */,
 				CE6185CC2BCF84F600D3BCE0 /* OverviewView.swift in Sources */,
+				CEF094E72BE0F3BA009ED2F0 /* SearchFilterButton.swift in Sources */,
 				CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */,
 				CEA368732BD4E8EB0054FCFA /* TvListViewModel.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,
@@ -511,6 +518,7 @@
 				CE492FD12BC9223A00C5F1DC /* BaseURL.swift in Sources */,
 				CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */,
 				CE492FD52BC9232000C5F1DC /* TrendingTime.swift in Sources */,
+				CEF094E92BE0F6CB009ED2F0 /* SearchFilterButtonList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

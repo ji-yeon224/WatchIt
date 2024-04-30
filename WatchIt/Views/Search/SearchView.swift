@@ -10,17 +10,32 @@ import Combine
 
 struct SearchView: View {
     @State private var searchText: String = ""
-    @State private var searchAction: Bool = false
-    @State private var searchAction1 = CurrentValueSubject<String, Never>("")
+    @State private var searchAction = CurrentValueSubject<String, Never>("")
+    @State private var curFilterType: MediaType = .movie
+    @State private var filterHidden: Bool = true
     var body: some View {
-        VStack {
-            SearchBar(searchText: $searchText, searchAction: $searchAction1)
-                .padding(.horizontal, 10)
+        VStack(alignment: .leading) {
+            SearchBar(searchText: $searchText, searchAction: $searchAction)
+            filterButton
+                
             Spacer()
         }
-        .onReceive(searchAction1, perform: { value in
-            print(value)
+        .padding(.horizontal, 10)
+        .onReceive(searchAction, perform: { value in
+            if !value.isEmpty {
+                filterHidden = false
+            }
+            
         })
+    }
+    
+    @ViewBuilder
+    private var filterButton: some View {
+        if !filterHidden && searchText.count > 0 {
+            SearchFilterButtonList(curFilter: $curFilterType)
+                .padding(.horizontal, 5)
+        }
+        
     }
 }
 

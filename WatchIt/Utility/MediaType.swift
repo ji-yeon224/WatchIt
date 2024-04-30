@@ -6,7 +6,16 @@
 //
 
 import Foundation
-enum MediaType: String {
+enum MediaType: String, CaseIterable {
     case movie
     case tv
+    
+    var buttonTitle: String {
+        switch self {
+        case .movie:
+            return "영화"
+        case .tv:
+            return "TV"
+        }
+    }
 }
