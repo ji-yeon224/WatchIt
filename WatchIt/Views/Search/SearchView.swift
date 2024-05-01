@@ -12,14 +12,9 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     
     
-    @State private var searchAction = CurrentValueSubject<String, Never>("")
-    @State private var curFilterType: MediaType = .movie
-    @State private var filterHidden: Bool = true
-    
-    
     var body: some View {
         VStack(alignment: .leading) {
-            SearchBar(searchText: $viewModel.searchText, searchAction: $searchAction)
+            SearchBar(searchText: $viewModel.searchText, searchAction: $viewModel.searchAction)
             filterButton
             if !viewModel.searchText.isEmpty {
                 SearchItemListView(mediaList: viewModel.mediaList)
@@ -29,24 +24,25 @@ struct SearchView: View {
             Spacer()
         }
         .padding(.horizontal, 10)
-        .onReceive(searchAction, perform: { value in
-            if !value.isEmpty {
-                viewModel.action(.searchReqeust(type: curFilterType))
-                filterHidden = false
-                
-            }
-            
-        })
         .overlay(alignment: .center) {
             progressView
+        }
+        .onAppear() {
+            viewModel.bind()
         }
         
     }
     
+    
+    
+}
+
+extension SearchView {
+    
     @ViewBuilder
     private var filterButton: some View {
-        if !filterHidden && viewModel.mediaList.count > 0 {
-            SearchFilterButtonList(curFilter: $curFilterType)
+        if viewModel.mediaList.count > 0 {
+            SearchFilterButtonList(curFilter: $viewModel.curFilterType)
                 .padding(.horizontal, 5)
         }
         

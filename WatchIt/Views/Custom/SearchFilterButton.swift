@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchFilterButton: View {
-    var buttonType: MediaType = .movie
+    var buttonType: MediaType
     @Binding var curFilter: MediaType
     
     var body: some View {

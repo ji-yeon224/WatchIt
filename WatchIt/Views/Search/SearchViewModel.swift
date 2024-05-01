@@ -10,19 +10,12 @@ import Combine
 
 final class SearchViewModel: ObservableObject {
     
+    private var cancellable: Set<AnyCancellable> = []
+    @Published var searchAction = CurrentValueSubject<String, Never>("")
+    @Published var curFilterType: MediaType = .movie
     @Published var mediaList: [MediaItem] = []
     @Published var isLoading: Bool = false
-    @Published var searchText: String = "" {
-        didSet {
-            if searchText.count == 0 {
-                self.mediaList = []
-            }
-            
-        }
-    }
-    
-    private var cancellable: Set<AnyCancellable> = []
-    
+    @Published var searchText: String = "" 
     
     
     enum Action {
@@ -34,14 +27,41 @@ final class SearchViewModel: ObservableObject {
         switch action {
         case .searchReqeust(let type):
             isLoading = true
+            print(curFilterType.rawValue, searchText)
             if type == .movie {
                 searchMovieRequest(query: searchText)
+            } else {
+                searchTvRequest(query: searchText)
             }
         case .resetResult:
             self.mediaList = []
         }
     }
     
+    func bind() {
+        $curFilterType
+            .removeDuplicates()
+            .sink { type in
+                self.action(.searchReqeust(type: type))
+            }
+            .store(in: &cancellable)
+        searchAction
+            .sink { value in
+                if !value.isEmpty {
+                    self.action(.searchReqeust(type: self.curFilterType))
+                    
+                }
+            }
+            .store(in: &cancellable)
+        $searchText
+            .removeDuplicates()
+            .sink { value in
+                if value.isEmpty {
+                    self.mediaList.removeAll()
+                }
+            }
+            .store(in: &cancellable)
+    }
     
     
     private func searchMovieRequest(query: String) {
@@ -55,5 +75,17 @@ final class SearchViewModel: ObservableObject {
             .store(in: &cancellable)
 
     }
-    
+    private func searchTvRequest(query: String) {
+        print("TV!!")
+        TMDBManager.shared.request(api: .search(type: .tv, region: .kr, query: query), resultType: TvListDto.self)
+            .sink { completion in
+//                debugPrint(completion)
+                self.isLoading = false
+            } receiveValue: { result in
+                self.mediaList.removeAll()
+                self.mediaList = result.results.map { $0.toDomain() }
+            }
+            .store(in: &cancellable)
+
+    }
 }
