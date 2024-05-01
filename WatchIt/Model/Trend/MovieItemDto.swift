@@ -22,7 +22,7 @@ struct MovieListDto: Decodable {
 // MARK: - Result
 struct MovieItemDto: Decodable {
     let id: Int
-    let posterPath: String
+    let posterPath: String?
     let title: String
 
     enum CodingKeys: String, CodingKey {

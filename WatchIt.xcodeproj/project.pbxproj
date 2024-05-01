@@ -65,6 +65,7 @@
 		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
 		CEF094E72BE0F3BA009ED2F0 /* SearchFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */; };
 		CEF094E92BE0F6CB009ED2F0 /* SearchFilterButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E82BE0F6CB009ED2F0 /* SearchFilterButtonList.swift */; };
+		CEF094EB2BE21D06009ED2F0 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094EA2BE21D06009ED2F0 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterButton.swift; sourceTree = "<group>"; };
 		CEF094E82BE0F6CB009ED2F0 /* SearchFilterButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterButtonList.swift; sourceTree = "<group>"; };
+		CEF094EA2BE21D06009ED2F0 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 			children = (
 				CE98F2982BD8F5A900A135F6 /* SearchView.swift */,
 				CEF094E82BE0F6CB009ED2F0 /* SearchFilterButtonList.swift */,
+				CEF094EA2BE21D06009ED2F0 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				CEA368732BD4E8EB0054FCFA /* TvListViewModel.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,
 				CE492FBB2BC9177C00C5F1DC /* MovieListView.swift in Sources */,
+				CEF094EB2BE21D06009ED2F0 /* SearchViewModel.swift in Sources */,
 				CEA3685E2BD3AE660054FCFA /* RegionType.swift in Sources */,
 				CE8E1B222BD231C6003F91BD /* CreditItems.swift in Sources */,
 				CE219CC52BD0FBDE0061D9D3 /* ProfileImage.swift in Sources */,
