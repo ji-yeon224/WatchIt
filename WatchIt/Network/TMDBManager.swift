@@ -19,7 +19,7 @@ final class TMDBManager {
             .publishDecodable(type: T.self)
             .value()
             .mapError { error in
-                print(error)
+                debugPrint(error)
                 return NetworkError.responseError
             }
             .eraseToAnyPublisher()

@@ -10,11 +10,15 @@ import Alamofire
 
 enum Router {
     case trend(type: MediaType)
-    case movieDetail(movieId: Int)
+    case details(type: MediaType, id: Int)
     case credits(type: MediaType, id: Int)
     case topRated(type: MediaType, region: RegionType)
     case nowPlaying(type: MediaType, region: RegionType)
     case search(type: MediaType, region: RegionType?, query: String)
+    case topRated(type: MediaType, region: RegionType?)
+    case nowPlaying(type: MediaType, region: RegionType?)
+    case thisYearTv(originCountry: RegionType, year: String)
+
 }
 
 extension Router: URLRequestConvertible {
@@ -27,8 +31,8 @@ extension Router: URLRequestConvertible {
         switch self {
         case let .trend(type):
             return Endpoint.trending(type: type, time: .week).endpoint
-        case let .movieDetail(movieId):
-            return Endpoint.detailMovie(movieId: movieId).endpoint
+        case let .details(type, id):
+            return Endpoint.details(type: type, id: id).endpoint
         case let .credits(type, id):
             return Endpoint.credits(type: type, id: id).endpoint
         case let .topRated(type, _):
@@ -37,13 +41,15 @@ extension Router: URLRequestConvertible {
             return Endpoint.nowPlaying(type: type).endpoint
         case let .search(type, _, _):
             return Endpoint.search(type: type).endpoint
+        case .thisYearTv:
+            return Endpoint.thisYearTv.endpoint
         }
     }
     
     
     private var queryParams: [String: String] {
         switch self {
-        case .trend, .movieDetail, .credits:
+        case .trend, .details, .credits:
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         case .topRated(_, let region), .nowPlaying(_, let region):
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
@@ -53,13 +59,22 @@ extension Router: URLRequestConvertible {
             } else {
                 return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "query": query]
             }
+            if let region = region {
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
+            } else {
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
+            }
+        case let .thisYearTv(originCountry, year):
+            return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "with_origin_country": originCountry.rawValue, "first_air_date_year": year]
             
         }
     }
     
     private var method: HTTPMethod {
         switch self {
-        case .trend, .movieDetail, .credits, .topRated, .nowPlaying, .search:
+
+        case .trend, .movieDetail, .credits, .topRated, .nowPlaying, .search, .thisYearTv:
+
             return .get
         }
     }
