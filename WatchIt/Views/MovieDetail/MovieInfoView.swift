@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MovieInfoView: View {
-    var details: DetailMovie?
+    var details: DetailMedia?
     
     var body: some View {
         if let details = details {
@@ -38,8 +38,8 @@ struct MovieInfoView: View {
         
     }
 }
-
-#Preview {
-    let detail = DetailMovie(id: 693134, title: "듄", originalTitle: "", overView: "", backdropUrl: BaseURL.imgURL + "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg", posterUrl: BaseURL.imgURL +  "/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg", runtime: "2시간 47분", releaseYear: "2024", releaseDate: "", genres: ["SF", "모험"])
-    return MovieInfoView(details: detail)
-}
+//
+//#Preview {
+//    let detail = DetailMovie(id: 693134, title: "듄", originalTitle: "", overView: "", backdropUrl: BaseURL.imgURL + "/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg", posterUrl: BaseURL.imgURL +  "/8uUU2pxm6IYZw8UgnKJyx7Dqwu9.jpg", runtime: "2시간 47분", releaseYear: "2024", releaseDate: "", genres: ["SF", "모험"])
+//    return MovieInfoView(details: detail)
+//}

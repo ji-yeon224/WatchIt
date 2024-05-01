@@ -8,11 +8,11 @@
 import Foundation
 
 struct MovieDetailResDto: Decodable {
-    let backdropPath: String
+    let backdropPath: String?
     let genres: [Genre]
     let id: Int
     let originalTitle, overview: String
-    let posterPath: String
+    let posterPath: String?
     let releaseDate: String
     let runtime: Int
     let title: String
@@ -36,8 +36,17 @@ struct Genre: Decodable {
 }
 
 extension MovieDetailResDto {
-    func toDomain() -> DetailMovie {
-        return .init(id: id, title: title, originalTitle: originalTitle, overView: overview, backdropUrl: BaseURL.imgURL+backdropPath, posterUrl: BaseURL.imgURL+posterPath, runtime: runtime.runtimeToStr, releaseYear: releaseDate.releaseYear, releaseDate: releaseDate, genres: genres.map { $0.name })
+    func toDomain() -> DetailMedia {
+        let info: String = "\(releaseDate.releaseYear ?? "") | \(genres.map { $0.name }.joined(separator: ", ")) | \(runtime)"
+        var backdropUrl: String? = nil
+        var posterUrl: String? = nil
+        if let backdropPath = backdropPath {
+            backdropUrl = BaseURL.imgURL + backdropPath
+        }
+        if let posterPath = posterPath {
+            posterUrl = BaseURL.imgURL + posterPath
+        }
+        return .init(id: id, title: title, overView: overview, backdropUrl: backdropUrl, posterUrl: posterUrl, info: info)
     }
 }
 

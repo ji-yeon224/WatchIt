@@ -17,12 +17,20 @@ struct TvListView: View {
     var body: some View {
         
         ScrollView(.vertical) {
+            MediaListRowView(title: "Korea Series", itemList: viewModel.thisYearTv)
             MediaListRowView(title: "Trend", itemList: viewModel.tvTrendData)
+            MediaListRowView(title: "Top Rated", itemList: viewModel.tvTopRated)
+            
+        }
+        .navigationDestination(for: MediaItem.self) { item in
+            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .tv)
         }
         .task {
             if !viewLoaded {
                 viewLoaded = true
                 viewModel.action(.tvTrend)
+                viewModel.action(.tvTopRated)
+                viewModel.action(.thisYear)
             }
         }
     }
