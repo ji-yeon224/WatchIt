@@ -11,7 +11,7 @@ import Combine
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     
-    @State private var searchText: String = ""
+    
     @State private var searchAction = CurrentValueSubject<String, Never>("")
     @State private var curFilterType: MediaType = .movie
     @State private var filterHidden: Bool = true
@@ -19,8 +19,11 @@ struct SearchView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            SearchBar(searchText: $searchText, searchAction: $searchAction)
+            SearchBar(searchText: $viewModel.searchText, searchAction: $searchAction)
             filterButton
+            if !viewModel.searchText.isEmpty {
+                SearchItemListView(mediaList: viewModel.mediaList)
+            }
             
             
             Spacer()
@@ -28,8 +31,9 @@ struct SearchView: View {
         .padding(.horizontal, 10)
         .onReceive(searchAction, perform: { value in
             if !value.isEmpty {
-                viewModel.action(.searchReqeust(type: curFilterType, query: value))
+                viewModel.action(.searchReqeust(type: curFilterType))
                 filterHidden = false
+                
             }
             
         })
@@ -41,7 +45,7 @@ struct SearchView: View {
     
     @ViewBuilder
     private var filterButton: some View {
-        if !filterHidden && searchText.count > 0 {
+        if !filterHidden && viewModel.mediaList.count > 0 {
             SearchFilterButtonList(curFilter: $curFilterType)
                 .padding(.horizontal, 5)
         }

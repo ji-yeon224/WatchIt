@@ -38,6 +38,12 @@ extension MovieItemDto {
 //    }
     
     func toDomain() -> MediaItem {
-        return .init(id: id, title: title, posterUrl: posterPath)
+        var posterUrl: String?
+        if let posterPath = posterPath {
+            posterUrl = BaseURL.imgURL + posterPath
+        } else {
+            posterUrl = nil
+        }
+        return .init(id: id, title: title, posterUrl: posterUrl)
     }
 }
