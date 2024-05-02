@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct MovieListDto: Decodable {
+struct MovieListResDto: ResponseProtocol {
+    
+    
+    typealias ResponseType = MediaItemList
+    
     let page: Int
     let results: [MovieItemDto]
     let totalPages, totalResults: Int
@@ -17,10 +21,16 @@ struct MovieListDto: Decodable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
+    
+    func toDomain() -> MediaItemList {
+        return .init(page: page, results: results.map { $0.toDomain() }, totalPages: totalPages, totalResults: totalResults)
+    }
 }
 
 // MARK: - Result
 struct MovieItemDto: Decodable {
+    typealias ResponseType = MediaItem
+    
     let id: Int
     let posterPath: String?
     let title: String
@@ -33,9 +43,6 @@ struct MovieItemDto: Decodable {
 }
 
 extension MovieItemDto {
-//    func toDomain() -> MovieItem {
-//        return .init(id: id, title: title, posterUrl: posterPath)
-//    }
     
     func toDomain() -> MediaItem {
         var posterUrl: String?

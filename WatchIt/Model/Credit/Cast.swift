@@ -15,12 +15,18 @@ import Foundation
 //    
 //}
 
-struct Cast: Identifiable, Hashable {
+struct Cast: Identifiable, ModelTypeProtocol {
     let _id = UUID()
     let id: Int
     let name: String
     let profilePath: String?
     let character: String
     
+}
+
+struct CastList: ModelTypeProtocol {
+    let id: Int
+    let cast: [Cast]
+    let crew: [Cast]
 }
 

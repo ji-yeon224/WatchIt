@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct MovieDetailResDto: Decodable {
+struct MovieDetailResDto: ResponseProtocol {
+    typealias ResponseType = DetailMedia
+    
     let backdropPath: String?
     let genres: [Genre]
     let id: Int

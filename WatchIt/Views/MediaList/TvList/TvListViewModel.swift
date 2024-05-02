@@ -24,16 +24,23 @@ final class TvListViewModel: ViewModelProtocol {
     func action(_ action: Action) {
         switch action {
         case .tvTrend:
-            getTrendData()
+            getMediaItems(for: .trend(type: .tv)) { [weak self] result in
+                self?.tvTrendData = result
+            }
         case .tvTopRated:
-            getTopRated()
+            getMediaItems(for: .topRated(type: .tv, region: .kr)) { [weak self] result in
+                self?.tvTopRated = result
+            }
         case .thisYear:
-            getThisYearTv()
+            getMediaItems(for: .thisYearTv(originCountry: .kr, year: Date().getYearToStr)) { [weak self] result in
+                self?.thisYearTv = result
+            }
         }
     }
     
-    private func getTrendData() {
-        TMDBManager.shared.request(api: .trend(type: .tv), resultType: TvListDto.self)
+    
+    private func getMediaItems(for api: Router, completion: @escaping ([MediaItem]) -> Void) {
+        TMDBManager.shared.request(api: api, resultType: TvListResDto.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -42,41 +49,12 @@ final class TvListViewModel: ViewModelProtocol {
                     break
                 }
             } receiveValue: { result in
-                self.tvTrendData = result.results.map { $0.toDomain() }
+                if let result = result as? MediaItemList {
+                    completion(result.results)
+                }
             }
             .store(in: &cancellable)
-
+        
     }
     
-    private func getTopRated() {
-        TMDBManager.shared.request(api: .topRated(type: .tv, region: .kr), resultType: TvListDto.self)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    print(error.localizedDescription)
-                case .finished:
-                    break
-                }
-            } receiveValue: { result in
-                self.tvTopRated = result.results.map { $0.toDomain() }
-            }
-            .store(in: &cancellable)
-
-    }
-    
-    private func getThisYearTv() {
-        TMDBManager.shared.request(api: .thisYearTv(originCountry: .kr, year: Date().getYearToStr), resultType: TvListDto.self)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    print(error.localizedDescription)
-                case .finished:
-                    break
-                }
-            } receiveValue: { result in
-                self.thisYearTv = result.results.map { $0.toDomain() }
-            }
-            .store(in: &cancellable)
-
-    }
 }

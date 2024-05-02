@@ -14,10 +14,13 @@ final class TMDBManager {
     private init() { }
    
     
-    func request<T: Decodable>(api: Router, resultType: T.Type) -> AnyPublisher<T, NetworkError> {
+    func request<T: ResponseProtocol>(api: Router, resultType: T.Type) -> AnyPublisher<any ModelTypeProtocol, NetworkError> {
         AF.request(api)
             .publishDecodable(type: T.self)
             .value()
+            .map {
+                return $0.toDomain()
+            }
             .mapError { error in
                 debugPrint(error)
                 return NetworkError.responseError

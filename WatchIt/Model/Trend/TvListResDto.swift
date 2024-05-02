@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct TvListDto: Decodable {
+struct TvListResDto: ResponseProtocol {
+    
+    typealias ResponseType = MediaItemList
     let page: Int
-    let results: [TvItemDto]
+    let results: [TvItemResDto]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
@@ -17,10 +19,14 @@ struct TvListDto: Decodable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
+    
+    func toDomain() -> MediaItemList {
+        return .init(page: page, results: results.map { $0.toDomain() }, totalPages: totalPages, totalResults: totalResults)
+    }
 }
 
 
-struct TvItemDto: Decodable {
+struct TvItemResDto: Decodable {
     let id: Int
     let posterPath: String?
     let adult: Bool
@@ -33,7 +39,7 @@ struct TvItemDto: Decodable {
     }
 }
 
-extension TvItemDto {
+extension TvItemResDto {
     func toDomain() -> MediaItem {
         var posterUrl: String?
         if let posterPath = posterPath {

@@ -32,7 +32,6 @@ struct OverviewView: View {
                 
                 
             }
-            .frame(maxWidth: .infinity)
             
         }
     }

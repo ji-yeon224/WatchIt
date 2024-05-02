@@ -35,10 +35,15 @@ struct MediaDetailView: View {
                     Divider()
 
                 }
-               
-                CreditView(creditItems: CreditItems(title: "출연진", items: viewModel.castItems))
-                Divider()
-                CreditView(creditItems: CreditItems(title: "제작", items: viewModel.crewItems))
+                if viewModel.castItems.count > 0 {
+                    CreditView(creditItems: CreditItems(title: "출연진", items: viewModel.castItems))
+                    Divider()
+                }
+                
+                if viewModel.crewItems.count > 0 {
+                    CreditView(creditItems: CreditItems(title: "제작", items: viewModel.crewItems))
+                }
+                
             }
             .padding(10)
             

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailMedia: Hashable {
+struct DetailMedia: ModelTypeProtocol {
     let id: Int
     let title: String
     let overView: String
