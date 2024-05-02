@@ -12,7 +12,6 @@ final class MediaDetailViewModel: ViewModelProtocol {
     
     private var cancellable: Set<AnyCancellable> = []
     
-//    @Published var movieDetail: DetailMovie?
     @Published var details: DetailMedia?
     @Published var castItems: [Cast] = []
     @Published var crewItems: [Cast] = []
@@ -32,9 +31,9 @@ final class MediaDetailViewModel: ViewModelProtocol {
         case .getDetailInfo(let type, let id):
             switch type {
             case .movie:
-                getMovieDetails(type: type, id: id)
+                getDetails(type: type, id: id, responseType: MovieDetailResDto.self)
             case .tv:
-                getTvDetails(type: type, id: id)
+                getDetails(type: type, id: id, responseType: TvDetailResDto.self)
             }
             
         case .getCreditInfo(let type, let id):
@@ -42,9 +41,8 @@ final class MediaDetailViewModel: ViewModelProtocol {
         }
     }
     
-    
-    private func getMovieDetails(type: MediaType, id: Int) {
-        TMDBManager.shared.request(api: .details(type: type, id: id), resultType: MovieDetailResDto.self)
+    private func getDetails<T: ResponseProtocol>(type: MediaType, id: Int, responseType: T.Type) {
+        TMDBManager.shared.request(api: .details(type: type, id: id), resultType: responseType)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -56,30 +54,10 @@ final class MediaDetailViewModel: ViewModelProtocol {
                 if let result = result as? DetailMedia {
                     self.details = result
                 }
-//                self.details = result //.toDomain()
             }
             .store(in: &cancellable)
-
     }
     
-    private func getTvDetails(type: MediaType, id: Int) {
-        TMDBManager.shared.request(api: .details(type: type, id: id), resultType: TvDetailResDto.self)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            } receiveValue: { result in
-                if let result = result as? DetailMedia {
-                    self.details = result
-                }
-               
-            }
-            .store(in: &cancellable)
-
-    }
     
     
     private func getCredits(type: MediaType, id: Int) {

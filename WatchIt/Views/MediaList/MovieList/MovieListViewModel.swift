@@ -24,16 +24,22 @@ final class MovieListViewModel: ViewModelProtocol {
     func action(_ action: Action) {
         switch action {
         case .getMovieTrend:
-            getTrendList()
+            getMediaList(for: .trend(type: .movie)) { [weak self] result in
+                self?.trendData = result
+            }
         case .getTopRated:
-            getTopRatedList()
+            getMediaList(for: .topRated(type: .movie, region: .kr)) { [weak self] result in
+                self?.topRatedData = result
+            }
         case .nowPlaying:
-            getNowPlayingList()
+            getMediaList(for: .nowPlaying(type: .movie, region: .kr)) { [weak self] result in
+                self?.nowPlayingData = result
+            }
         }
     }
     
-    private func getTrendList() {
-        TMDBManager.shared.request(api: .trend(type: .movie), resultType: MovieListResDto.self)
+    private func getMediaList(for api: Router, completion: @escaping ([MediaItem]) -> Void) {
+        TMDBManager.shared.request(api: api, resultType: MovieListResDto.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -43,47 +49,11 @@ final class MovieListViewModel: ViewModelProtocol {
                 }
             } receiveValue: { result in
                 if let result = result as? MediaItemList {
-                    self.trendData = result.results
+                    completion(result.results)
                 }
                 
             }
             .store(in: &cancellable)
     }
     
-    private func getTopRatedList() {
-        TMDBManager.shared.request(api: .topRated(type: .movie, region: .kr), resultType: MovieListResDto.self)
-            .sink { completion in
-                switch completion {
-                case .finished: break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            } receiveValue: { result in
-                if let result = result as? MediaItemList {
-                    self.topRatedData = result.results//result.toDomain().results
-                }
-                
-            }
-            .store(in: &cancellable)
-
-
-    }
-    
-    private func getNowPlayingList() {
-        TMDBManager.shared.request(api: .nowPlaying(type: .movie, region: .kr), resultType: MovieListResDto.self)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            } receiveValue: { result in
-                if let result = result as? MediaItemList {
-                    self.nowPlayingData = result.results
-                }
-            }
-            .store(in: &cancellable)
-
-    }
 }
