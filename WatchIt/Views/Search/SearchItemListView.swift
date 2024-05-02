@@ -11,9 +11,16 @@ struct SearchItemListView: View {
     var mediaList: [MediaItem] = []
     var body: some View {
         List(mediaList) { item in
-            SearchItemView(media: item)
+            
+            NavigationLink(value: item) {
+                SearchItemView(media: item)
+            }
         }
         .listStyle(.plain)
+        .navigationDestination(for: MediaItem.self) { item in
+//            MediaDetailView(movieId: item.id, title: item.title)
+            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
+        }
     }
 }
 

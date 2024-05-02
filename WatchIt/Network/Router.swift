@@ -15,8 +15,6 @@ enum Router {
     case topRated(type: MediaType, region: RegionType)
     case nowPlaying(type: MediaType, region: RegionType)
     case search(type: MediaType, region: RegionType?, query: String)
-    case topRated(type: MediaType, region: RegionType?)
-    case nowPlaying(type: MediaType, region: RegionType?)
     case thisYearTv(originCountry: RegionType, year: String)
 
 }
@@ -59,11 +57,6 @@ extension Router: URLRequestConvertible {
             } else {
                 return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "query": query]
             }
-            if let region = region {
-                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
-            } else {
-                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
-            }
         case let .thisYearTv(originCountry, year):
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "with_origin_country": originCountry.rawValue, "first_air_date_year": year]
             
@@ -73,7 +66,7 @@ extension Router: URLRequestConvertible {
     private var method: HTTPMethod {
         switch self {
 
-        case .trend, .movieDetail, .credits, .topRated, .nowPlaying, .search, .thisYearTv:
+        case .trend, .details, .credits, .topRated, .nowPlaying, .search, .thisYearTv:
 
             return .get
         }

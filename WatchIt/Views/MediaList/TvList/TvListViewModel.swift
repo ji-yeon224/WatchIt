@@ -49,7 +49,7 @@ final class TvListViewModel: ViewModelProtocol {
     }
     
     private func getTopRated() {
-        TMDBManager.shared.request(api: .topRated(type: .tv, region: nil), resultType: TvListDto.self)
+        TMDBManager.shared.request(api: .topRated(type: .tv, region: .kr), resultType: TvListDto.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):

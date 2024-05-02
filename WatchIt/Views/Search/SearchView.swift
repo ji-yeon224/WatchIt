@@ -13,22 +13,24 @@ struct SearchView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading) {
-            SearchBar(searchText: $viewModel.searchText, searchAction: $viewModel.searchAction)
-            filterButton
-            if !viewModel.searchText.isEmpty {
-                SearchItemListView(mediaList: viewModel.mediaList)
+        NavigationStack {
+            VStack(alignment: .leading) {
+                SearchBar(searchText: $viewModel.searchText, searchAction: $viewModel.searchAction)
+                filterButton
+                if !viewModel.searchText.isEmpty {
+                    SearchItemListView(mediaList: viewModel.mediaList)
+                }
+                
+                
+                Spacer()
             }
-            
-            
-            Spacer()
-        }
-        .padding(.horizontal, 10)
-        .overlay(alignment: .center) {
-            progressView
-        }
-        .onAppear() {
-            viewModel.bind()
+            .padding(.horizontal, 10)
+            .overlay(alignment: .center) {
+                progressView
+            }
+            .onAppear() {
+                viewModel.bind()
+            }
         }
         
     }
@@ -52,7 +54,7 @@ extension SearchView {
     private var progressView: some View {
         if viewModel.isLoading {
             ProgressView()
-                .frame(width: .infinity, alignment: .center)
+                .frame(alignment: .center)
         }
     }
 }

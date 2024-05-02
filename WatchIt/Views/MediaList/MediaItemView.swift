@@ -14,7 +14,7 @@ struct MediaItemView: View {
     
     var body: some View {
         LazyVStack(alignment: .leading) {
-            if let url = movie.posterUrl {
+            if let url = item.posterUrl {
                 PosterImage(url: url)
 
             } else {
