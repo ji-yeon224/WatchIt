@@ -27,7 +27,6 @@ final class SearchViewModel: ObservableObject {
         switch action {
         case .searchReqeust(let type):
             isLoading = true
-            print(curFilterType.rawValue, searchText)
             if type == .movie {
                 searchMovieRequest(query: searchText)
             } else {
@@ -67,7 +66,6 @@ final class SearchViewModel: ObservableObject {
     private func searchMovieRequest(query: String) {
         TMDBManager.shared.request(api: .search(type: .movie, region: .kr, query: query), resultType: MovieListDto.self)
             .sink { completion in
-//                debugPrint(completion)
                 self.isLoading = false
             } receiveValue: { result in
                 self.mediaList = result.results.map { $0.toDomain() }
@@ -76,10 +74,8 @@ final class SearchViewModel: ObservableObject {
 
     }
     private func searchTvRequest(query: String) {
-        print("TV!!")
         TMDBManager.shared.request(api: .search(type: .tv, region: .kr, query: query), resultType: TvListDto.self)
             .sink { completion in
-//                debugPrint(completion)
                 self.isLoading = false
             } receiveValue: { result in
                 self.mediaList.removeAll()
