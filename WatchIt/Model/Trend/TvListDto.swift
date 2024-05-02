@@ -22,7 +22,7 @@ struct TvListDto: Decodable {
 
 struct TvItemDto: Decodable {
     let id: Int
-    let posterPath: String
+    let posterPath: String?
     let adult: Bool
     let name: String
 
@@ -35,6 +35,12 @@ struct TvItemDto: Decodable {
 
 extension TvItemDto {
     func toDomain() -> MediaItem {
-        return .init(id: id, title: name, posterUrl: posterPath)
+        var posterUrl: String?
+        if let posterPath = posterPath {
+            posterUrl = BaseURL.imgURL + posterPath
+        } else {
+            posterUrl = nil
+        }
+        return .init(id: id, title: name, posterUrl: posterUrl)
     }
 }

@@ -22,7 +22,7 @@ struct MovieListDto: Decodable {
 // MARK: - Result
 struct MovieItemDto: Decodable {
     let id: Int
-    let posterPath: String
+    let posterPath: String?
     let title: String
 
     enum CodingKeys: String, CodingKey {
@@ -38,6 +38,12 @@ extension MovieItemDto {
 //    }
     
     func toDomain() -> MediaItem {
-        return .init(id: id, title: title, posterUrl: posterPath)
+        var posterUrl: String?
+        if let posterPath = posterPath {
+            posterUrl = BaseURL.imgURL + posterPath
+        } else {
+            posterUrl = nil
+        }
+        return .init(id: id, title: title, posterUrl: posterUrl)
     }
 }

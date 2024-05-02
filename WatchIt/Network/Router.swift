@@ -12,9 +12,11 @@ enum Router {
     case trend(type: MediaType)
     case details(type: MediaType, id: Int)
     case credits(type: MediaType, id: Int)
-    case topRated(type: MediaType, region: RegionType?)
-    case nowPlaying(type: MediaType, region: RegionType?)
+    case topRated(type: MediaType, region: RegionType)
+    case nowPlaying(type: MediaType, region: RegionType)
+    case search(type: MediaType, region: RegionType?, query: String)
     case thisYearTv(originCountry: RegionType, year: String)
+
 }
 
 extension Router: URLRequestConvertible {
@@ -35,6 +37,8 @@ extension Router: URLRequestConvertible {
             return Endpoint.topRated(type: type).endpoint
         case let .nowPlaying(type, _):
             return Endpoint.nowPlaying(type: type).endpoint
+        case let .search(type, _, _):
+            return Endpoint.search(type: type).endpoint
         case .thisYearTv:
             return Endpoint.thisYearTv.endpoint
         }
@@ -46,10 +50,12 @@ extension Router: URLRequestConvertible {
         case .trend, .details, .credits:
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
         case .topRated(_, let region), .nowPlaying(_, let region):
+            return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
+        case let .search(_, region, query):
             if let region = region {
-                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue]
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "region": region.rawValue, "query": query]
             } else {
-                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue]
+                return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "query": query]
             }
         case let .thisYearTv(originCountry, year):
             return ["api_key": APIKey.apiKey, "language": LanguageType.ko.rawValue, "with_origin_country": originCountry.rawValue, "first_air_date_year": year]
@@ -59,7 +65,9 @@ extension Router: URLRequestConvertible {
     
     private var method: HTTPMethod {
         switch self {
-        case .trend, .details, .credits, .topRated, .nowPlaying, .thisYearTv:
+
+        case .trend, .details, .credits, .topRated, .nowPlaying, .search, .thisYearTv:
+
             return .get
         }
     }

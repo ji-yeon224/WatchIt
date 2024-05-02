@@ -10,7 +10,6 @@ import SwiftUI
 private struct BackDropRatio: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: .infinity)
             .aspectRatio(16/9, contentMode: .fit)
     }
 }

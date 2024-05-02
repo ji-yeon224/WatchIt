@@ -12,6 +12,7 @@ enum Endpoint {
     case credits(type: MediaType, id: Int)
     case topRated(type: MediaType)
     case nowPlaying(type: MediaType)
+    case search(type: MediaType)
     case thisYearTv
     
     var endpoint: String {
@@ -26,8 +27,12 @@ enum Endpoint {
             return "/3/\(type.rawValue)/top_rated"
         case let .nowPlaying(type):
             return "/3/\(type.rawValue)/now_playing"
+
+        case let .search(type):
+            return "/3/search/\(type.rawValue)"
         case .thisYearTv:
             return "/3/discover/tv"
+
         }
     }
 }
