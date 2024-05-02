@@ -8,21 +8,27 @@
 import SwiftUI
 
 struct SearchItemListView: View {
-    var mediaList: [MediaItem] = []
+    private var mediaList: [MediaItem] = []
+    private var mediaType: MediaType = .movie
+    init(mediaList: [MediaItem], curtype: MediaType) {
+        self.mediaList = mediaList
+        self.mediaType = curtype
+    }
     var body: some View {
         List(mediaList) { item in
             
             NavigationLink(value: item) {
+                let _ = print(item)
                 SearchItemView(media: item)
             }
         }
         .listStyle(.plain)
         .navigationDestination(for: MediaItem.self) { item in
-            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
+            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: mediaType)
         }
     }
 }
 
 #Preview {
-    SearchItemListView()
+    SearchItemListView(mediaList: [], curtype: .movie)
 }

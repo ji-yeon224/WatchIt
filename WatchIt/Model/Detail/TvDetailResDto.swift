@@ -6,7 +6,9 @@
 //
 
 import Foundation
-struct TvDetailResDto: Decodable {
+struct TvDetailResDto: ResponseProtocol {
+    typealias ResponseType = DetailMedia
+    
     let backdropPath: String?
     let firstAirDate: String
     let genres: [Genre]

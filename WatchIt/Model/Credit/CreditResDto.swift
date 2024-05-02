@@ -9,10 +9,17 @@ import Foundation
 
 
 
-struct CreditResDto: Decodable {
+struct CreditResDto: ResponseProtocol {
+    
+    typealias ResponseType = CastList
+    
     let id: Int
     let cast: [CastResDto]
     let crew: [CrewResDto]
+    
+    func toDomain() -> CastList {
+        return .init(id: id, cast: cast.map { $0.toDomain() }, crew: crew.map { $0.toDomain() })
+    }
 }
 
 

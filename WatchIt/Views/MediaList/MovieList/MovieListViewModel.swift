@@ -33,7 +33,7 @@ final class MovieListViewModel: ViewModelProtocol {
     }
     
     private func getTrendList() {
-        TMDBManager.shared.request(api: .trend(type: .movie), resultType: MovieListDto.self)
+        TMDBManager.shared.request(api: .trend(type: .movie), resultType: MovieListResDto.self)
             .sink { completion in
                 switch completion {
                 case .failure(let error):
@@ -42,14 +42,16 @@ final class MovieListViewModel: ViewModelProtocol {
                     break
                 }
             } receiveValue: { result in
-                let data = result.results
-                self.trendData = data.map { $0.toDomain() }
+                if let result = result as? MediaItemList {
+                    self.trendData = result.results
+                }
+                
             }
             .store(in: &cancellable)
     }
     
     private func getTopRatedList() {
-        TMDBManager.shared.request(api: .topRated(type: .movie, region: .kr), resultType: MovieListDto.self)
+        TMDBManager.shared.request(api: .topRated(type: .movie, region: .kr), resultType: MovieListResDto.self)
             .sink { completion in
                 switch completion {
                 case .finished: break
@@ -57,7 +59,10 @@ final class MovieListViewModel: ViewModelProtocol {
                     print(error.localizedDescription)
                 }
             } receiveValue: { result in
-                self.topRatedData = result.results.map { $0.toDomain() }
+                if let result = result as? MediaItemList {
+                    self.topRatedData = result.results//result.toDomain().results
+                }
+                
             }
             .store(in: &cancellable)
 
@@ -65,7 +70,7 @@ final class MovieListViewModel: ViewModelProtocol {
     }
     
     private func getNowPlayingList() {
-        TMDBManager.shared.request(api: .nowPlaying(type: .movie, region: .kr), resultType: MovieListDto.self)
+        TMDBManager.shared.request(api: .nowPlaying(type: .movie, region: .kr), resultType: MovieListResDto.self)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -74,7 +79,9 @@ final class MovieListViewModel: ViewModelProtocol {
                     print(error.localizedDescription)
                 }
             } receiveValue: { result in
-                self.nowPlayingData = result.results.map { $0.toDomain() }
+                if let result = result as? MediaItemList {
+                    self.nowPlayingData = result.results
+                }
             }
             .store(in: &cancellable)
 

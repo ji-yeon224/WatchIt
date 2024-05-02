@@ -64,22 +64,30 @@ final class SearchViewModel: ObservableObject {
     
     
     private func searchMovieRequest(query: String) {
-        TMDBManager.shared.request(api: .search(type: .movie, region: .kr, query: query), resultType: MovieListDto.self)
+        TMDBManager.shared.request(api: .search(type: .movie, region: .kr, query: query), resultType: MovieListResDto.self)
             .sink { completion in
                 self.isLoading = false
             } receiveValue: { result in
-                self.mediaList = result.results.map { $0.toDomain() }
+                if let result = result as? MediaItemList {
+                    //                self.mediaList.removeAll()
+                    self.mediaList = result.results
+                }
+//                self.mediaList = //result.results.map { $0.toDomain() }
             }
             .store(in: &cancellable)
 
     }
     private func searchTvRequest(query: String) {
-        TMDBManager.shared.request(api: .search(type: .tv, region: .kr, query: query), resultType: TvListDto.self)
+        TMDBManager.shared.request(api: .search(type: .tv, region: .kr, query: query), resultType: TvListResDto.self)
             .sink { completion in
                 self.isLoading = false
             } receiveValue: { result in
-                self.mediaList.removeAll()
-                self.mediaList = result.results.map { $0.toDomain() }
+                if let result = result as? MediaItemList {
+                    //                self.mediaList.removeAll()
+                    self.mediaList = result.results
+                }
+//                self.mediaList.removeAll()
+//                self.mediaList = result.results.map { $0.toDomain() }
             }
             .store(in: &cancellable)
 

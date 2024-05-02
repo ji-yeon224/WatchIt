@@ -20,6 +20,7 @@ struct MediaDetailView: View {
         self.id = id
         self.title = title
         self.type = type
+        print(id, title)
     }
     
     

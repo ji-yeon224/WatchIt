@@ -6,9 +6,17 @@
 //
 
 import Foundation
-struct MediaItem: Identifiable, Hashable {
+struct MediaItem: Hashable, Identifiable {
     let id: Int
     let title: String
     let posterUrl: String?
     
 }
+
+struct MediaItemList: ModelTypeProtocol {
+    let page: Int
+    let results: [MediaItem]
+    let totalPages, totalResults: Int
+}
+
+typealias MediaItems = [MediaItem]

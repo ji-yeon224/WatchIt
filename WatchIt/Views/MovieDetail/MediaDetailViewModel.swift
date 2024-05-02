@@ -53,7 +53,10 @@ final class MediaDetailViewModel: ViewModelProtocol {
                     print(error.localizedDescription)
                 }
             } receiveValue: { result in
-                self.details = result.toDomain()
+                if let result = result as? DetailMedia {
+                    self.details = result
+                }
+//                self.details = result //.toDomain()
             }
             .store(in: &cancellable)
 
@@ -69,7 +72,10 @@ final class MediaDetailViewModel: ViewModelProtocol {
                     print(error.localizedDescription)
                 }
             } receiveValue: { result in
-                self.details = result.toDomain()
+                if let result = result as? DetailMedia {
+                    self.details = result
+                }
+               
             }
             .store(in: &cancellable)
 
@@ -86,8 +92,11 @@ final class MediaDetailViewModel: ViewModelProtocol {
                     print(error.localizedDescription)
                 }
             } receiveValue: { result in
-                self.castItems = result.cast.map { $0.toDomain() }
-                self.crewItems = result.crew.map { $0.toDomain() }
+                if let result = result as? CastList {
+                    self.castItems = result.cast
+                    self.crewItems = result.crew
+                }
+                
                 
             }
             .store(in: &cancellable)

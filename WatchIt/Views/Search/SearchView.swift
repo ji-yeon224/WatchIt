@@ -18,7 +18,7 @@ struct SearchView: View {
                 SearchBar(searchText: $viewModel.searchText, searchAction: $viewModel.searchAction)
                 filterButton
                 if !viewModel.searchText.isEmpty {
-                    SearchItemListView(mediaList: viewModel.mediaList)
+                    SearchItemListView(mediaList: viewModel.mediaList, curtype: viewModel.curFilterType )
                 }
                 
                 
