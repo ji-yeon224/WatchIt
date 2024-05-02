@@ -18,7 +18,6 @@ struct SearchItemListView: View {
         List(mediaList) { item in
             
             NavigationLink(value: item) {
-                let _ = print(item)
                 SearchItemView(media: item)
             }
         }
