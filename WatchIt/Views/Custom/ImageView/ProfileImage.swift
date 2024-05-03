@@ -13,6 +13,9 @@ struct ProfileImage: View {
     var body: some View {
         if let url = url {
             KFImage(URL(string: url))
+                .cancelOnDisappear(true)
+                .cacheMemoryOnly()
+                .setProcessor(DownsamplingImageProcessor(size: CGSize(width: 50 * 1.5 , height: 50 * 1.5)))
                 .onFailure { error in
                     print(error)
                 }

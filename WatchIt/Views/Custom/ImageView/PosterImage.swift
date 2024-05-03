@@ -10,19 +10,25 @@ import Kingfisher
 
 struct PosterImage: View {
     var url: String?
-    var width: CGFloat? = 100
-    var height: CGFloat? = 150
+    var width: CGFloat = 100
+    var height: CGFloat = 150
     var body: some View {
         if let url = url {
+
             KFImage(URL(string: url))
+                .cancelOnDisappear(true)
+                .setProcessor(DownsamplingImageProcessor(size: CGSize(width: width * 2 , height: height * 2)))
+                .cacheMemoryOnly()
                 .placeholder({
-                    placeholderImg
+                    ProgressView()
+                        .frame(width: width, height: height)
                 })
                 .onFailure { error in
                     print(error)
                 }
                 .resizable()
                 .frame(width: width, height: height)
+                .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .shadow(radius: 1)
                 .foregroundStyle(.gray)
