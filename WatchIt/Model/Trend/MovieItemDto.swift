@@ -51,6 +51,6 @@ extension MovieItemDto {
         } else {
             posterUrl = nil
         }
-        return .init(id: id, title: title, posterUrl: posterUrl)
+        return .init(id: id, title: title, posterUrl: posterUrl, starRate: 0.0)
     }
 }

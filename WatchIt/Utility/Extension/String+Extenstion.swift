@@ -11,4 +11,8 @@ extension String {
         return self.components(separatedBy: "-").first
     }
     
+    func getPrimaryKey(id: Int) -> String {
+        return "\(id)_\(self)"
+    }
+    
 }

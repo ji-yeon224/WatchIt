@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE13F1932BE35C2100AD553B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F1922BE35C2100AD553B /* StarRatingView.swift */; };
-		CE13F1962BE3606B00AD553B /* AxisRatingBar in Frameworks */ = {isa = PBXBuildFile; productRef = CE13F1952BE3606B00AD553B /* AxisRatingBar */; };
 		CE1FF0BA2BCE1CEF009DE604 /* MediaDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FF0B92BCE1CEF009DE604 /* MediaDetailViewModel.swift */; };
 		CE219CB52BD0E5260061D9D3 /* CreditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB42BD0E5260061D9D3 /* CreditItem.swift */; };
 		CE219CB72BD0E7E80061D9D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB62BD0E7E80061D9D3 /* Constants.swift */; };
@@ -32,6 +31,7 @@
 		CE492FD32BC922F200C5F1DC /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FD22BC922F200C5F1DC /* MediaType.swift */; };
 		CE492FD52BC9232000C5F1DC /* TrendingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FD42BC9232000C5F1DC /* TrendingTime.swift */; };
 		CE492FD72BC925AF00C5F1DC /* LanguageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FD62BC925AF00C5F1DC /* LanguageType.swift */; };
+		CE542B3F2BE4DCDB00450352 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE542B3E2BE4DCDB00450352 /* RealmSwift */; };
 		CE6185CA2BCF782500D3BCE0 /* BackDropRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6185C92BCF782500D3BCE0 /* BackDropRatio.swift */; };
 		CE6185CC2BCF84F600D3BCE0 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6185CB2BCF84F600D3BCE0 /* OverviewView.swift */; };
 		CE6185CE2BCF97F400D3BCE0 /* TruncatedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6185CD2BCF97F400D3BCE0 /* TruncatedTextView.swift */; };
@@ -65,6 +65,10 @@
 		CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */; };
 		CEB939972BD6336C00DB6954 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB939962BD6336C00DB6954 /* Date+Extension.swift */; };
 		CEB939992BD6393C00DB6954 /* TvDetailResDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB939982BD6393C00DB6954 /* TvDetailResDto.swift */; };
+		CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */; };
+		CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */; };
+		CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EC12BE4A73D00B4D19A /* DBError.swift */; };
+		CEBE8ECA2BE4AEEB00B4D19A /* AxisRatingBar in Frameworks */ = {isa = PBXBuildFile; productRef = CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */; };
 		CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E22BDF4450009ED2F0 /* SearchBar.swift */; };
 		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
 		CEF094E72BE0F3BA009ED2F0 /* SearchFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */; };
@@ -75,6 +79,19 @@
 		CEF094F12BE32D73009ED2F0 /* ModelTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094F02BE32D73009ED2F0 /* ModelTypeProtocol.swift */; };
 		CEF094F32BE32D8A009ED2F0 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094F22BE32D8A009ED2F0 /* ResponseProtocol.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEBE8ED12BE4B10900B4D19A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CE13F1922BE35C2100AD553B /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
@@ -133,6 +150,9 @@
 		CEAE72EA2BCD5DE000C7E5A6 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
 		CEB939962BD6336C00DB6954 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CEB939982BD6393C00DB6954 /* TvDetailResDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvDetailResDto.swift; sourceTree = "<group>"; };
+		CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatedItemModel.swift; sourceTree = "<group>"; };
+		CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatedRepository.swift; sourceTree = "<group>"; };
+		CEBE8EC12BE4A73D00B4D19A /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		CEF094E22BDF4450009ED2F0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		CEF094E62BE0F3BA009ED2F0 /* SearchFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterButton.swift; sourceTree = "<group>"; };
@@ -149,8 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE542B3F2BE4DCDB00450352 /* RealmSwift in Frameworks */,
 				CEAE72CE2BCCD2DB00C7E5A6 /* Kingfisher in Frameworks */,
-				CE13F1962BE3606B00AD553B /* AxisRatingBar in Frameworks */,
+				CEBE8ECA2BE4AEEB00B4D19A /* AxisRatingBar in Frameworks */,
 				CE492FC32BC91E6600C5F1DC /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +272,7 @@
 		CE492FB92BC9175B00C5F1DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEBE8EBC2BE4A07B00B4D19A /* Realm */,
 				CE219CBB2BD0ED580061D9D3 /* Credit */,
 				CEAE72DE2BCD4FCB00C7E5A6 /* Detail */,
 				CEAE72DD2BCD4F1800C7E5A6 /* Trend */,
@@ -302,6 +324,7 @@
 				CE8E78E32BD399A900141A82 /* ViewModelProtocol.swift */,
 				CEF094F02BE32D73009ED2F0 /* ModelTypeProtocol.swift */,
 				CEF094F22BE32D8A009ED2F0 /* ResponseProtocol.swift */,
+				CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -413,6 +436,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		CEBE8EBC2BE4A07B00B4D19A /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */,
+				CEBE8EC12BE4A73D00B4D19A /* DBError.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,6 +455,7 @@
 				CE492FA32BC90DC200C5F1DC /* Sources */,
 				CE492FA42BC90DC200C5F1DC /* Frameworks */,
 				CE492FA52BC90DC200C5F1DC /* Resources */,
+				CEBE8ED12BE4B10900B4D19A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -432,7 +465,8 @@
 			packageProductDependencies = (
 				CE492FC22BC91E6600C5F1DC /* Alamofire */,
 				CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */,
-				CE13F1952BE3606B00AD553B /* AxisRatingBar */,
+				CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */,
+				CE542B3E2BE4DCDB00450352 /* RealmSwift */,
 			);
 			productName = WatchIt;
 			productReference = CE492FA72BC90DC200C5F1DC /* WatchIt.app */;
@@ -465,7 +499,8 @@
 			packageReferences = (
 				CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				CE13F1942BE3606B00AD553B /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
+				CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
+				CE542B3D2BE4DCDB00450352 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = CE492FA82BC90DC200C5F1DC /* Products */;
 			projectDirPath = "";
@@ -528,6 +563,8 @@
 				CE13F1932BE35C2100AD553B /* StarRatingView.swift in Sources */,
 				CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */,
 				CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */,
+				CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */,
+				CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */,
 				CE219CBF2BD0EEA90061D9D3 /* Cast.swift in Sources */,
 				CEB939992BD6393C00DB6954 /* TvDetailResDto.swift in Sources */,
 				CE8E1B242BD25ADB003F91BD /* NavBackButton.swift in Sources */,
@@ -547,6 +584,7 @@
 				CE77F8C72BCA5E3E00010151 /* MovieListViewModel.swift in Sources */,
 				CE219CBA2BD0ED3B0061D9D3 /* CreditItemsRow.swift in Sources */,
 				CEA3686B2BD4E4DD0054FCFA /* MediaItem.swift in Sources */,
+				CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */,
 				CEAE72E92BCD53F900C7E5A6 /* BackDropImage.swift in Sources */,
 				CE6185CE2BCF97F400D3BCE0 /* TruncatedTextView.swift in Sources */,
 				CEF094EF2BE22B30009ED2F0 /* SearchItemListView.swift in Sources */,
@@ -614,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -671,7 +709,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -769,20 +807,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CE13F1942BE3606B00AD553B /* XCRemoteSwiftPackageReference "AxisRatingBar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jasudev/AxisRatingBar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.0;
-			};
-		};
 		CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.9.1;
+			};
+		};
+		CE542B3D2BE4DCDB00450352 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 		CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
@@ -793,23 +831,36 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasudev/AxisRatingBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE13F1952BE3606B00AD553B /* AxisRatingBar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE13F1942BE3606B00AD553B /* XCRemoteSwiftPackageReference "AxisRatingBar" */;
-			productName = AxisRatingBar;
-		};
 		CE492FC22BC91E6600C5F1DC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
+		CE542B3E2BE4DCDB00450352 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE542B3D2BE4DCDB00450352 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */;
+			productName = AxisRatingBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

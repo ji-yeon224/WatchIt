@@ -10,6 +10,7 @@ struct MediaItem: Hashable, Identifiable {
     let id: Int
     let title: String
     let posterUrl: String?
+    let starRate: Double
     
 }
 
@@ -20,3 +21,7 @@ struct MediaItemList: ModelTypeProtocol {
 }
 
 typealias MediaItems = [MediaItem]
+
+extension MediaItem {
+    
+}

@@ -15,6 +15,9 @@ struct DetailMedia: ModelTypeProtocol {
     let posterUrl: String?
     let info: String
     
+//    func toRecord(key: String, type: MediaType) -> StarRatedItemModel {
+//        return .init(id: key, mediaId: id, title: title, posterPath: posterUrl, mediaType: type.rawValue, starRate: starRate)
+//    }
 //    var info: String {
 //        return "\(releaseYear ?? "") | \(genres.joined(separator: ", ")) | \(runtime)"
 //    }

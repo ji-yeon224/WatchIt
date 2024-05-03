@@ -47,6 +47,6 @@ extension TvItemResDto {
         } else {
             posterUrl = nil
         }
-        return .init(id: id, title: name, posterUrl: posterUrl)
+        return .init(id: id, title: name, posterUrl: posterUrl, starRate: 0.0)
     }
 }

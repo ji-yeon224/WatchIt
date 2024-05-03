@@ -10,7 +10,7 @@ import SwiftUI
 struct MediaDetailView: View {
     
     @StateObject private var viewModel: MediaDetailViewModel
-    @State private var starValue: CGFloat = 0.0
+    
     private var id: Int
     private var title: String
     private var type: MediaType
@@ -53,9 +53,12 @@ struct MediaDetailView: View {
             
         }
         .onAppear {
+            
+            viewModel.action(.setMediaType(type))
             viewModel.action(.getDetailInfo(type, id))
             viewModel.action(.getCreditInfo(type, id))
             
+            viewModel.bind()
              
         }
         .navigationTitle(title)
@@ -66,15 +69,15 @@ struct MediaDetailView: View {
     
     private var starScore: some View {
         VStack(alignment: .leading, spacing: 15) {
-            if starValue == 0.0 {
+            if viewModel.starValue == 0.0 {
                 Text("나의 별점 \(0)")
                     .font(Constants.FontStyle.boldPlain.style)
             } else {
                 
-                Text("나의 별점 \(String(format: "%.1f", starValue))")
+                Text("나의 별점 \(String(format: "%.1f", viewModel.starValue))")
                     .font(Constants.FontStyle.boldPlain.style)
             }
-            StarRatingView(value: $starValue)
+            StarRatingView(value: $viewModel.starValue)
             Divider()
         }
         
