@@ -22,14 +22,20 @@ struct StarRatingView: View {
                                valueMode: .point)
     var body: some View {
         
-        AxisRatingBar(value: $value, constant: constant) {
-            ARStar(count: round(starCount), innerRatio: innerRatio)
-                .fill(.secondaryBg)
-                .shadow(radius: 1)
-        } foreground: {
-            ARStar(count: round(starCount), innerRatio: innerRatio)
-                .fill(.yellow)
+        HStack {
+            Spacer()
+            AxisRatingBar(value: $value, constant: constant) {
+                ARStar(count: round(starCount), innerRatio: innerRatio)
+                    .fill(.secondaryBg)
+                    .shadow(radius: 1)
+            } foreground: {
+                ARStar(count: round(starCount), innerRatio: innerRatio)
+                    .fill(.yellow)
+            }
+            Spacer()
+        
         }
+        .padding(.horizontal, 20)
         
     }
 }
