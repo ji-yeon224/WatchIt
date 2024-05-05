@@ -39,7 +39,7 @@ final class MediaDetailViewModel: ViewModelProtocol {
             
         case .getCreditInfo(let type, let id):
             getCredits(type: type, id: id)
-       
+            
             
         }
     }
@@ -56,8 +56,10 @@ final class MediaDetailViewModel: ViewModelProtocol {
         fetchStarRate
             .sink { id in
                 self.starValue = self.starRatedRepository.getStarRate(id: self.mediaType.rawValue.getPrimaryKey(id: id))
+                
             }
             .store(in: &cancellable)
+        
     }
     
     
@@ -120,43 +122,33 @@ extension MediaDetailViewModel {
 extension MediaDetailViewModel {
     
     private func getDetails<T: ResponseProtocol>(type: MediaType, id: Int, responseType: T.Type) {
-        TMDBManager.shared.request(api: .details(type: type, id: id), resultType: responseType)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
+        Task {
+            do {
+                let response = try await TMDBManager.shared.request(api: .details(type: type, id: id), resultType: responseType)
+                if let response = response as? DetailMedia {
+                    DispatchQueue.main.async {
+                        self.details = response
+                        self.fetchStarRate.send(response.id)
+                    }
+                    
                 }
-            } receiveValue: { result in
-                if let result = result as? DetailMedia {
-                    self.details = result
-                    self.fetchStarRate.send((result.id))
-                }
+            } catch {
+                debugPrint(error.localizedDescription)
             }
-            .store(in: &cancellable)
+        }
     }
     
     
-    
     private func getCredits(type: MediaType, id: Int) {
-        TMDBManager.shared.request(api: .credits(type: type, id: id), resultType: CreditResDto.self)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error.localizedDescription)
+        Task {
+            let response = try await TMDBManager.shared.request(api: .credits(type: type, id: id), resultType: CreditResDto.self)
+            DispatchQueue.main.async {
+                if let response = response as? CastList {
+                    self.castItems = response.cast
+                    self.crewItems = response.crew
                 }
-            } receiveValue: { result in
-                if let result = result as? CastList {
-                    self.castItems = result.cast
-                    self.crewItems = result.crew
-                }
-                
-                
             }
-            .store(in: &cancellable)
-
+        }
+        
     }
 }

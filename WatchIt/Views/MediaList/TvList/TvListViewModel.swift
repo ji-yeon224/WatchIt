@@ -39,22 +39,18 @@ final class TvListViewModel: ViewModelProtocol {
     }
     
     
+    
     private func getMediaItems(for api: Router, completion: @escaping ([MediaItem]) -> Void) {
-        TMDBManager.shared.request(api: api, resultType: TvListResDto.self)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    print(error.localizedDescription)
-                case .finished:
-                    break
-                }
-            } receiveValue: { result in
-                if let result = result as? MediaItemList {
-                    completion(result.results)
+        Task {
+            do {
+                let response = try await TMDBManager.shared.request(api: api, resultType: TvListResDto.self)
+                DispatchQueue.main.async {
+                    if let response = response as? MediaItemList {
+                        completion(response.results)
+                    }
                 }
             }
-            .store(in: &cancellable)
-        
+        }
     }
     
 }

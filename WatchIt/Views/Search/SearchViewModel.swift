@@ -64,15 +64,21 @@ final class SearchViewModel: ObservableObject {
     }
     
     private func searchRequest<T: ResponseProtocol>(query: String, type: MediaType, resultType: T.Type) {
-        TMDBManager.shared.request(api: .search(type: type, region: .kr, query: query), resultType: resultType)
-            .sink { completion in
-                self.isLoading = false
-            } receiveValue: { result in
-                if let result = result as? MediaItemList {
-                    self.mediaList = result.results
+        
+        Task {
+            do {
+                let response = try await TMDBManager.shared.request(api: .search(type: type, region: .kr, query: query), resultType: resultType)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    if let response = response as? MediaItemList {
+                        self.mediaList = response.results
+                    }
                 }
+            } catch {
+                self.isLoading = false
+                debugPrint(error.localizedDescription)
             }
-            .store(in: &cancellable)
+        }
     }
     
 }

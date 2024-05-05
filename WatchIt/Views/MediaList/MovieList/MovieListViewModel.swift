@@ -39,21 +39,16 @@ final class MovieListViewModel: ViewModelProtocol {
     }
     
     private func getMediaList(for api: Router, completion: @escaping ([MediaItem]) -> Void) {
-        TMDBManager.shared.request(api: api, resultType: MovieListResDto.self)
-            .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    print(error.localizedDescription)
-                case .finished:
-                    break
+        Task {
+            do {
+                let response = try await TMDBManager.shared.request(api: api, resultType: MovieListResDto.self)
+                DispatchQueue.main.async {
+                    if let response = response as? MediaItemList {
+                        completion(response.results)
+                    }
                 }
-            } receiveValue: { result in
-                if let result = result as? MediaItemList {
-                    completion(result.results)
-                }
-                
             }
-            .store(in: &cancellable)
+        }
     }
     
 }
