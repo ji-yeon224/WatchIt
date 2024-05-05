@@ -29,7 +29,11 @@ struct MediaDetailView: View {
             MovieInfoView(details: viewModel.details)
                 .padding(.bottom, 20)
             Divider()
+            
             LazyVStack(alignment: .leading, spacing: 20) {
+                
+                starScore
+                
                 if let detail = viewModel.details, !detail.overView.isEmpty {
                     OverviewView(overViewText: detail.overView)
                     Divider()
@@ -49,13 +53,33 @@ struct MediaDetailView: View {
             
         }
         .onAppear {
+            
+            viewModel.action(.setMediaType(type))
             viewModel.action(.getDetailInfo(type, id))
             viewModel.action(.getCreditInfo(type, id))
             
+            viewModel.bind()
              
         }
         .navigationTitle(title)
         .customNavBackButton()
+        
+    }
+    
+    
+    private var starScore: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            if viewModel.starValue == 0.0 {
+                Text("나의 별점 \(0)")
+                    .font(Constants.FontStyle.boldPlain.style)
+            } else {
+                
+                Text("나의 별점 \(String(format: "%.1f", viewModel.starValue))")
+                    .font(Constants.FontStyle.boldPlain.style)
+            }
+            StarRatingView(value: $viewModel.starValue)
+            Divider()
+        }
         
     }
     

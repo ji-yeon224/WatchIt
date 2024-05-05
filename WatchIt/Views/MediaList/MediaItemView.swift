@@ -35,5 +35,5 @@ struct MediaItemView: View {
 }
 
 #Preview {
-    MediaItemView(item: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil))
+    MediaItemView(item: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil, starRate: 0.0))
 }

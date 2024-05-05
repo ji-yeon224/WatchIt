@@ -39,8 +39,8 @@ struct MediaListRowView: View {
 
 #Preview {
     MediaListRowView(title: "Trend", itemList: [
-        MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
-        MediaItem(id: 2, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil),
-        MediaItem(id: 3, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil)
+        MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil, starRate: 0.0),
+        MediaItem(id: 2, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil, starRate: 0.0),
+        MediaItem(id: 3, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil, starRate: 0.0)
     ])
 }
