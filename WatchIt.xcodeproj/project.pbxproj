@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE1343FD2BE7468500F0122A /* RealmSwift */; };
+		CE13440F2BE9C90700F0122A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE13440E2BE9C90700F0122A /* ComposableArchitecture */; };
+		CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344102BE9CA4100F0122A /* SearchFeature.swift */; };
 		CE13F1932BE35C2100AD553B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F1922BE35C2100AD553B /* StarRatingView.swift */; };
 		CE1FF0BA2BCE1CEF009DE604 /* MediaDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FF0B92BCE1CEF009DE604 /* MediaDetailViewModel.swift */; };
 		CE219CB52BD0E5260061D9D3 /* CreditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB42BD0E5260061D9D3 /* CreditItem.swift */; };
@@ -94,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE1344102BE9CA4100F0122A /* SearchFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeature.swift; sourceTree = "<group>"; };
 		CE13F1922BE35C2100AD553B /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		CE1FF0B92BCE1CEF009DE604 /* MediaDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailViewModel.swift; sourceTree = "<group>"; };
 		CE219CB42BD0E5260061D9D3 /* CreditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditItem.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE13440F2BE9C90700F0122A /* ComposableArchitecture in Frameworks */,
 				CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */,
 				CEAE72CE2BCCD2DB00C7E5A6 /* Kingfisher in Frameworks */,
 				CEBE8ECA2BE4AEEB00B4D19A /* AxisRatingBar in Frameworks */,
@@ -337,6 +341,7 @@
 				CEF094EA2BE21D06009ED2F0 /* SearchViewModel.swift */,
 				CEF094EC2BE229FD009ED2F0 /* SearchItemView.swift */,
 				CEF094EE2BE22B30009ED2F0 /* SearchItemListView.swift */,
+				CE1344102BE9CA4100F0122A /* SearchFeature.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */,
 				CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */,
 				CE1343FD2BE7468500F0122A /* RealmSwift */,
+				CE13440E2BE9C90700F0122A /* ComposableArchitecture */,
 			);
 			productName = WatchIt;
 			productReference = CE492FA72BC90DC200C5F1DC /* WatchIt.app */;
@@ -501,6 +507,7 @@
 				CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
 				CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CE13440D2BE9C90700F0122A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = CE492FA82BC90DC200C5F1DC /* Products */;
 			projectDirPath = "";
@@ -561,6 +568,7 @@
 				CE8E1B222BD231C6003F91BD /* CreditItems.swift in Sources */,
 				CE219CC52BD0FBDE0061D9D3 /* ProfileImage.swift in Sources */,
 				CE13F1932BE35C2100AD553B /* StarRatingView.swift in Sources */,
+				CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */,
 				CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */,
 				CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */,
 				CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */,
@@ -815,6 +823,14 @@
 				kind = branch;
 			};
 		};
+		CE13440D2BE9C90700F0122A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.2;
+			};
+		};
 		CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -846,6 +862,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		CE13440E2BE9C90700F0122A /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE13440D2BE9C90700F0122A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		CE492FC22BC91E6600C5F1DC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

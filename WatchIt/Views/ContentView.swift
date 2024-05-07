@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 enum TabTag {
     case home
@@ -23,7 +24,9 @@ struct ContentView: View {
                         selected == .home ? Image(.mainSelected) : Image(.mainUnselected)
                     }
                     .tag(TabTag.home)
-                SearchView()
+                SearchView(store: Store(initialState: SearchFeature.State(isLoading: false, searchResult: [], error: ""), reducer: {
+                    SearchFeature()
+                }))
                     .tabItem {
                         selected == .search ? Image(.searchSelected) : Image(.searchUnselected)
                     }
