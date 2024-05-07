@@ -14,6 +14,8 @@ enum TabTag {
 }
 
 struct ContentView: View {
+    
+    let store: StoreOf<ContentFeature>
     @State private var selected: TabTag = .home
     
     var body: some View {
@@ -24,9 +26,7 @@ struct ContentView: View {
                         selected == .home ? Image(.mainSelected) : Image(.mainUnselected)
                     }
                     .tag(TabTag.home)
-                SearchView(store: Store(initialState: SearchFeature.State(isLoading: false, searchResult: [], error: ""), reducer: {
-                    SearchFeature()
-                }))
+                SearchView(store: store.scope(state: \.searchTab, action: \.searchTab))
                     .tabItem {
                         selected == .search ? Image(.searchSelected) : Image(.searchUnselected)
                     }
@@ -63,5 +63,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(store: Store(initialState: ContentFeature.State(), reducer: {
+        ContentFeature()
+    }))
 }

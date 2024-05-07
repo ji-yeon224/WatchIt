@@ -14,9 +14,9 @@ struct SearchFeature {
     struct State: Equatable {
         var searchText: String = ""
         var searchFilter: MediaType = .movie
-        var isLoading: Bool
-        var searchResult: [MediaItem]
-        var error: String
+        var isLoading: Bool = false
+        var searchResult: [MediaItem] = []
+        var error: String?
     }
     
     enum Action: Equatable {

@@ -10,6 +10,7 @@
 		CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE1343FD2BE7468500F0122A /* RealmSwift */; };
 		CE13440F2BE9C90700F0122A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE13440E2BE9C90700F0122A /* ComposableArchitecture */; };
 		CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344102BE9CA4100F0122A /* SearchFeature.swift */; };
+		CE1344812BEA1F8200F0122A /* ContentFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344802BEA1F8200F0122A /* ContentFeature.swift */; };
 		CE13F1932BE35C2100AD553B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE13F1922BE35C2100AD553B /* StarRatingView.swift */; };
 		CE1FF0BA2BCE1CEF009DE604 /* MediaDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FF0B92BCE1CEF009DE604 /* MediaDetailViewModel.swift */; };
 		CE219CB52BD0E5260061D9D3 /* CreditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB42BD0E5260061D9D3 /* CreditItem.swift */; };
@@ -97,6 +98,7 @@
 
 /* Begin PBXFileReference section */
 		CE1344102BE9CA4100F0122A /* SearchFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeature.swift; sourceTree = "<group>"; };
+		CE1344802BEA1F8200F0122A /* ContentFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFeature.swift; sourceTree = "<group>"; };
 		CE13F1922BE35C2100AD553B /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		CE1FF0B92BCE1CEF009DE604 /* MediaDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailViewModel.swift; sourceTree = "<group>"; };
 		CE219CB42BD0E5260061D9D3 /* CreditItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditItem.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				CE492FAA2BC90DC200C5F1DC /* WatchItApp.swift */,
 				CE492FAE2BC90DC300C5F1DC /* Assets.xcassets */,
 				CE492FB02BC90DC300C5F1DC /* Preview Content */,
+				CE1344802BEA1F8200F0122A /* ContentFeature.swift */,
 			);
 			path = WatchIt;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				CEF094EF2BE22B30009ED2F0 /* SearchItemListView.swift in Sources */,
 				CEAE72D42BCD075D00C7E5A6 /* ContentView.swift in Sources */,
 				CE492FD12BC9223A00C5F1DC /* BaseURL.swift in Sources */,
+				CE1344812BEA1F8200F0122A /* ContentFeature.swift in Sources */,
 				CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */,
 				CEF094F32BE32D8A009ED2F0 /* ResponseProtocol.swift in Sources */,
 				CE492FD52BC9232000C5F1DC /* TrendingTime.swift in Sources */,
