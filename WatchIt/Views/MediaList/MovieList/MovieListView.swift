@@ -6,22 +6,25 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct MovieListView: View {
-    @StateObject private var viewModel: MovieListViewModel
+//    @StateObject private var viewModel: MovieListViewModel
+    let store: StoreOf<MovieListFeature>
+    
     @Binding var viewLoaded: Bool
     
-    init(_ viewModel: MovieListViewModel, viewLoaded: Binding<Bool>) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(store: StoreOf<MovieListFeature>, viewLoaded: Binding<Bool>) {
+        self.store = store
         self._viewLoaded = Binding(projectedValue: viewLoaded)
     }
     
     var body: some View {
         ScrollView(.vertical) {
 
-            MediaListRowView(title: "TREND", itemList: viewModel.trendData)
-            MediaListRowView(title: "Now Playing", itemList: viewModel.nowPlayingData)
-            MediaListRowView(title: "TOP RATED", itemList: viewModel.topRatedData)
+            MediaListRowView(title: "TREND", itemList: store.state.trendData)
+            MediaListRowView(title: "Now Playing", itemList: store.state.nowPlayingData)
+            MediaListRowView(title: "TOP RATED", itemList: store.state.topRatedData)
             
         }
         .navigationDestination(for: MediaItem.self) { item in
@@ -31,16 +34,17 @@ struct MovieListView: View {
         .task {
             if !viewLoaded {
                 viewLoaded = true
-                viewModel.action(.getMovieTrend)
-                viewModel.action(.getTopRated)
-                viewModel.action(.nowPlaying)
+                store.send(.viewDidLoad)
+//                viewModel.action(.getMovieTrend)
+//                viewModel.action(.getTopRated)
+//                viewModel.action(.nowPlaying)
             }
             
         }
     }
     
 }
-    
-#Preview {
-    return MovieListView(MovieListViewModel(), viewLoaded: .constant(false))
-}
+//    
+//#Preview {
+//    return MovieListView(MovieListViewModel(), viewLoaded: .constant(false))
+//}

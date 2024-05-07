@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selected) {
-                MainMediaListView()
+                MainMediaListView(tabStore: store)
                     .tabItem {
                         selected == .home ? Image(.mainSelected) : Image(.mainUnselected)
                     }
