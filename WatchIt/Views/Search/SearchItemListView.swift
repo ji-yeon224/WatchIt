@@ -23,7 +23,7 @@ struct SearchItemListView: View {
         }
         .listStyle(.plain)
         .navigationDestination(for: MediaItem.self) { item in
-            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: mediaType)
+            MediaDetailView(id: item.id, title: item.title, type: mediaType)
         }
     }
 }

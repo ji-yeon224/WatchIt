@@ -14,11 +14,13 @@ struct ContentFeature {
         var searchTab = SearchFeature.State()
         var movieListTab = MovieListFeature.State()
         var tvListTab = TvListFeature.State()
+        var detail = MediaDetailFeature.State()
     }
     enum Action {
         case searchTab(SearchFeature.Action)
         case movieListTab(MovieListFeature.Action)
         case tvListTab(TvListFeature.Action)
+        case detail(MediaDetailFeature.Action)
     }
     var body: some ReducerOf<Self> {
         Scope(state: \.searchTab, action: \.searchTab) {
@@ -29,6 +31,9 @@ struct ContentFeature {
         }
         Scope(state: \.tvListTab, action: \.tvListTab) {
             TvListFeature()
+        }
+        Scope(state: \.detail, action: \.detail) {
+            MediaDetailFeature()
         }
     }
 }

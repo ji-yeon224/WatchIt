@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct MediaDetailView: View {
     
-    @StateObject private var viewModel: MediaDetailViewModel
+    @Perception.Bindable var store: StoreOf<MediaDetailFeature> = WatchItApp.store.scope(state: \.detail, action: \.detail)
+    
     
     private var id: Int
     private var title: String
     private var type: MediaType
     
-    init(_ viewModel: MediaDetailViewModel, id: Int, title: String, type: MediaType) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(id: Int, title: String, type: MediaType) {
+        
         self.id = id
         self.title = title
         self.type = type
@@ -24,60 +26,58 @@ struct MediaDetailView: View {
     
     
     var body: some View {
-        ScrollView {
-            
-            MovieInfoView(details: viewModel.details)
-                .padding(.bottom, 20)
-            Divider()
-            
-            LazyVStack(alignment: .leading, spacing: 20) {
+        WithPerceptionTracking {
+            ScrollView {
                 
-                starScore
+                MovieInfoView(details: store.state.details)
+                    .padding(.bottom, 20)
+                Divider()
                 
-                if let detail = viewModel.details, !detail.overView.isEmpty {
-                    OverviewView(overViewText: detail.overView)
-                    Divider()
+                LazyVStack(alignment: .leading, spacing: 20) {
+                    
+                    starScore
+                    
+                    if let detail = store.state.details, !detail.overView.isEmpty {
+                        OverviewView(overViewText: detail.overView)
+                        Divider()
 
+                    }
+                    if store.state.castItems.count > 0 {
+                        CreditView(creditItems: CreditItems(title: "출연진", items: store.state.castItems))
+                        Divider()
+                    }
+                    
+                    if store.state.crewItems.count > 0 {
+                        CreditView(creditItems: CreditItems(title: "제작", items: store.state.crewItems))
+                    }
+                    
                 }
-                if viewModel.castItems.count > 0 {
-                    CreditView(creditItems: CreditItems(title: "출연진", items: viewModel.castItems))
-                    Divider()
-                }
-                
-                if viewModel.crewItems.count > 0 {
-                    CreditView(creditItems: CreditItems(title: "제작", items: viewModel.crewItems))
-                }
+                .padding(10)
                 
             }
-            .padding(10)
-            
+            .onAppear {
+                store.send(.onAppear(type: type, id: id))
+                 
+            }
+            .navigationTitle(title)
+            .customNavBackButton()
         }
-        .onAppear {
-            
-            viewModel.action(.setMediaType(type))
-            viewModel.action(.getDetailInfo(type, id))
-            viewModel.action(.getCreditInfo(type, id))
-            
-            viewModel.bind()
-             
-        }
-        .navigationTitle(title)
-        .customNavBackButton()
+        
         
     }
     
     
     private var starScore: some View {
         VStack(alignment: .leading, spacing: 15) {
-            if viewModel.starValue == 0.0 {
+            if store.state.starValue == 0.0 {
                 Text("나의 별점 \(0)")
                     .font(Constants.FontStyle.boldPlain.style)
             } else {
                 
-                Text("나의 별점 \(String(format: "%.1f", viewModel.starValue))")
+                Text("나의 별점 \(String(format: "%.1f", store.state.starValue))")
                     .font(Constants.FontStyle.boldPlain.style)
             }
-            StarRatingView(value: $viewModel.starValue)
+            StarRatingView(value: $store.starValue.sending(\.setStarValue))
             Divider()
         }
         
@@ -89,6 +89,6 @@ struct MediaDetailView: View {
 
 #Preview {
 //    MovieDetailView(movieId: 693134, title: "듄: 파트2")
-    MediaDetailView(MediaDetailViewModel(), id: 208825, title: "듄: 파트2", type: .tv)
+    MediaDetailView(id: 208825, title: "듄: 파트2", type: .tv)
     
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct MovieListView: View {
-//    @StateObject private var viewModel: MovieListViewModel
+    
     let store: StoreOf<MovieListFeature>
     
     @Binding var viewLoaded: Bool
@@ -29,16 +29,15 @@ struct MovieListView: View {
                 
             }
             .navigationDestination(for: MediaItem.self) { item in
-    //            MediaDetailView(movieId: item.id, title: item.title)
-                MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
+                WithPerceptionTracking {
+                    MediaDetailView(id: item.id, title: item.title, type: .movie)
+                }
+                
             }
             .task {
                 if !viewLoaded {
                     viewLoaded = true
                     store.send(.viewDidLoad)
-    //                viewModel.action(.getMovieTrend)
-    //                viewModel.action(.getTopRated)
-    //                viewModel.action(.nowPlaying)
                 }
                 
             }

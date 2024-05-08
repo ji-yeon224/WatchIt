@@ -10,12 +10,12 @@ import ComposableArchitecture
 
 @main
 struct WatchItApp: App {
-    static let searchStore = Store(initialState: ContentFeature.State()) {
+    static let store = Store(initialState: ContentFeature.State()) {
         ContentFeature()
     }
     var body: some Scene {
         WindowGroup {
-            ContentView(store: WatchItApp.searchStore)
+            ContentView(store: WatchItApp.store)
         }
     }
 }

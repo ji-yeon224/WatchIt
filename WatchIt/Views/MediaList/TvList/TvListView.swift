@@ -9,8 +9,6 @@ import SwiftUI
 import ComposableArchitecture
 
 struct TvListView: View {
-//    @StateObject private var viewModel: TvListViewModel
-    
     let store: StoreOf<TvListFeature>
     
     @Binding var viewLoaded: Bool
@@ -27,7 +25,7 @@ struct TvListView: View {
                 
             }
             .navigationDestination(for: MediaItem.self) { item in
-                MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .tv)
+                MediaDetailView(id: item.id, title: item.title, type: .tv)
             }
             .task {
                 if !viewLoaded {
