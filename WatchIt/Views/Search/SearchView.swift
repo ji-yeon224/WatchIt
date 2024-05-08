@@ -14,25 +14,28 @@ struct SearchView: View {
     @Perception.Bindable var store: StoreOf<SearchFeature>
     @State private var searchAction = CurrentValueSubject<String, Never>("")
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading) {
-                SearchBar(searchText: $store.searchText.sending(\.setSearchText), searchAction: $searchAction)
-                    .onReceive(searchAction) { value in
-                        store.send(.searchAction(value))
+        WithPerceptionTracking {
+            NavigationStack {
+                VStack(alignment: .leading) {
+                    SearchBar(searchText: $store.searchText.sending(\.setSearchText), searchAction: $searchAction)
+                        .onReceive(searchAction) { value in
+                            store.send(.searchAction(value))
+                        }
+                    filterButton
+                    if !store.searchText.isEmpty {
+                        SearchItemListView(mediaList: store.state.searchResult, curtype: store.state.searchFilter )
                     }
-                filterButton
-                if !store.searchText.isEmpty {
-                    SearchItemListView(mediaList: store.state.searchResult, curtype: store.state.searchFilter )
+                    
+                    
+                    Spacer()
                 }
-                
-                
-                Spacer()
-            }
-            .padding(.horizontal, 10)
-            .overlay(alignment: .center) {
-                progressView
+                .padding(.horizontal, 10)
+                .overlay(alignment: .center) {
+                    progressView
+                }
             }
         }
+        
         
     }
     

@@ -20,27 +20,30 @@ struct MovieListView: View {
     }
     
     var body: some View {
-        ScrollView(.vertical) {
+        WithPerceptionTracking {
+            ScrollView(.vertical) {
 
-            MediaListRowView(title: "TREND", itemList: store.state.trendData)
-            MediaListRowView(title: "Now Playing", itemList: store.state.nowPlayingData)
-            MediaListRowView(title: "TOP RATED", itemList: store.state.topRatedData)
-            
-        }
-        .navigationDestination(for: MediaItem.self) { item in
-//            MediaDetailView(movieId: item.id, title: item.title)
-            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
-        }
-        .task {
-            if !viewLoaded {
-                viewLoaded = true
-                store.send(.viewDidLoad)
-//                viewModel.action(.getMovieTrend)
-//                viewModel.action(.getTopRated)
-//                viewModel.action(.nowPlaying)
+                MediaListRowView(title: "TREND", itemList: store.state.trendData)
+                MediaListRowView(title: "Now Playing", itemList: store.state.nowPlayingData)
+                MediaListRowView(title: "TOP RATED", itemList: store.state.topRatedData)
+                
             }
-            
+            .navigationDestination(for: MediaItem.self) { item in
+    //            MediaDetailView(movieId: item.id, title: item.title)
+                MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
+            }
+            .task {
+                if !viewLoaded {
+                    viewLoaded = true
+                    store.send(.viewDidLoad)
+    //                viewModel.action(.getMovieTrend)
+    //                viewModel.action(.getTopRated)
+    //                viewModel.action(.nowPlaying)
+                }
+                
+            }
         }
+        
     }
     
 }

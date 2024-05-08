@@ -6,36 +6,40 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct TvListView: View {
-    @StateObject private var viewModel: TvListViewModel
+//    @StateObject private var viewModel: TvListViewModel
+    
+    let store: StoreOf<TvListFeature>
+    
     @Binding var viewLoaded: Bool
-    init(_ viewModel: TvListViewModel, viewLoaded: Binding<Bool>) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(store: StoreOf<TvListFeature>, viewLoaded: Binding<Bool>) {
+        self.store = store
         self._viewLoaded = Binding(projectedValue: viewLoaded)
     }
     var body: some View {
-        
-        ScrollView(.vertical) {
-            MediaListRowView(title: "Korea Series", itemList: viewModel.thisYearTv)
-            MediaListRowView(title: "Trend", itemList: viewModel.tvTrendData)
-            MediaListRowView(title: "Top Rated", itemList: viewModel.tvTopRated)
-            
-        }
-        .navigationDestination(for: MediaItem.self) { item in
-            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .tv)
-        }
-        .task {
-            if !viewLoaded {
-                viewLoaded = true
-                viewModel.action(.tvTrend)
-                viewModel.action(.tvTopRated)
-                viewModel.action(.thisYear)
+        WithPerceptionTracking {
+            ScrollView(.vertical) {
+                MediaListRowView(title: "Korea Series", itemList: store.state.thisYear)
+                MediaListRowView(title: "Trend", itemList: store.state.trendData)
+                MediaListRowView(title: "Top Rated", itemList: store.state.topRated)
+                
+            }
+            .navigationDestination(for: MediaItem.self) { item in
+                MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .tv)
+            }
+            .task {
+                if !viewLoaded {
+                    viewLoaded = true
+                    store.send(.viewDidLoad)
+                }
             }
         }
+        
     }
 }
 
-#Preview {
-    TvListView(TvListViewModel(), viewLoaded: .constant(false))
-}
+//#Preview {
+//    TvListView(TvListViewModel(), viewLoaded: .constant(false))
+//}

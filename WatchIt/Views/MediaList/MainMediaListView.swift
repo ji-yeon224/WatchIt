@@ -20,23 +20,26 @@ struct MainMediaListView: View {
     let tabStore: StoreOf<ContentFeature>
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                TopTabBarView(curTab: $store.tabIdx.sending(\.setTabIdx))
-                if store.state.tabIdx == 0 {
-                    MovieListView(
-                        store: tabStore.scope(state: \.movieListTab, action: \.movieListTab),
-                        viewLoaded: $store.movieListLoaded.sending(\.setMovieListLoaded))
-                    
-                } else if store.state.tabIdx == 1 {
-                    TvListView(
-                        tvViewModel,
-                       viewLoaded: $store.tvListLoaded.sending(\.setTvListLoaded))
-                    
+        WithPerceptionTracking {
+            NavigationStack {
+                VStack {
+                    TopTabBarView(curTab: $store.tabIdx.sending(\.setTabIdx))
+                    if store.state.tabIdx == 0 {
+                        MovieListView(
+                            store: tabStore.scope(state: \.movieListTab, action: \.movieListTab),
+                            viewLoaded: $store.movieListLoaded.sending(\.setMovieListLoaded))
+                        
+                    } else if store.state.tabIdx == 1 {
+                        TvListView(
+                            store: tabStore.scope(state: \.tvListTab, action: \.tvListTab),
+                           viewLoaded: $store.tvListLoaded.sending(\.setTvListLoaded))
+                        
+                    }
                 }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
         }
+        
         
         
     }

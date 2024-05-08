@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0C36A22BEB20AD00BB7214 /* TvListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C36A12BEB20AD00BB7214 /* TvListFeature.swift */; };
 		CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE1343FD2BE7468500F0122A /* RealmSwift */; };
 		CE13440F2BE9C90700F0122A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE13440E2BE9C90700F0122A /* ComposableArchitecture */; };
 		CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344102BE9CA4100F0122A /* SearchFeature.swift */; };
@@ -99,6 +100,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE0C36A12BEB20AD00BB7214 /* TvListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvListFeature.swift; sourceTree = "<group>"; };
 		CE1344102BE9CA4100F0122A /* SearchFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeature.swift; sourceTree = "<group>"; };
 		CE1344802BEA1F8200F0122A /* ContentFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFeature.swift; sourceTree = "<group>"; };
 		CE1344822BEA4E6400F0122A /* MovieListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListFeature.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			children = (
 				CEA368702BD4E8B50054FCFA /* TvListView.swift */,
 				CEA368722BD4E8EB0054FCFA /* TvListViewModel.swift */,
+				CE0C36A12BEB20AD00BB7214 /* TvListFeature.swift */,
 			);
 			path = TvList;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				CEAE72DC2BCD204E00C7E5A6 /* MediaDetailView.swift in Sources */,
 				CEAE72DC2BCD204E00C7E5A6 /* MediaDetailView.swift in Sources */,
 				CEA368602BD3B4650054FCFA /* MediaListRowView.swift in Sources */,
+				CE0C36A22BEB20AD00BB7214 /* TvListFeature.swift in Sources */,
 				CE492FBD2BC9182900C5F1DC /* MediaItemView.swift in Sources */,
 				CE1344852BEA59D900F0122A /* MainMediaListFeature.swift in Sources */,
 				CE8E1B202BD2141B003F91BD /* CreditView.swift in Sources */,
