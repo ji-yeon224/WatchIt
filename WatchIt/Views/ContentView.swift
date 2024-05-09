@@ -11,6 +11,7 @@ import ComposableArchitecture
 enum TabTag {
     case home
     case search
+    case mypage
 }
 
 struct ContentView: View {
@@ -32,6 +33,11 @@ struct ContentView: View {
                             selected == .search ? Image(.searchSelected) : Image(.searchUnselected)
                         }
                         .tag(TabTag.search)
+                    MyPageView(store: store.scope(state: \.mypage, action: \.mypage))
+                        .tabItem {
+                            selected == .mypage ? Image(.myPageSelected) : Image(.myPageUnselected)
+                        }
+                        .tag(TabTag.mypage)
                 }
             }
         }

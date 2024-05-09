@@ -15,7 +15,7 @@ struct MainMediaListView: View {
         MainMediaListFeature()
     }
     
-    @StateObject private var tvViewModel = TvListViewModel()
+//    @StateObject private var tvViewModel = TvListViewModel()
     
     let tabStore: StoreOf<ContentFeature>
     

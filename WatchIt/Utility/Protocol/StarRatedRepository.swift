@@ -81,6 +81,13 @@ final class StarRatedRepository: RealmRepository {
         
     }
     
+    func getRateCount(rate: Double) -> Int {
+        return realm.objects(StarRatedItemModel.self).where {
+            $0.starRate == rate
+        }.count
+    }
+    
+    
     func getLocation() {
         print("=====Realm 경로: ", realm.configuration.fileURL!)
     }
