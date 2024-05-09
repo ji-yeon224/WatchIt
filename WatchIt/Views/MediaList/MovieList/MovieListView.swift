@@ -6,41 +6,47 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct MovieListView: View {
-    @StateObject private var viewModel: MovieListViewModel
+    
+    let store: StoreOf<MovieListFeature>
+    
     @Binding var viewLoaded: Bool
     
-    init(_ viewModel: MovieListViewModel, viewLoaded: Binding<Bool>) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(store: StoreOf<MovieListFeature>, viewLoaded: Binding<Bool>) {
+        self.store = store
         self._viewLoaded = Binding(projectedValue: viewLoaded)
     }
     
     var body: some View {
-        ScrollView(.vertical) {
+        WithPerceptionTracking {
+            ScrollView(.vertical) {
 
-            MediaListRowView(title: "TREND", itemList: viewModel.trendData)
-            MediaListRowView(title: "Now Playing", itemList: viewModel.nowPlayingData)
-            MediaListRowView(title: "TOP RATED", itemList: viewModel.topRatedData)
-            
-        }
-        .navigationDestination(for: MediaItem.self) { item in
-//            MediaDetailView(movieId: item.id, title: item.title)
-            MediaDetailView(MediaDetailViewModel(), id: item.id, title: item.title, type: .movie)
-        }
-        .task {
-            if !viewLoaded {
-                viewLoaded = true
-                viewModel.action(.getMovieTrend)
-                viewModel.action(.getTopRated)
-                viewModel.action(.nowPlaying)
+                MediaListRowView(title: "TREND", itemList: store.state.trendData)
+                MediaListRowView(title: "Now Playing", itemList: store.state.nowPlayingData)
+                MediaListRowView(title: "TOP RATED", itemList: store.state.topRatedData)
+                
             }
-            
+            .navigationDestination(for: MediaItem.self) { item in
+                WithPerceptionTracking {
+                    MediaDetailView(id: item.id, title: item.title, type: .movie)
+                }
+                
+            }
+            .task {
+                if !viewLoaded {
+                    viewLoaded = true
+                    store.send(.viewDidLoad)
+                }
+                
+            }
         }
+        
     }
     
 }
-    
-#Preview {
-    return MovieListView(MovieListViewModel(), viewLoaded: .constant(false))
-}
+//    
+//#Preview {
+//    return MovieListView(MovieListViewModel(), viewLoaded: .constant(false))
+//}

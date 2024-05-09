@@ -6,34 +6,47 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct MainMediaListView: View {
     @Environment(\.scenePhase) var scenePhase
-    @StateObject var movieViewModel = MovieListViewModel()
+    
+    @Perception.Bindable var store = Store(initialState: MainMediaListFeature.State()) {
+        MainMediaListFeature()
+    }
+    
     @StateObject private var tvViewModel = TvListViewModel()
-    @State private var tabIdx = 0
-    @State private var movieListViewLoaded = false
-    @State private var tvListViewLoaded = false
+    
+    let tabStore: StoreOf<ContentFeature>
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                TopTabBarView(curTab: $tabIdx)
-                if tabIdx == 0 {
-                    MovieListView(movieViewModel, viewLoaded: $movieListViewLoaded)
-                    
-                } else if tabIdx == 1 {
-                    TvListView(tvViewModel, viewLoaded: $tvListViewLoaded)
-                    
+        WithPerceptionTracking {
+            NavigationStack {
+                VStack {
+                    TopTabBarView(curTab: $store.tabIdx.sending(\.setTabIdx))
+                    if store.state.tabIdx == 0 {
+                        MovieListView(
+                            store: tabStore.scope(state: \.movieListTab, action: \.movieListTab),
+                            viewLoaded: $store.movieListLoaded.sending(\.setMovieListLoaded))
+                        
+                    } else if store.state.tabIdx == 1 {
+                        TvListView(
+                            store: tabStore.scope(state: \.tvListTab, action: \.tvListTab),
+                           viewLoaded: $store.tvListLoaded.sending(\.setTvListLoaded))
+                        
+                    }
                 }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
         }
+        
         
         
     }
 }
 
 #Preview {
-    MainMediaListView()
+    MainMediaListView(tabStore: Store(initialState: ContentFeature.State(), reducer: {
+        ContentFeature()
+    }))
 }

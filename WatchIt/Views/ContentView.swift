@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 enum TabTag {
     case home
@@ -13,23 +14,28 @@ enum TabTag {
 }
 
 struct ContentView: View {
+    
+    let store: StoreOf<ContentFeature>
     @State private var selected: TabTag = .home
     
     var body: some View {
-        ZStack {
-            TabView(selection: $selected) {
-                MainMediaListView()
-                    .tabItem {
-                        selected == .home ? Image(.mainSelected) : Image(.mainUnselected)
-                    }
-                    .tag(TabTag.home)
-                SearchView()
-                    .tabItem {
-                        selected == .search ? Image(.searchSelected) : Image(.searchUnselected)
-                    }
-                    .tag(TabTag.search)
+        WithPerceptionTracking {
+            ZStack {
+                TabView(selection: $selected) {
+                    MainMediaListView(tabStore: store)
+                        .tabItem {
+                            selected == .home ? Image(.mainSelected) : Image(.mainUnselected)
+                        }
+                        .tag(TabTag.home)
+                    SearchView(store: store.scope(state: \.searchTab, action: \.searchTab))
+                        .tabItem {
+                            selected == .search ? Image(.searchSelected) : Image(.searchUnselected)
+                        }
+                        .tag(TabTag.search)
+                }
             }
         }
+        
         
     }
     
@@ -60,5 +66,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(store: Store(initialState: ContentFeature.State(), reducer: {
+        ContentFeature()
+    }))
 }
