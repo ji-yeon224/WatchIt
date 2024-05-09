@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE0C36A22BEB20AD00BB7214 /* TvListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C36A12BEB20AD00BB7214 /* TvListFeature.swift */; };
 		CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE1343FD2BE7468500F0122A /* RealmSwift */; };
-		CE13440F2BE9C90700F0122A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE13440E2BE9C90700F0122A /* ComposableArchitecture */; };
 		CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344102BE9CA4100F0122A /* SearchFeature.swift */; };
 		CE1344812BEA1F8200F0122A /* ContentFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344802BEA1F8200F0122A /* ContentFeature.swift */; };
 		CE1344832BEA4E6400F0122A /* MovieListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344822BEA4E6400F0122A /* MovieListFeature.swift */; };
@@ -43,6 +42,7 @@
 		CE77F8BF2BCA542600010151 /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8BE2BCA542600010151 /* TMDBManager.swift */; };
 		CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C02BCA562600010151 /* NetworkError.swift */; };
 		CE77F8C52BCA581200010151 /* MovieItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C42BCA581200010151 /* MovieItemDto.swift */; };
+		CE89F32D2BEC6A50000E6276 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE89F32C2BEC6A50000E6276 /* ComposableArchitecture */; };
 		CE8E1B202BD2141B003F91BD /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B1F2BD2141B003F91BD /* CreditView.swift */; };
 		CE8E1B222BD231C6003F91BD /* CreditItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B212BD231C6003F91BD /* CreditItems.swift */; };
 		CE8E1B242BD25ADB003F91BD /* NavBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */; };
@@ -176,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE13440F2BE9C90700F0122A /* ComposableArchitecture in Frameworks */,
+				CE89F32D2BEC6A50000E6276 /* ComposableArchitecture in Frameworks */,
 				CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */,
 				CEAE72CE2BCCD2DB00C7E5A6 /* Kingfisher in Frameworks */,
 				CEBE8ECA2BE4AEEB00B4D19A /* AxisRatingBar in Frameworks */,
@@ -478,7 +478,7 @@
 				CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */,
 				CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */,
 				CE1343FD2BE7468500F0122A /* RealmSwift */,
-				CE13440E2BE9C90700F0122A /* ComposableArchitecture */,
+				CE89F32C2BEC6A50000E6276 /* ComposableArchitecture */,
 			);
 			productName = WatchIt;
 			productReference = CE492FA72BC90DC200C5F1DC /* WatchIt.app */;
@@ -513,7 +513,7 @@
 				CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
 				CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */,
-				CE13440D2BE9C90700F0122A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				CE89F32B2BEC6A50000E6276 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = CE492FA82BC90DC200C5F1DC /* Products */;
 			projectDirPath = "";
@@ -831,20 +831,20 @@
 				kind = branch;
 			};
 		};
-		CE13440D2BE9C90700F0122A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.2;
-			};
-		};
 		CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.9.1;
+			};
+		};
+		CE89F32B2BEC6A50000E6276 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.3;
 			};
 		};
 		CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
@@ -871,15 +871,15 @@
 			package = CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
-		CE13440E2BE9C90700F0122A /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE13440D2BE9C90700F0122A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		CE492FC22BC91E6600C5F1DC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		CE89F32C2BEC6A50000E6276 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE89F32B2BEC6A50000E6276 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
