@@ -16,8 +16,9 @@ struct MyPageView: View {
     var body: some View {
         WithPerceptionTracking {
             VStack{
-                let _ = print(store.chartData)
+//                let _ = print(store.chartData)
                 ChartView(chartData: store.chartData)
+                Spacer()
             }
             .onAppear() {
                 store.send(.requestRateData)
