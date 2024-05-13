@@ -16,7 +16,7 @@ struct MediaListRowView: View {
         
         VStack(alignment: .leading) {
             Text(title)
-                .font(Constants.FontStyle.title.style)
+                .font(Constants.FontStyle.title2.style)
                 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top) {

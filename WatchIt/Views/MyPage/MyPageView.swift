@@ -15,11 +15,30 @@ struct MyPageView: View {
     
     var body: some View {
         WithPerceptionTracking {
-            VStack{
-//                let _ = print(store.chartData)
-                ChartView(chartData: store.chartData)
-                Spacer()
+            NavigationStack {
+                VStack(alignment: .leading){
+    //                let _ = print(store.chartData)
+                    Text("나의 별점 분포")
+                        .font(Constants.FontStyle.title1.style)
+                        
+                    ChartView(chartData: store.chartData, average: store.averageRate)
+                        .padding()
+                    Divider()
+                        .frame(height: 20)
+                    Text("평가 리스트")
+                        .font(Constants.FontStyle.title1.style)
+                    VStack {
+                        RatedListRow(title: .movie)
+                        RatedListRow(title: .tv)
+                    }
+                    
+                    Spacer()
+                }
+                .padding()
             }
+            
+           
+            .navigationTitle("My Page")
             .onAppear() {
                 store.send(.requestRateData)
             }
