@@ -25,12 +25,7 @@ struct MyPageView: View {
                         .padding()
                     Divider()
                         .frame(height: 20)
-                    Text("평가 리스트")
-                        .font(Constants.FontStyle.title1.style)
-                    VStack {
-                        RatedListRow(title: .movie)
-                        RatedListRow(title: .tv)
-                    }
+                    RatedListView()
                     
                     Spacer()
                 }

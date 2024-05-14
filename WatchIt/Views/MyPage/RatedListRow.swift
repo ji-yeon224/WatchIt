@@ -11,14 +11,26 @@ struct RatedListRow: View {
     var title: MediaType = .movie
     
     var body: some View {
-        
-        HStack {
-            Text(title.rawValue)
-                .font(Constants.FontStyle.subtitle.style)
-            Spacer()
-            Image(.rightArrow)
+        NavigationLink(value: title) {
+            HStack {
+                Text(title.rawValue)
+                    .font(Constants.FontStyle.subtitle.style)
+                Spacer()
+                Image(.rightArrow)
+                
+                
+            }
         }
+//        Button {
+//           
+//        } label: {
+//
+//            
+//        }
+        .foregroundStyle(.black)
         .frame(height: 40)
+        
+        
         
     }
 }

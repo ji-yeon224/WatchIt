@@ -51,6 +51,8 @@
 		CE8E1B222BD231C6003F91BD /* CreditItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B212BD231C6003F91BD /* CreditItems.swift */; };
 		CE8E1B242BD25ADB003F91BD /* NavBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */; };
 		CE8E78E42BD399A900141A82 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E78E32BD399A900141A82 /* ViewModelProtocol.swift */; };
+		CE98EEF82BF331EB001C3781 /* RatedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98EEF72BF331EB001C3781 /* RatedListView.swift */; };
+		CE98EEFB2BF3325A001C3781 /* RatedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98EEFA2BF3325A001C3781 /* RatedItemView.swift */; };
 		CE98F2992BD8F5A900A135F6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE98F2982BD8F5A900A135F6 /* SearchView.swift */; };
 		CEA3685E2BD3AE660054FCFA /* RegionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3685D2BD3AE660054FCFA /* RegionType.swift */; };
 		CEA368602BD3B4650054FCFA /* MediaListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3685F2BD3B4650054FCFA /* MediaListRowView.swift */; };
@@ -144,6 +146,8 @@
 		CE8E1B212BD231C6003F91BD /* CreditItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditItems.swift; sourceTree = "<group>"; };
 		CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBackButton.swift; sourceTree = "<group>"; };
 		CE8E78E32BD399A900141A82 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		CE98EEF72BF331EB001C3781 /* RatedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedListView.swift; sourceTree = "<group>"; };
+		CE98EEFA2BF3325A001C3781 /* RatedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedItemView.swift; sourceTree = "<group>"; };
 		CE98F2982BD8F5A900A135F6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CEA3685D2BD3AE660054FCFA /* RegionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionType.swift; sourceTree = "<group>"; };
 		CEA3685F2BD3B4650054FCFA /* MediaListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListRowView.swift; sourceTree = "<group>"; };
@@ -339,7 +343,9 @@
 		CE89F32E2BEC79FD000E6276 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CE98EEF92BF3323D001C3781 /* Rated */,
 				CE89F32F2BEC7A09000E6276 /* MyPageView.swift */,
+				CE98EEF72BF331EB001C3781 /* RatedListView.swift */,
 				CE162EAB2BEC9B18008F9006 /* ChartView.swift */,
 				CE162EAD2BECA7AE008F9006 /* MyPageFeature.swift */,
 				CE2048E02BF2494A003C6FBA /* RatedListRow.swift */,
@@ -356,6 +362,14 @@
 				CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE98EEF92BF3323D001C3781 /* Rated */ = {
+			isa = PBXGroup;
+			children = (
+				CE98EEFA2BF3325A001C3781 /* RatedItemView.swift */,
+			);
+			path = Rated;
 			sourceTree = "<group>";
 		};
 		CE98F2972BD8F5A000A135F6 /* Search */ = {
@@ -567,6 +581,7 @@
 				CEAE72D92BCD0DCA00C7E5A6 /* TabBarItem.swift in Sources */,
 				CE162EAC2BEC9B18008F9006 /* ChartView.swift in Sources */,
 				CE492FAD2BC90DC200C5F1DC /* MainMediaListView.swift in Sources */,
+				CE98EEF82BF331EB001C3781 /* RatedListView.swift in Sources */,
 				CE77F8C52BCA581200010151 /* MovieItemDto.swift in Sources */,
 				CEAE72E52BCD517400C7E5A6 /* String+Extenstion.swift in Sources */,
 				CE492FCF2BC9222100C5F1DC /* Endpoint.swift in Sources */,
@@ -621,6 +636,7 @@
 				CE219CBA2BD0ED3B0061D9D3 /* CreditItemsRow.swift in Sources */,
 				CEA3686B2BD4E4DD0054FCFA /* MediaItem.swift in Sources */,
 				CE89F3302BEC7A09000E6276 /* MyPageView.swift in Sources */,
+				CE98EEFB2BF3325A001C3781 /* RatedItemView.swift in Sources */,
 				CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */,
 				CEAE72E92BCD53F900C7E5A6 /* BackDropImage.swift in Sources */,
 				CE6185CE2BCF97F400D3BCE0 /* TruncatedTextView.swift in Sources */,
