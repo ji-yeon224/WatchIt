@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchItemView: View {
+struct MediaItemHorizontalView: View {
     var media: MediaItem?
     var body: some View {
         if let media = media {
@@ -23,5 +23,5 @@ struct SearchItemView: View {
 }
 
 #Preview {
-    SearchItemView()
+    MediaItemHorizontalView()
 }

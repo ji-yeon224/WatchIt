@@ -25,15 +25,15 @@ struct MyPageView: View {
                         .padding()
                     Divider()
                         .frame(height: 20)
-                    RatedListView()
+                    RatedListView(store: store)
                     
                     Spacer()
                 }
                 .padding()
+                .navigationTitle("My Page")
+                .navigationBarTitleDisplayMode(.large)
             }
             
-           
-            .navigationTitle("My Page")
             .onAppear() {
                 store.send(.requestRateData)
             }

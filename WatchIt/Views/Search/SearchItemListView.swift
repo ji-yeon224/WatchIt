@@ -18,7 +18,7 @@ struct SearchItemListView: View {
         List(mediaList) { item in
             
             NavigationLink(value: item) {
-                SearchItemView(media: item)
+                MediaItemHorizontalView(media: item)
             }
         }
         .listStyle(.plain)

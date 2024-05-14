@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct RatedListView: View {
+    var store: StoreOf<MyPageFeature>
     var body: some View {
-        Text("평가 리스트")
+        
+        Text("평가 목록")
             .font(Constants.FontStyle.title1.style)
         VStack {
             RatedListRow(title: .movie)
@@ -17,11 +20,14 @@ struct RatedListView: View {
             
         }
         .navigationDestination(for: MediaType.self) { type in
-            RatedItemView()
+            RatedItemView(store: Store(initialState: RatedItemFeature.State()) {
+                RatedItemFeature() }, type: type )
         }
     }
 }
 
 #Preview {
-    RatedListView()
+    RatedListView(store: Store(initialState: MyPageFeature.State()) {
+        MyPageFeature()
+    })
 }
