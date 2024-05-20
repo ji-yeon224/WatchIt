@@ -13,7 +13,7 @@ struct RatedListRow: View {
     var body: some View {
         NavigationLink(value: title) {
             HStack {
-                Text(title.rawValue)
+                Text(title.title)
                     .font(Constants.FontStyle.subtitle.style)
                 Spacer()
                 Image(.rightArrow)
@@ -21,12 +21,6 @@ struct RatedListRow: View {
                 
             }
         }
-//        Button {
-//           
-//        } label: {
-//
-//            
-//        }
         .foregroundStyle(.black)
         .frame(height: 40)
         
