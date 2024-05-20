@@ -22,7 +22,7 @@ struct RatedItemView: View {
                         
                         
                         NavigationLink(value: item) {
-                            MediaItemVerticalView(item: item)
+                            MediaItemVerticalView(item: item, starRate: item.starRate)
                                 .foregroundStyle(.black)
                         }
                     }
@@ -39,7 +39,7 @@ struct RatedItemView: View {
             .navigationTitle("\(type.rawValue)")
             .customNavBackButton()
             .onAppear() {
-                store.send(.requestRatedItems(type: type, ascending: true))
+                store.send(.requestRatedItems(type: type, ascending: false))
 //                mediaItems = store.itemList
             }
         }
