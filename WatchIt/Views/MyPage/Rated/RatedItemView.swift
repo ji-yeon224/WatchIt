@@ -8,27 +8,12 @@
 import SwiftUI
 import ComposableArchitecture
 
-enum FilterState: CaseIterable {
-    case ascending
-    case descending
-    
-    var pickerTitle: String {
-        switch self {
-        case .ascending:
-            return "별점 높은 순"
-        case .descending:
-            return "별점 낮은 순"
-        }
-    }
-}
 
 struct RatedItemView: View {
     @Perception.Bindable var store: StoreOf<RatedItemFeature>
     var type: MediaType = .movie
     var mediaItems: MediaItems = []
     
-    @State private var filterType = FilterState.allCases
-    @State private var curFilter: FilterState = .ascending
     
     private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10), count: 3)
     
@@ -37,7 +22,6 @@ struct RatedItemView: View {
             ScrollView {
                 LazyVGrid(columns: columns, alignment: .center, content: {
                     ForEach(store.itemList, id: \.self) { item in
-                        
                         
                         NavigationLink(value: item) {
                             MediaItemVerticalView(item: item, starRate: item.starRate)
@@ -59,25 +43,28 @@ struct RatedItemView: View {
             .customNavBackButton()
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Menu {
-                        Picker("filter", selection: $store.filterState.sending(\.setItemFilter)) {
-                            ForEach(filterType, id: \.self) { filter in
-                                Text(filter.pickerTitle).tag(filter)
-                            }
-                        }
-
-                    } label: {
-                        Image(.filter)
-                    }
-
+                    filterMenuView
                 }
             })
             .onAppear() {
                 store.send(.requestRatedItems(type: type, ascending: false))
-//                mediaItems = store.itemList
             }
         }
         
+    }
+    
+    private var filterMenuView: some View {
+        Menu {
+            Picker("filter", selection: $store.filterState.sending(\.setItemFilter)) {
+                ForEach(FilterState.allCases, id: \.self) { filter in
+                    Text(filter.pickerTitle).tag(filter)
+                }
+            }
+
+        } label: {
+            Image(.filter)
+        }
+
     }
 }
 
