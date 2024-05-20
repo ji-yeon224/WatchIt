@@ -1,0 +1,33 @@
+//
+//  RatedListView.swift
+//  WatchIt
+//
+//  Created by 김지연 on 5/14/24.
+//
+
+import SwiftUI
+import ComposableArchitecture
+
+struct RatedListView: View {
+    var store: StoreOf<MyPageFeature>
+    var body: some View {
+        
+        Text("평가 목록")
+            .font(Constants.FontStyle.title1.style)
+        VStack {
+            RatedListRow(title: .movie)
+            RatedListRow(title: .tv)
+            
+        }
+        .navigationDestination(for: MediaType.self) { type in
+            RatedItemView(store: Store(initialState: RatedItemFeature.State()) {
+                RatedItemFeature() }, type: type )
+        }
+    }
+}
+
+#Preview {
+    RatedListView(store: Store(initialState: MyPageFeature.State()) {
+        MyPageFeature()
+    })
+}

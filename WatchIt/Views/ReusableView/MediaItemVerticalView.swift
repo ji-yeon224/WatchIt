@@ -9,8 +9,9 @@ import SwiftUI
 import Combine
 import Kingfisher
 
-struct MediaItemView: View {
+struct MediaItemVerticalView: View {
     var item: MediaItem
+    var starRate: Double = 0.0
     
     var body: some View {
         LazyVStack(alignment: .leading) {
@@ -27,13 +28,26 @@ struct MediaItemView: View {
                 .font(Constants.FontStyle.plain.style)
                 .lineLimit(2)
                 .frame(maxWidth: 100, alignment: .topLeading)
-                
-                
+            if starRate > 0.0 {
+                starRateText
+            }
+            
+        }
+    }
+    
+    private var starRateText: some View {
+        HStack(spacing: 4) {
+            Image(.yelloStar)
+                .resizable()
+                .frame(width: 14, height: 14)
+            Text("\(starRate.makeStarRate)점")
+                .font(Constants.FontStyle.boldPlain.style)
+                .foregroundStyle(.customYellow)
         }
     }
         
 }
 
 #Preview {
-    MediaItemView(item: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil, starRate: 0.0))
+    MediaItemVerticalView(item: MediaItem(id: 1, title: "가나다라마바사아자파카ㅏ-- 하", posterUrl: nil, starRate: 0.0))
 }

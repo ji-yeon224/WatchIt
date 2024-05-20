@@ -55,12 +55,16 @@ final class StarRatedRepository: RealmRepository {
         
     }
     
+    func fetchItemByMediaType(type: String, ascending: Bool) -> [Entity] {
+        return realm.objects(StarRatedItemModel.self)
+            .where {
+            $0.mediaType == type
+            }
+            .sorted(byKeyPath: "starRate", ascending: ascending)
+            .map { $0.toDomain() }
+    }
+    
     func getStarRate(id: String) -> Double {
-//        if let item = fetchItem(id: id) {
-//            return item.starRate
-//        } else {
-//            return 0
-//        }
         
         return fetchItem(id: id)?.starRate ?? 0
     }
@@ -80,6 +84,15 @@ final class StarRatedRepository: RealmRepository {
         }
         
     }
+    
+    func getRateCount(rate: Double) -> Int {
+        return realm.objects(StarRatedItemModel.self).where {
+            $0.starRate == rate
+        }.count
+    }
+    
+    
+    
     
     func getLocation() {
         print("=====Realm 경로: ", realm.configuration.fileURL!)

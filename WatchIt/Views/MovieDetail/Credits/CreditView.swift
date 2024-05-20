@@ -19,7 +19,7 @@ struct CreditView: View {
                 HStack {
                     
                     Text(creditItems.title)
-                        .font(Constants.FontStyle.title.style)
+                        .font(Constants.FontStyle.title2.style)
                         .frame(alignment: .leading)
                         .foregroundStyle(.black)
                     Spacer()

@@ -16,13 +16,13 @@ struct MediaListRowView: View {
         
         VStack(alignment: .leading) {
             Text(title)
-                .font(Constants.FontStyle.title.style)
+                .font(Constants.FontStyle.title2.style)
                 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top) {
                     ForEach(itemList) { item in
                         NavigationLink(value: item) {
-                            MediaItemView(item: item)
+                            MediaItemVerticalView(item: item)
                         }
                         .buttonStyle(.plain)
                         

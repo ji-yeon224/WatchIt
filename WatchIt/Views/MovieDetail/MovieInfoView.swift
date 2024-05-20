@@ -21,7 +21,7 @@ struct MovieInfoView: View {
                             .shadow(radius: 5)
                             .padding(EdgeInsets(top: 0, leading: 10, bottom: -30, trailing: 0))
                         Text(details.title)
-                            .font(Constants.FontStyle.title.style)
+                            .font(Constants.FontStyle.title2.style)
                             .foregroundStyle(.white)
                             .padding([.trailing, .bottom], 8)
                     }
