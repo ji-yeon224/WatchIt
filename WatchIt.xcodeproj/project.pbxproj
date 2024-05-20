@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE0C36A22BEB20AD00BB7214 /* TvListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C36A12BEB20AD00BB7214 /* TvListFeature.swift */; };
-		CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE1343FD2BE7468500F0122A /* RealmSwift */; };
 		CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344102BE9CA4100F0122A /* SearchFeature.swift */; };
 		CE1344812BEA1F8200F0122A /* ContentFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344802BEA1F8200F0122A /* ContentFeature.swift */; };
 		CE1344832BEA4E6400F0122A /* MovieListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1344822BEA4E6400F0122A /* MovieListFeature.swift */; };
@@ -19,6 +18,12 @@
 		CE19C6392BFB3712009223C3 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19C6382BFB3712009223C3 /* Double+Extension.swift */; };
 		CE19C63B2BFB3B16009223C3 /* ToolBarFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19C63A2BFB3B16009223C3 /* ToolBarFilterButton.swift */; };
 		CE19C63D2BFB4968009223C3 /* FilterStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19C63C2BFB4968009223C3 /* FilterStateType.swift */; };
+		CE19C6402BFB5F88009223C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C63F2BFB5F88009223C3 /* Alamofire */; };
+		CE19C6422BFB5F88009223C3 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6412BFB5F88009223C3 /* AlamofireDynamic */; };
+		CE19C6452BFB5F93009223C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6442BFB5F93009223C3 /* Kingfisher */; };
+		CE19C6482BFB5FAB009223C3 /* AxisRatingBar in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6472BFB5FAB009223C3 /* AxisRatingBar */; };
+		CE19C64E2BFB5FDA009223C3 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C64D2BFB5FDA009223C3 /* ComposableArchitecture */; };
+		CE19C6512BFB6030009223C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6502BFB6030009223C3 /* RealmSwift */; };
 		CE2048E12BF2494A003C6FBA /* RatedListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2048E02BF2494A003C6FBA /* RatedListRow.swift */; };
 		CE219CB52BD0E5260061D9D3 /* CreditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB42BD0E5260061D9D3 /* CreditItem.swift */; };
 		CE219CB72BD0E7E80061D9D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB62BD0E7E80061D9D3 /* Constants.swift */; };
@@ -33,7 +38,6 @@
 		CE492FB22BC90DC300C5F1DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE492FB12BC90DC300C5F1DC /* Preview Assets.xcassets */; };
 		CE492FBB2BC9177C00C5F1DC /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FBA2BC9177C00C5F1DC /* MovieListView.swift */; };
 		CE492FBD2BC9182900C5F1DC /* MediaItemVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FBC2BC9182900C5F1DC /* MediaItemVerticalView.swift */; };
-		CE492FC32BC91E6600C5F1DC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE492FC22BC91E6600C5F1DC /* Alamofire */; };
 		CE492FC52BC91F2600C5F1DC /* .gitIgnore in Resources */ = {isa = PBXBuildFile; fileRef = CE492FC42BC91F2600C5F1DC /* .gitIgnore */; };
 		CE492FC72BC91F4000C5F1DC /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FC62BC91F4000C5F1DC /* APIKey.swift */; };
 		CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FC82BC91FC700C5F1DC /* Router.swift */; };
@@ -48,7 +52,6 @@
 		CE77F8BF2BCA542600010151 /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8BE2BCA542600010151 /* TMDBManager.swift */; };
 		CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C02BCA562600010151 /* NetworkError.swift */; };
 		CE77F8C52BCA581200010151 /* MovieItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C42BCA581200010151 /* MovieItemDto.swift */; };
-		CE89F32D2BEC6A50000E6276 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE89F32C2BEC6A50000E6276 /* ComposableArchitecture */; };
 		CE89F3302BEC7A09000E6276 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89F32F2BEC7A09000E6276 /* MyPageView.swift */; };
 		CE8E1B202BD2141B003F91BD /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B1F2BD2141B003F91BD /* CreditView.swift */; };
 		CE8E1B222BD231C6003F91BD /* CreditItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B212BD231C6003F91BD /* CreditItems.swift */; };
@@ -64,7 +67,6 @@
 		CEA368672BD4E2500054FCFA /* TvListResDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA368662BD4E2500054FCFA /* TvListResDto.swift */; };
 		CEA3686B2BD4E4DD0054FCFA /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3686A2BD4E4DD0054FCFA /* MediaItem.swift */; };
 		CEA368712BD4E8B50054FCFA /* TvListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA368702BD4E8B50054FCFA /* TvListView.swift */; };
-		CEAE72CE2BCCD2DB00C7E5A6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */; };
 		CEAE72D12BCCEB1100C7E5A6 /* PosterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72D02BCCEB1100C7E5A6 /* PosterImage.swift */; };
 		CEAE72D42BCD075D00C7E5A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72D32BCD075D00C7E5A6 /* ContentView.swift */; };
 		CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE72D62BCD0CFD00C7E5A6 /* TopTabBarView.swift */; };
@@ -81,7 +83,6 @@
 		CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */; };
 		CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */; };
 		CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EC12BE4A73D00B4D19A /* DBError.swift */; };
-		CEBE8ECA2BE4AEEB00B4D19A /* AxisRatingBar in Frameworks */ = {isa = PBXBuildFile; productRef = CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */; };
 		CEF021892BEB51CD0067207F /* MediaDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF021882BEB51CD0067207F /* MediaDetailFeature.swift */; };
 		CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E22BDF4450009ED2F0 /* SearchBar.swift */; };
 		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
@@ -196,11 +197,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE89F32D2BEC6A50000E6276 /* ComposableArchitecture in Frameworks */,
-				CE1343FE2BE7468500F0122A /* RealmSwift in Frameworks */,
-				CEAE72CE2BCCD2DB00C7E5A6 /* Kingfisher in Frameworks */,
-				CEBE8ECA2BE4AEEB00B4D19A /* AxisRatingBar in Frameworks */,
-				CE492FC32BC91E6600C5F1DC /* Alamofire in Frameworks */,
+				CE19C6512BFB6030009223C3 /* RealmSwift in Frameworks */,
+				CE19C6452BFB5F93009223C3 /* Kingfisher in Frameworks */,
+				CE19C64E2BFB5FDA009223C3 /* ComposableArchitecture in Frameworks */,
+				CE19C6402BFB5F88009223C3 /* Alamofire in Frameworks */,
+				CE19C6422BFB5F88009223C3 /* AlamofireDynamic in Frameworks */,
+				CE19C6482BFB5FAB009223C3 /* AxisRatingBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,11 +530,12 @@
 			);
 			name = WatchIt;
 			packageProductDependencies = (
-				CE492FC22BC91E6600C5F1DC /* Alamofire */,
-				CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */,
-				CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */,
-				CE1343FD2BE7468500F0122A /* RealmSwift */,
-				CE89F32C2BEC6A50000E6276 /* ComposableArchitecture */,
+				CE19C63F2BFB5F88009223C3 /* Alamofire */,
+				CE19C6412BFB5F88009223C3 /* AlamofireDynamic */,
+				CE19C6442BFB5F93009223C3 /* Kingfisher */,
+				CE19C6472BFB5FAB009223C3 /* AxisRatingBar */,
+				CE19C64D2BFB5FDA009223C3 /* ComposableArchitecture */,
+				CE19C6502BFB6030009223C3 /* RealmSwift */,
 			);
 			productName = WatchIt;
 			productReference = CE492FA72BC90DC200C5F1DC /* WatchIt.app */;
@@ -563,11 +566,11 @@
 			);
 			mainGroup = CE492F9E2BC90DC200C5F1DC;
 			packageReferences = (
-				CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */,
-				CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
-				CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */,
-				CE89F32B2BEC6A50000E6276 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CE19C6432BFB5F93009223C3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CE19C6462BFB5FAB009223C3 /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
+				CE19C64C2BFB5FDA009223C3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				CE19C64F2BFB6030009223C3 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = CE492FA82BC90DC200C5F1DC /* Products */;
 			projectDirPath = "";
@@ -887,15 +890,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -903,15 +898,7 @@
 				minimumVersion = 5.9.1;
 			};
 		};
-		CE89F32B2BEC6A50000E6276 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.3;
-			};
-		};
-		CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		CE19C6432BFB5F93009223C3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -919,7 +906,7 @@
 				minimumVersion = 7.11.0;
 			};
 		};
-		CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */ = {
+		CE19C6462BFB5FAB009223C3 /* XCRemoteSwiftPackageReference "AxisRatingBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jasudev/AxisRatingBar";
 			requirement = {
@@ -927,33 +914,54 @@
 				minimumVersion = 0.5.0;
 			};
 		};
+		CE19C64C2BFB5FDA009223C3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.4;
+			};
+		};
+		CE19C64F2BFB6030009223C3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE1343FD2BE7468500F0122A /* RealmSwift */ = {
+		CE19C63F2BFB5F88009223C3 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE1343FC2BE7468500F0122A /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-		CE492FC22BC91E6600C5F1DC /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE492FC12BC91E6600C5F1DC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		CE89F32C2BEC6A50000E6276 /* ComposableArchitecture */ = {
+		CE19C6412BFB5F88009223C3 /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE89F32B2BEC6A50000E6276 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
+			package = CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
 		};
-		CEAE72CD2BCCD2DB00C7E5A6 /* Kingfisher */ = {
+		CE19C6442BFB5F93009223C3 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CEAE72CC2BCCD2DB00C7E5A6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = CE19C6432BFB5F93009223C3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		CEBE8EC92BE4AEEB00B4D19A /* AxisRatingBar */ = {
+		CE19C6472BFB5FAB009223C3 /* AxisRatingBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CEBE8EC82BE4AEEB00B4D19A /* XCRemoteSwiftPackageReference "AxisRatingBar" */;
+			package = CE19C6462BFB5FAB009223C3 /* XCRemoteSwiftPackageReference "AxisRatingBar" */;
 			productName = AxisRatingBar;
+		};
+		CE19C64D2BFB5FDA009223C3 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE19C64C2BFB5FDA009223C3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		CE19C6502BFB6030009223C3 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE19C64F2BFB6030009223C3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
