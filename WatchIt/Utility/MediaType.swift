@@ -18,4 +18,12 @@ enum MediaType: String, CaseIterable {
             return "TV"
         }
     }
+    var title: String {
+        switch self {
+        case .movie:
+            return "MOVIE"
+        case .tv:
+            return "TV SERIES"
+        }
+    }
 }

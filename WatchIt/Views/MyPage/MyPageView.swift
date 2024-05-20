@@ -30,6 +30,7 @@ struct MyPageView: View {
                     Spacer()
                 }
                 .padding()
+                
                 .navigationTitle("My Page")
                 .navigationBarTitleDisplayMode(.large)
             }
