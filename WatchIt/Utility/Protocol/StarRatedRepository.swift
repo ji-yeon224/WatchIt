@@ -8,15 +8,7 @@
 import Foundation
 import RealmSwift
 
-protocol RealmRepository {
-    associatedtype Model
-    associatedtype Entity
-    
-    func fetchAll() -> [Entity]
-    func create(data: Model) throws
-    func fetchItem(id: String) -> Model?
-    func delete(id: String) throws
-}
+
 final class StarRatedRepository: RealmRepository {
     
     typealias Model = StarRatedItemModel
