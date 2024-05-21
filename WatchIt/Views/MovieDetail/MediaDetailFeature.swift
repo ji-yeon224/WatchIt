@@ -18,7 +18,7 @@ struct MediaDetailFeature {
         var crewItems: [Cast] = []
         var starValue: CGFloat = 0
         var mediaType: MediaType = .movie
-        
+        var wishSaved: Bool = false
     }
     
     enum Action {
@@ -30,6 +30,7 @@ struct MediaDetailFeature {
         case getCreditInfo(MediaType, Int)
         case setCastItems([Cast])
         case setCrewItems([Cast])
+        case setWishSaved(Bool)
         
     }
     
@@ -76,6 +77,9 @@ struct MediaDetailFeature {
                 return .none
             case let .setCrewItems(crews):
                 state.crewItems = crews
+                return .none
+            case let .setWishSaved(saved):
+                state.wishSaved = saved
                 return .none
             
                 

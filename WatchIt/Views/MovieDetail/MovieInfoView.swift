@@ -9,13 +9,27 @@ import SwiftUI
 
 struct MovieInfoView: View {
     var details: DetailMedia?
-    
+    @Binding var isSaved: Bool
     var body: some View {
         if let details = details {
             VStack(alignment: .leading) {
                 ZStack(alignment: .bottomLeading) {
                     BackDropImage(url: details.backdropUrl)
-                        
+                        .overlay(alignment: .topTrailing) {
+                            Button{
+                                isSaved.toggle()
+                            } label: {
+                                
+                                if isSaved {
+                                    Image(.savedButton)
+                                } else {
+                                    
+                                    Image(.unsavedButton)
+                                }
+                            }
+                            .offset(x: -10, y: 15)
+                        }
+                    
                     HStack(alignment: .bottom, spacing: 10) {
                         PosterImage(url: details.posterUrl)
                             .shadow(radius: 5)
