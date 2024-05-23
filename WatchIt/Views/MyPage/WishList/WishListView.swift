@@ -13,12 +13,15 @@ struct WishListView: View {
             Text("Wish List")
                 .font(Constants.FontStyle.title1.style)
             HStack(spacing: 20) {
-                WishTypeButton(image: .savedMovieButton, title: "영화")
-                WishTypeButton(image: .savedTvButton, title: "TV")
+                WishListTypeItem(image: .savedMovieButton, title: .movie)
+                WishListTypeItem(image: .savedTvButton, title: .tv)
                 Spacer()
             }
         }
         .padding(.vertical, 14)
+        .navigationDestination(for: MediaType.self) { type in
+            WishItemView(type: type)
+        }
         
     }
     

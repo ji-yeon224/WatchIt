@@ -87,7 +87,8 @@
 		CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */; };
 		CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EC12BE4A73D00B4D19A /* DBError.swift */; };
 		CEC4412F2BFF0C27000C43E0 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4412E2BFF0C27000C43E0 /* WishListView.swift */; };
-		CEC441322BFF1054000C43E0 /* WishTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC441312BFF1054000C43E0 /* WishTypeButton.swift */; };
+		CEC441322BFF1054000C43E0 /* WishListTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC441312BFF1054000C43E0 /* WishListTypeItem.swift */; };
+		CEC441342BFF17E5000C43E0 /* WishItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC441332BFF17E5000C43E0 /* WishItemView.swift */; };
 		CEF021892BEB51CD0067207F /* MediaDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF021882BEB51CD0067207F /* MediaDetailFeature.swift */; };
 		CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E22BDF4450009ED2F0 /* SearchBar.swift */; };
 		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
@@ -189,7 +190,8 @@
 		CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatedRepository.swift; sourceTree = "<group>"; };
 		CEBE8EC12BE4A73D00B4D19A /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		CEC4412E2BFF0C27000C43E0 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
-		CEC441312BFF1054000C43E0 /* WishTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTypeButton.swift; sourceTree = "<group>"; };
+		CEC441312BFF1054000C43E0 /* WishListTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTypeItem.swift; sourceTree = "<group>"; };
+		CEC441332BFF17E5000C43E0 /* WishItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemView.swift; sourceTree = "<group>"; };
 		CEF021882BEB51CD0067207F /* MediaDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailFeature.swift; sourceTree = "<group>"; };
 		CEF094E22BDF4450009ED2F0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -530,7 +532,8 @@
 			isa = PBXGroup;
 			children = (
 				CEC4412E2BFF0C27000C43E0 /* WishListView.swift */,
-				CEC441312BFF1054000C43E0 /* WishTypeButton.swift */,
+				CEC441312BFF1054000C43E0 /* WishListTypeItem.swift */,
+				CEC441332BFF17E5000C43E0 /* WishItemView.swift */,
 			);
 			path = WishList;
 			sourceTree = "<group>";
@@ -664,7 +667,7 @@
 				CE8A6DA32BFC82C0005154F8 /* DatabaseProtocol.swift in Sources */,
 				CE19C63D2BFB4968009223C3 /* FilterStateType.swift in Sources */,
 				CE8A6DA72BFC8407005154F8 /* WishItemModel.swift in Sources */,
-				CEC441322BFF1054000C43E0 /* WishTypeButton.swift in Sources */,
+				CEC441322BFF1054000C43E0 /* WishListTypeItem.swift in Sources */,
 				CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */,
 				CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */,
 				CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */,
@@ -690,6 +693,7 @@
 				CE89F3302BEC7A09000E6276 /* MyPageView.swift in Sources */,
 				CE98EEFB2BF3325A001C3781 /* RatedItemView.swift in Sources */,
 				CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */,
+				CEC441342BFF17E5000C43E0 /* WishItemView.swift in Sources */,
 				CEAE72E92BCD53F900C7E5A6 /* BackDropImage.swift in Sources */,
 				CE6185CE2BCF97F400D3BCE0 /* TruncatedTextView.swift in Sources */,
 				CEF021892BEB51CD0067207F /* MediaDetailFeature.swift in Sources */,
