@@ -86,6 +86,8 @@
 		CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */; };
 		CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */; };
 		CEBE8EC22BE4A73D00B4D19A /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE8EC12BE4A73D00B4D19A /* DBError.swift */; };
+		CEC4412F2BFF0C27000C43E0 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4412E2BFF0C27000C43E0 /* WishListView.swift */; };
+		CEC441322BFF1054000C43E0 /* WishTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC441312BFF1054000C43E0 /* WishTypeButton.swift */; };
 		CEF021892BEB51CD0067207F /* MediaDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF021882BEB51CD0067207F /* MediaDetailFeature.swift */; };
 		CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E22BDF4450009ED2F0 /* SearchBar.swift */; };
 		CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */; };
@@ -186,6 +188,8 @@
 		CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatedItemModel.swift; sourceTree = "<group>"; };
 		CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatedRepository.swift; sourceTree = "<group>"; };
 		CEBE8EC12BE4A73D00B4D19A /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
+		CEC4412E2BFF0C27000C43E0 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		CEC441312BFF1054000C43E0 /* WishTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishTypeButton.swift; sourceTree = "<group>"; };
 		CEF021882BEB51CD0067207F /* MediaDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailFeature.swift; sourceTree = "<group>"; };
 		CEF094E22BDF4450009ED2F0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		CEF094E42BDF46DD009ED2F0 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -361,12 +365,11 @@
 		CE89F32E2BEC79FD000E6276 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CEC441302BFF0FF3000C43E0 /* WishList */,
 				CE98EEF92BF3323D001C3781 /* Rated */,
 				CE89F32F2BEC7A09000E6276 /* MyPageView.swift */,
-				CE98EEF72BF331EB001C3781 /* RatedListView.swift */,
 				CE162EAB2BEC9B18008F9006 /* ChartView.swift */,
 				CE162EAD2BECA7AE008F9006 /* MyPageFeature.swift */,
-				CE2048E02BF2494A003C6FBA /* RatedListRow.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -387,6 +390,8 @@
 		CE98EEF92BF3323D001C3781 /* Rated */ = {
 			isa = PBXGroup;
 			children = (
+				CE98EEF72BF331EB001C3781 /* RatedListView.swift */,
+				CE2048E02BF2494A003C6FBA /* RatedListRow.swift */,
 				CE98EEFA2BF3325A001C3781 /* RatedItemView.swift */,
 				CE98EEFC2BF33AF0001C3781 /* RatedItemFeature.swift */,
 			);
@@ -521,6 +526,15 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		CEC441302BFF0FF3000C43E0 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4412E2BFF0C27000C43E0 /* WishListView.swift */,
+				CEC441312BFF1054000C43E0 /* WishTypeButton.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -650,6 +664,7 @@
 				CE8A6DA32BFC82C0005154F8 /* DatabaseProtocol.swift in Sources */,
 				CE19C63D2BFB4968009223C3 /* FilterStateType.swift in Sources */,
 				CE8A6DA72BFC8407005154F8 /* WishItemModel.swift in Sources */,
+				CEC441322BFF1054000C43E0 /* WishTypeButton.swift in Sources */,
 				CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */,
 				CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */,
 				CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */,
@@ -665,6 +680,7 @@
 				CE492FC72BC91F4000C5F1DC /* APIKey.swift in Sources */,
 				CE219CC32BD0F92F0061D9D3 /* Crew.swift in Sources */,
 				CE219CB72BD0E7E80061D9D3 /* Constants.swift in Sources */,
+				CEC4412F2BFF0C27000C43E0 /* WishListView.swift in Sources */,
 				CE6185CA2BCF782500D3BCE0 /* BackDropRatio.swift in Sources */,
 				CEA368672BD4E2500054FCFA /* TvListResDto.swift in Sources */,
 				CE98F2992BD8F5A900A135F6 /* SearchView.swift in Sources */,

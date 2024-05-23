@@ -17,7 +17,9 @@ struct MyPageView: View {
         WithPerceptionTracking {
             NavigationStack {
                 VStack(alignment: .leading){
-    //                let _ = print(store.chartData)
+
+                    WishListView()
+                    Divider()
                     Text("나의 별점 분포")
                         .font(Constants.FontStyle.title1.style)
                         
