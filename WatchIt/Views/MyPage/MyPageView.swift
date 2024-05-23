@@ -15,26 +15,30 @@ struct MyPageView: View {
     
     var body: some View {
         WithPerceptionTracking {
+            
             NavigationStack {
-                VStack(alignment: .leading){
-
-                    WishListView()
-                    Divider()
-                    Text("나의 별점 분포")
-                        .font(Constants.FontStyle.title1.style)
-                        
-                    ChartView(chartData: store.chartData, average: store.averageRate)
-                        .padding()
-                    Divider()
-                        .frame(height: 20)
-                    RatedListView(store: store)
+                ScrollView {
                     
-                    Spacer()
+                    VStack(alignment: .leading){
+                        WishListView()
+                        Divider()
+                        Text("나의 별점 분포")
+                            .font(Constants.FontStyle.title1.style)
+                        
+                        ChartView(chartData: store.chartData, average: store.averageRate)
+                            .padding()
+                        Divider()
+                            .frame(height: 20)
+                        RatedListView(store: store)
+                        
+                        Spacer()
+                    }
+                    .padding()
+                    .navigationBarTitleDisplayMode(.large)
+                    .navigationTitle("My Page")
+                    
+                    
                 }
-                .padding()
-                
-                .navigationTitle("My Page")
-                .navigationBarTitleDisplayMode(.large)
             }
             
             .onAppear() {
