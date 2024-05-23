@@ -11,6 +11,8 @@ import ComposableArchitecture
 @Reducer
 struct MediaDetailFeature {
     private let starRatedRepository = StarRatedRepository()
+    private let wishItemRepository = WishItemRepository()
+    
     @ObservableState
     struct State {
         var details: DetailMedia?
@@ -31,7 +33,7 @@ struct MediaDetailFeature {
         case setCastItems([Cast])
         case setCrewItems([Cast])
         case setWishSaved(Bool)
-        
+        case sucessedWishSaved(Bool)
     }
     
     enum ID: Hashable {
@@ -55,7 +57,7 @@ struct MediaDetailFeature {
                 }
                 return .none
                 
-                    
+                
             case let .fetchStarRate(id):
                 state.starValue = fetchStarRate(id: id, type: state.mediaType)
                 return .none
@@ -79,15 +81,51 @@ struct MediaDetailFeature {
                 state.crewItems = crews
                 return .none
             case let .setWishSaved(saved):
-                state.wishSaved = saved
-                return .none
-            
                 
+                if let details = state.details {
+                    if saved {
+                        return saveWishItem(item: details.toWishRecord(type: state.mediaType))
+                    } else {
+                        return deleteWishItem(id: state.mediaType.rawValue.getPrimaryKey(id: details.id))
+                    }
+                }
+                return .none
+                
+            case let .sucessedWishSaved(isSuccess):
+                if isSuccess {
+                    state.wishSaved.toggle()
+                }
+                return .none
             }
         }
     }
 }
-
+extension MediaDetailFeature {
+    
+    private func saveWishItem(item: WishItemModel) -> Effect<Action>{
+        if wishItemRepository.fetchItemById(id: item.id) == nil {
+            do {
+                try self.wishItemRepository.create(data: item)
+                return .send(.sucessedWishSaved(true))
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+        
+        return .send(.sucessedWishSaved(false))
+    }
+    
+    private func deleteWishItem(id: String) -> Effect<Action>{
+        do {
+            try wishItemRepository.delete(id: id)
+            return .send(.sucessedWishSaved(true))
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
+        return .send(.sucessedWishSaved(false))
+        
+    }
+}
 extension MediaDetailFeature {
     
     private func fetchStarRate(id: Int, type: MediaType) -> CGFloat {
@@ -99,7 +137,7 @@ extension MediaDetailFeature {
         if let details = details {
             let id = type.rawValue.getPrimaryKey(id: details.id)
             
-            if let item = starRatedRepository.fetchItem(id: id) { // update
+            if let item = starRatedRepository.fetchItemById(id: id) { // update
                 if starRate == 0 { //delete
                     return deleteRateData(id: id)
                 } else {

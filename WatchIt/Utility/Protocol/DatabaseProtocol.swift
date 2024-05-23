@@ -6,12 +6,12 @@
 //
 
 import Foundation
-protocol RealmRepository {
+protocol DatabaseProtocol {
     associatedtype Model
     associatedtype Entity
     
     func fetchAll() -> [Entity]
     func create(data: Model) throws
-    func fetchItem(id: String) -> Model?
+    func fetchItemById(id: String) -> Model?
     func delete(id: String) throws
 }

@@ -53,7 +53,9 @@
 		CE77F8C12BCA562600010151 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C02BCA562600010151 /* NetworkError.swift */; };
 		CE77F8C52BCA581200010151 /* MovieItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77F8C42BCA581200010151 /* MovieItemDto.swift */; };
 		CE89F3302BEC7A09000E6276 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89F32F2BEC7A09000E6276 /* MyPageView.swift */; };
-		CE8A6DA32BFC82C0005154F8 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A6DA22BFC82C0005154F8 /* RealmRepository.swift */; };
+		CE8A6DA32BFC82C0005154F8 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A6DA22BFC82C0005154F8 /* DatabaseProtocol.swift */; };
+		CE8A6DA52BFC8391005154F8 /* WishItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A6DA42BFC8391005154F8 /* WishItemRepository.swift */; };
+		CE8A6DA72BFC8407005154F8 /* WishItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A6DA62BFC8407005154F8 /* WishItemModel.swift */; };
 		CE8E1B202BD2141B003F91BD /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B1F2BD2141B003F91BD /* CreditView.swift */; };
 		CE8E1B222BD231C6003F91BD /* CreditItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B212BD231C6003F91BD /* CreditItems.swift */; };
 		CE8E1B242BD25ADB003F91BD /* NavBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */; };
@@ -151,7 +153,9 @@
 		CE77F8C02BCA562600010151 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CE77F8C42BCA581200010151 /* MovieItemDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemDto.swift; sourceTree = "<group>"; };
 		CE89F32F2BEC7A09000E6276 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		CE8A6DA22BFC82C0005154F8 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		CE8A6DA22BFC82C0005154F8 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		CE8A6DA42BFC8391005154F8 /* WishItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemRepository.swift; sourceTree = "<group>"; };
+		CE8A6DA62BFC8407005154F8 /* WishItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemModel.swift; sourceTree = "<group>"; };
 		CE8E1B1F2BD2141B003F91BD /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		CE8E1B212BD231C6003F91BD /* CreditItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditItems.swift; sourceTree = "<group>"; };
 		CE8E1B232BD25ADB003F91BD /* NavBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBackButton.swift; sourceTree = "<group>"; };
@@ -374,7 +378,8 @@
 				CEF094F02BE32D73009ED2F0 /* ModelTypeProtocol.swift */,
 				CEF094F22BE32D8A009ED2F0 /* ResponseProtocol.swift */,
 				CEBE8EBF2BE4A30300B4D19A /* StarRatedRepository.swift */,
-				CE8A6DA22BFC82C0005154F8 /* RealmRepository.swift */,
+				CE8A6DA22BFC82C0005154F8 /* DatabaseProtocol.swift */,
+				CE8A6DA42BFC8391005154F8 /* WishItemRepository.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 			children = (
 				CEBE8EBD2BE4A0F400B4D19A /* StarRatedItemModel.swift */,
 				CEBE8EC12BE4A73D00B4D19A /* DBError.swift */,
+				CE8A6DA62BFC8407005154F8 /* WishItemModel.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -552,7 +558,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					CE492FA62BC90DC200C5F1DC = {
 						CreatedOnToolsVersion = 15.1;
@@ -615,7 +621,6 @@
 				CEF094E32BDF4450009ED2F0 /* SearchBar.swift in Sources */,
 				CEF094ED2BE229FD009ED2F0 /* MediaItemHorizontalView.swift in Sources */,
 				CEAE72DC2BCD204E00C7E5A6 /* MediaDetailView.swift in Sources */,
-				CEAE72DC2BCD204E00C7E5A6 /* MediaDetailView.swift in Sources */,
 				CEA368602BD3B4650054FCFA /* MediaListRowView.swift in Sources */,
 				CE0C36A22BEB20AD00BB7214 /* TvListFeature.swift in Sources */,
 				CE492FBD2BC9182900C5F1DC /* MediaItemVerticalView.swift in Sources */,
@@ -633,6 +638,7 @@
 				CEF094E52BDF46DD009ED2F0 /* UIApplication+Extension.swift in Sources */,
 				CE492FC92BC91FC700C5F1DC /* Router.swift in Sources */,
 				CE492FBB2BC9177C00C5F1DC /* MovieListView.swift in Sources */,
+				CE8A6DA52BFC8391005154F8 /* WishItemRepository.swift in Sources */,
 				CEF094EB2BE21D06009ED2F0 /* SearchViewModel.swift in Sources */,
 				CEF094F12BE32D73009ED2F0 /* ModelTypeProtocol.swift in Sources */,
 				CEA3685E2BD3AE660054FCFA /* RegionType.swift in Sources */,
@@ -641,8 +647,9 @@
 				CE13F1932BE35C2100AD553B /* StarRatingView.swift in Sources */,
 				CE1344112BE9CA4100F0122A /* SearchFeature.swift in Sources */,
 				CEAE72D72BCD0CFD00C7E5A6 /* TopTabBarView.swift in Sources */,
-				CE8A6DA32BFC82C0005154F8 /* RealmRepository.swift in Sources */,
+				CE8A6DA32BFC82C0005154F8 /* DatabaseProtocol.swift in Sources */,
 				CE19C63D2BFB4968009223C3 /* FilterStateType.swift in Sources */,
+				CE8A6DA72BFC8407005154F8 /* WishItemModel.swift in Sources */,
 				CEAE72EB2BCD5DE000C7E5A6 /* MovieInfoView.swift in Sources */,
 				CEBE8EBE2BE4A0F400B4D19A /* StarRatedItemModel.swift in Sources */,
 				CEBE8EC02BE4A30300B4D19A /* StarRatedRepository.swift in Sources */,
