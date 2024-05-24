@@ -19,7 +19,6 @@ struct MovieInfoView: View {
                             Button{
                                 isSaved.toggle()
                             } label: {
-                                
                                 if isSaved {
                                     Image(.savedButton)
                                 } else {

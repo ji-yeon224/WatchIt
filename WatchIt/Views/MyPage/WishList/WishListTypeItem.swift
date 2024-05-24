@@ -11,7 +11,7 @@ struct WishListTypeItem: View {
     var image: ImageResource
     var title: MediaType
     var body: some View {
-        NavigationLink(value: title) {
+        NavigationLink(value: MyPageDestination.wish(title)) {
             VStack {
                 Image(image)
                 Text(title.buttonTitle)

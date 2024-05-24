@@ -21,6 +21,7 @@ struct MediaDetailFeature {
         var starValue: CGFloat = 0
         var mediaType: MediaType = .movie
         var wishSaved: Bool = false
+        var mediaId: String = ""
     }
     
     enum Action {
@@ -34,6 +35,7 @@ struct MediaDetailFeature {
         case setCrewItems([Cast])
         case setWishSaved(Bool)
         case sucessedWishSaved(Bool)
+        case getWishSavedInfo
     }
     
     enum ID: Hashable {
@@ -45,9 +47,11 @@ struct MediaDetailFeature {
             switch action {
             case let .onAppear(type, id):
                 state.mediaType = type
+                state.mediaId = type.rawValue.getPrimaryKey(id: id)
                 return .merge([
                     .send(.getDetailInfo(type, id)),
-                    .send(.getCreditInfo(type, id))
+                    .send(.getCreditInfo(type, id)),
+                    .send(.getWishSavedInfo)
                 ])
             case let .setStarValue(value):
                 if state.starValue != value {
@@ -81,19 +85,26 @@ struct MediaDetailFeature {
                 state.crewItems = crews
                 return .none
             case let .setWishSaved(saved):
-                
+                state.wishSaved = saved
                 if let details = state.details {
                     if saved {
                         return saveWishItem(item: details.toWishRecord(type: state.mediaType))
                     } else {
-                        return deleteWishItem(id: state.mediaType.rawValue.getPrimaryKey(id: details.id))
+                        return deleteWishItem(id: state.mediaId)
                     }
                 }
                 return .none
                 
             case let .sucessedWishSaved(isSuccess):
-                if isSuccess {
+                if !isSuccess {
                     state.wishSaved.toggle()
+                }
+                return .none
+            case .getWishSavedInfo:
+                if wishItemRepository.fetchItemById(id: state.mediaId) == nil {
+                    state.wishSaved = false
+                } else {
+                    state.wishSaved = true
                 }
                 return .none
             }

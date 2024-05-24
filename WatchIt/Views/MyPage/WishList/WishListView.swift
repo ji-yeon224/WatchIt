@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct WishListView: View {
     var body: some View {
@@ -19,9 +20,13 @@ struct WishListView: View {
             }
         }
         .padding(.vertical, 14)
-        .navigationDestination(for: MediaType.self) { type in
-            WishItemView(type: type)
-        }
+//        .navigationDestination(for: MyPageDestination.self) { dest in
+//            WithPerceptionTracking {
+//                WishItemView(type: type, store: WatchItApp.store.scope(state: \.wish, action: \.wish))
+//            }
+//            
+//                
+//        }
         
     }
     

@@ -9,18 +9,18 @@ import SwiftUI
 import ComposableArchitecture
 
 
-struct RatedItemView: View {
+struct RatedItemGridView: View {
     @Perception.Bindable var store: StoreOf<RatedItemFeature>
     var type: MediaType = .movie
     var mediaItems: MediaItems = []
     
     
-    private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10), count: 3)
+    private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10, alignment: .top), count: 3)
     
     var body: some View {
         WithPerceptionTracking {
             ScrollView {
-                LazyVGrid(columns: columns, alignment: .center, content: {
+                LazyVGrid(columns: columns, alignment: .leading, content: {
                     ForEach(store.itemList, id: \.self) { item in
                         
                         NavigationLink(value: item) {
@@ -69,6 +69,6 @@ struct RatedItemView: View {
 }
 
 #Preview {
-    RatedItemView(store: Store(initialState: RatedItemFeature.State()) {
+    RatedItemGridView(store: Store(initialState: RatedItemFeature.State()) {
         RatedItemFeature() }, type: .movie, mediaItems: [])
 }

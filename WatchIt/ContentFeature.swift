@@ -16,6 +16,7 @@ struct ContentFeature {
         var tvListTab = TvListFeature.State()
         var detail = MediaDetailFeature.State()
         var mypage = MyPageFeature.State()
+        var wish = WishItemFeature.State()
     }
     enum Action {
         case searchTab(SearchFeature.Action)
@@ -23,6 +24,7 @@ struct ContentFeature {
         case tvListTab(TvListFeature.Action)
         case detail(MediaDetailFeature.Action)
         case mypage(MyPageFeature.Action)
+        case wish(WishItemFeature.Action)
     }
     var body: some ReducerOf<Self> {
         Scope(state: \.searchTab, action: \.searchTab) {
@@ -39,6 +41,9 @@ struct ContentFeature {
         }
         Scope(state: \.mypage, action: \.mypage) {
             MyPageFeature()
+        }
+        Scope(state: \.wish, action: \.wish) {
+            WishItemFeature()
         }
     }
 }

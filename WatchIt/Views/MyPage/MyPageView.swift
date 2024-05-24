@@ -7,7 +7,10 @@
 
 import SwiftUI
 import ComposableArchitecture
-
+enum MyPageDestination: Hashable {
+    case wish(MediaType)
+    case rate(MediaType)
+}
 struct MyPageView: View {
     
     var store: StoreOf<MyPageFeature>
@@ -36,7 +39,23 @@ struct MyPageView: View {
                     .padding()
                     .navigationBarTitleDisplayMode(.large)
                     .navigationTitle("My Page")
-                    
+                    .navigationDestination(for: MyPageDestination.self) { dest in
+                        switch dest {
+                        case let .wish(type):
+                            WithPerceptionTracking {
+                                WishItemGridView(type: type, store: WatchItApp.store.scope(state: \.wish, action: \.wish))
+                            }
+                            
+                        case let .rate(type):
+                            WithPerceptionTracking {
+                                RatedItemGridView(store: Store(initialState: RatedItemFeature.State()) {
+                                    RatedItemFeature() }, type: type )
+                            }
+                        }
+                        
+                        
+                            
+                    }
                     
                 }
             }

@@ -33,6 +33,14 @@ final class WishItemRepository: DatabaseProtocol {
         return realm.object(ofType: WishItemModel.self, forPrimaryKey: id)
     }
     
+    func fetchItemByMediaType(type: String) -> [Entity] {
+        return realm.objects(WishItemModel.self)
+            .where {
+                $0.mediaType == type
+            }
+            .map { $0.toDomain() }
+    }
+    
     func delete(id: String) throws {
         let item = fetchItemById(id: id)
         if let item = item {
@@ -48,7 +56,7 @@ final class WishItemRepository: DatabaseProtocol {
         }
     }
     
-   
+    
     func getLocation() {
         print("=====Realm 경로: ", realm.configuration.fileURL!)
     }

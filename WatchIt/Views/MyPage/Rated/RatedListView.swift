@@ -19,10 +19,7 @@ struct RatedListView: View {
             RatedListRow(title: .tv)
             
         }
-        .navigationDestination(for: MediaType.self) { type in
-            RatedItemView(store: Store(initialState: RatedItemFeature.State()) {
-                RatedItemFeature() }, type: type )
-        }
+        
     }
 }
 
