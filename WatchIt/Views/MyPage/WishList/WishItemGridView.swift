@@ -11,7 +11,9 @@ import ComposableArchitecture
 struct WishItemGridView: View {
     var type: MediaType = .movie
     let store: StoreOf<WishItemFeature>
+    
     private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10, alignment: .top), count: 3)
+    
     var body: some View {
         WithPerceptionTracking {
             ScrollView {
@@ -21,6 +23,7 @@ struct WishItemGridView: View {
                             MediaItemVerticalView(item: item)
                                 .foregroundStyle(.black)
                         }
+                        
                     }
                 }
                 .padding(.leading, 20)

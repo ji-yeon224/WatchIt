@@ -15,7 +15,7 @@ struct RatedItemGridView: View {
     var mediaItems: MediaItems = []
     
     
-    private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10, alignment: .top), count: 3)
+    private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10, alignment: .topLeading), count: 3)
     
     var body: some View {
         WithPerceptionTracking {
@@ -26,6 +26,7 @@ struct RatedItemGridView: View {
                         NavigationLink(value: item) {
                             MediaItemVerticalView(item: item, starRate: item.starRate)
                                 .foregroundStyle(.black)
+                                
                         }
                     }
                     

@@ -27,6 +27,7 @@ struct MediaItemVerticalView: View {
             Text(item.title)
                 .font(Constants.FontStyle.plain.style)
                 .lineLimit(2)
+                .multilineTextAlignment(.leading)
                 .frame(maxWidth: 100, alignment: .topLeading)
             if starRate > 0.0 {
                 starRateText
