@@ -18,12 +18,6 @@
 		CE19C6392BFB3712009223C3 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19C6382BFB3712009223C3 /* Double+Extension.swift */; };
 		CE19C63B2BFB3B16009223C3 /* ToolBarFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19C63A2BFB3B16009223C3 /* ToolBarFilterButton.swift */; };
 		CE19C63D2BFB4968009223C3 /* FilterStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19C63C2BFB4968009223C3 /* FilterStateType.swift */; };
-		CE19C6402BFB5F88009223C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C63F2BFB5F88009223C3 /* Alamofire */; };
-		CE19C6422BFB5F88009223C3 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6412BFB5F88009223C3 /* AlamofireDynamic */; };
-		CE19C6452BFB5F93009223C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6442BFB5F93009223C3 /* Kingfisher */; };
-		CE19C6482BFB5FAB009223C3 /* AxisRatingBar in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6472BFB5FAB009223C3 /* AxisRatingBar */; };
-		CE19C64E2BFB5FDA009223C3 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C64D2BFB5FDA009223C3 /* ComposableArchitecture */; };
-		CE19C6512BFB6030009223C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE19C6502BFB6030009223C3 /* RealmSwift */; };
 		CE2048E12BF2494A003C6FBA /* RatedListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2048E02BF2494A003C6FBA /* RatedListRow.swift */; };
 		CE219CB52BD0E5260061D9D3 /* CreditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB42BD0E5260061D9D3 /* CreditItem.swift */; };
 		CE219CB72BD0E7E80061D9D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CB62BD0E7E80061D9D3 /* Constants.swift */; };
@@ -32,6 +26,12 @@
 		CE219CBF2BD0EEA90061D9D3 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CBE2BD0EEA90061D9D3 /* Cast.swift */; };
 		CE219CC32BD0F92F0061D9D3 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CC22BD0F92F0061D9D3 /* Crew.swift */; };
 		CE219CC52BD0FBDE0061D9D3 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE219CC42BD0FBDE0061D9D3 /* ProfileImage.swift */; };
+		CE24D5182C03307500DF9C91 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = CE24D5172C03307500DF9C91 /* ComposableArchitecture */; };
+		CE24D51B2C03308400DF9C91 /* AxisRatingBar in Frameworks */ = {isa = PBXBuildFile; productRef = CE24D51A2C03308400DF9C91 /* AxisRatingBar */; };
+		CE24D51E2C03308F00DF9C91 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE24D51D2C03308F00DF9C91 /* Kingfisher */; };
+		CE24D5212C0330B300DF9C91 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE24D5202C0330B300DF9C91 /* Alamofire */; };
+		CE24D5232C0330B300DF9C91 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CE24D5222C0330B300DF9C91 /* AlamofireDynamic */; };
+		CE24D5262C0330EB00DF9C91 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE24D5252C0330EB00DF9C91 /* RealmSwift */; };
 		CE35DA142C0029E2008A8C4E /* WishItemFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35DA132C0029E2008A8C4E /* WishItemFeature.swift */; };
 		CE492FAB2BC90DC200C5F1DC /* WatchItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FAA2BC90DC200C5F1DC /* WatchItApp.swift */; };
 		CE492FAD2BC90DC200C5F1DC /* MainMediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE492FAC2BC90DC200C5F1DC /* MainMediaListView.swift */; };
@@ -211,12 +211,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE19C6512BFB6030009223C3 /* RealmSwift in Frameworks */,
-				CE19C6452BFB5F93009223C3 /* Kingfisher in Frameworks */,
-				CE19C64E2BFB5FDA009223C3 /* ComposableArchitecture in Frameworks */,
-				CE19C6402BFB5F88009223C3 /* Alamofire in Frameworks */,
-				CE19C6422BFB5F88009223C3 /* AlamofireDynamic in Frameworks */,
-				CE19C6482BFB5FAB009223C3 /* AxisRatingBar in Frameworks */,
+				CE24D5262C0330EB00DF9C91 /* RealmSwift in Frameworks */,
+				CE24D5212C0330B300DF9C91 /* Alamofire in Frameworks */,
+				CE24D5232C0330B300DF9C91 /* AlamofireDynamic in Frameworks */,
+				CE24D51E2C03308F00DF9C91 /* Kingfisher in Frameworks */,
+				CE24D5182C03307500DF9C91 /* ComposableArchitecture in Frameworks */,
+				CE24D51B2C03308400DF9C91 /* AxisRatingBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,12 +559,12 @@
 			);
 			name = WatchIt;
 			packageProductDependencies = (
-				CE19C63F2BFB5F88009223C3 /* Alamofire */,
-				CE19C6412BFB5F88009223C3 /* AlamofireDynamic */,
-				CE19C6442BFB5F93009223C3 /* Kingfisher */,
-				CE19C6472BFB5FAB009223C3 /* AxisRatingBar */,
-				CE19C64D2BFB5FDA009223C3 /* ComposableArchitecture */,
-				CE19C6502BFB6030009223C3 /* RealmSwift */,
+				CE24D5172C03307500DF9C91 /* ComposableArchitecture */,
+				CE24D51A2C03308400DF9C91 /* AxisRatingBar */,
+				CE24D51D2C03308F00DF9C91 /* Kingfisher */,
+				CE24D5202C0330B300DF9C91 /* Alamofire */,
+				CE24D5222C0330B300DF9C91 /* AlamofireDynamic */,
+				CE24D5252C0330EB00DF9C91 /* RealmSwift */,
 			);
 			productName = WatchIt;
 			productReference = CE492FA72BC90DC200C5F1DC /* WatchIt.app */;
@@ -595,11 +595,11 @@
 			);
 			mainGroup = CE492F9E2BC90DC200C5F1DC;
 			packageReferences = (
-				CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				CE19C6432BFB5F93009223C3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				CE19C6462BFB5FAB009223C3 /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
-				CE19C64C2BFB5FDA009223C3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				CE19C64F2BFB6030009223C3 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CE24D5162C03307500DF9C91 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				CE24D5192C03308400DF9C91 /* XCRemoteSwiftPackageReference "AxisRatingBar" */,
+				CE24D51C2C03308F00DF9C91 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CE24D51F2C0330B300DF9C91 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CE24D5242C0330EB00DF9C91 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = CE492FA82BC90DC200C5F1DC /* Products */;
 			projectDirPath = "";
@@ -925,31 +925,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
-			};
-		};
-		CE19C6432BFB5F93009223C3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
-			};
-		};
-		CE19C6462BFB5FAB009223C3 /* XCRemoteSwiftPackageReference "AxisRatingBar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jasudev/AxisRatingBar";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.0;
-			};
-		};
-		CE19C64C2BFB5FDA009223C3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		CE24D5162C03307500DF9C91 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
@@ -957,7 +933,31 @@
 				minimumVersion = 1.10.4;
 			};
 		};
-		CE19C64F2BFB6030009223C3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		CE24D5192C03308400DF9C91 /* XCRemoteSwiftPackageReference "AxisRatingBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasudev/AxisRatingBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+		CE24D51C2C03308F00DF9C91 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+		CE24D51F2C0330B300DF9C91 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		CE24D5242C0330EB00DF9C91 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -968,34 +968,34 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CE19C63F2BFB5F88009223C3 /* Alamofire */ = {
+		CE24D5172C03307500DF9C91 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		CE19C6412BFB5F88009223C3 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE19C63E2BFB5F88009223C3 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
-		};
-		CE19C6442BFB5F93009223C3 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE19C6432BFB5F93009223C3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		CE19C6472BFB5FAB009223C3 /* AxisRatingBar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE19C6462BFB5FAB009223C3 /* XCRemoteSwiftPackageReference "AxisRatingBar" */;
-			productName = AxisRatingBar;
-		};
-		CE19C64D2BFB5FDA009223C3 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE19C64C2BFB5FDA009223C3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = CE24D5162C03307500DF9C91 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		CE19C6502BFB6030009223C3 /* RealmSwift */ = {
+		CE24D51A2C03308400DF9C91 /* AxisRatingBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CE19C64F2BFB6030009223C3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = CE24D5192C03308400DF9C91 /* XCRemoteSwiftPackageReference "AxisRatingBar" */;
+			productName = AxisRatingBar;
+		};
+		CE24D51D2C03308F00DF9C91 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE24D51C2C03308F00DF9C91 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		CE24D5202C0330B300DF9C91 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE24D51F2C0330B300DF9C91 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CE24D5222C0330B300DF9C91 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE24D51F2C0330B300DF9C91 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+		CE24D5252C0330EB00DF9C91 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE24D5242C0330EB00DF9C91 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
