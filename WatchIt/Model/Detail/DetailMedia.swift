@@ -21,6 +21,8 @@ struct DetailMedia: ModelTypeProtocol {
 //    var info: String {
 //        return "\(releaseYear ?? "") | \(genres.joined(separator: ", ")) | \(runtime)"
 //    }
-    
+    func toWishRecord(type: MediaType) -> WishItemModel {
+        return .init(id: type.rawValue.getPrimaryKey(id: id), mediaId: id, title: title, posterPath: posterUrl, mediaType: type.rawValue)
+    }
     
 }

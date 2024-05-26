@@ -8,16 +8,8 @@
 import Foundation
 import RealmSwift
 
-protocol RealmRepository {
-    associatedtype Model
-    associatedtype Entity
-    
-    func fetchAll() -> [Entity]
-    func create(data: Model) throws
-    func fetchItem(id: String) -> Model?
-    func delete(id: String) throws
-}
-final class StarRatedRepository: RealmRepository {
+
+final class StarRatedRepository: DatabaseProtocol {
     
     typealias Model = StarRatedItemModel
     typealias Entity = MediaItem
@@ -50,7 +42,7 @@ final class StarRatedRepository: RealmRepository {
         
     }
     
-    func fetchItem(id: String) -> StarRatedItemModel? {
+    func fetchItemById(id: String) -> StarRatedItemModel? {
         return realm.object(ofType: StarRatedItemModel.self, forPrimaryKey: id)
         
     }
@@ -66,11 +58,11 @@ final class StarRatedRepository: RealmRepository {
     
     func getStarRate(id: String) -> Double {
         
-        return fetchItem(id: id)?.starRate ?? 0
+        return fetchItemById(id: id)?.starRate ?? 0
     }
     
     func delete(id: String) throws {
-        let item = fetchItem(id: id)
+        let item = fetchItemById(id: id)
         if let item = item {
             do {
                 try realm.write {

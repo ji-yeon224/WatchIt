@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-
+import ComposableArchitecture
 struct RatedListRow: View {
     var title: MediaType = .movie
     
     var body: some View {
-        NavigationLink(value: title) {
+        NavigationLink(value: MyPageDestination.rate(title)) {
             HStack {
                 Text(title.title)
                     .font(Constants.FontStyle.subtitle.style)
@@ -24,7 +24,10 @@ struct RatedListRow: View {
         .foregroundStyle(.black)
         .frame(height: 40)
         
-        
+//        .navigationDestination(for: MediaType.self) { type in
+//            RatedItemView(store: Store(initialState: RatedItemFeature.State()) {
+//                RatedItemFeature() }, type: type )
+//        }
         
     }
 }

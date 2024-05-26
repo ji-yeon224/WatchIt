@@ -11,6 +11,8 @@ import ComposableArchitecture
 @Reducer
 struct MediaDetailFeature {
     private let starRatedRepository = StarRatedRepository()
+    private let wishItemRepository = WishItemRepository()
+    
     @ObservableState
     struct State {
         var details: DetailMedia?
@@ -18,7 +20,8 @@ struct MediaDetailFeature {
         var crewItems: [Cast] = []
         var starValue: CGFloat = 0
         var mediaType: MediaType = .movie
-        
+        var wishSaved: Bool = false
+        var mediaId: String = ""
     }
     
     enum Action {
@@ -30,7 +33,9 @@ struct MediaDetailFeature {
         case getCreditInfo(MediaType, Int)
         case setCastItems([Cast])
         case setCrewItems([Cast])
-        
+        case setWishSaved(Bool)
+        case sucessedWishSaved(Bool)
+        case getWishSavedInfo
     }
     
     enum ID: Hashable {
@@ -42,9 +47,11 @@ struct MediaDetailFeature {
             switch action {
             case let .onAppear(type, id):
                 state.mediaType = type
+                state.mediaId = type.rawValue.getPrimaryKey(id: id)
                 return .merge([
                     .send(.getDetailInfo(type, id)),
-                    .send(.getCreditInfo(type, id))
+                    .send(.getCreditInfo(type, id)),
+                    .send(.getWishSavedInfo)
                 ])
             case let .setStarValue(value):
                 if state.starValue != value {
@@ -54,7 +61,7 @@ struct MediaDetailFeature {
                 }
                 return .none
                 
-                    
+                
             case let .fetchStarRate(id):
                 state.starValue = fetchStarRate(id: id, type: state.mediaType)
                 return .none
@@ -77,13 +84,59 @@ struct MediaDetailFeature {
             case let .setCrewItems(crews):
                 state.crewItems = crews
                 return .none
-            
+            case let .setWishSaved(saved):
+                state.wishSaved = saved
+                if let details = state.details {
+                    if saved {
+                        return saveWishItem(item: details.toWishRecord(type: state.mediaType))
+                    } else {
+                        return deleteWishItem(id: state.mediaId)
+                    }
+                }
+                return .none
                 
+            case let .sucessedWishSaved(isSuccess):
+                if !isSuccess {
+                    state.wishSaved.toggle()
+                }
+                return .none
+            case .getWishSavedInfo:
+                if wishItemRepository.fetchItemById(id: state.mediaId) == nil {
+                    state.wishSaved = false
+                } else {
+                    state.wishSaved = true
+                }
+                return .none
             }
         }
     }
 }
-
+extension MediaDetailFeature {
+    
+    private func saveWishItem(item: WishItemModel) -> Effect<Action>{
+        if wishItemRepository.fetchItemById(id: item.id) == nil {
+            do {
+                try self.wishItemRepository.create(data: item)
+                return .send(.sucessedWishSaved(true))
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+        
+        return .send(.sucessedWishSaved(false))
+    }
+    
+    private func deleteWishItem(id: String) -> Effect<Action>{
+        do {
+            try wishItemRepository.delete(id: id)
+            return .send(.sucessedWishSaved(true))
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
+        return .send(.sucessedWishSaved(false))
+        
+    }
+}
 extension MediaDetailFeature {
     
     private func fetchStarRate(id: Int, type: MediaType) -> CGFloat {
@@ -95,7 +148,7 @@ extension MediaDetailFeature {
         if let details = details {
             let id = type.rawValue.getPrimaryKey(id: details.id)
             
-            if let item = starRatedRepository.fetchItem(id: id) { // update
+            if let item = starRatedRepository.fetchItemById(id: id) { // update
                 if starRate == 0 { //delete
                     return deleteRateData(id: id)
                 } else {

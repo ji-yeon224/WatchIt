@@ -46,15 +46,15 @@ extension MyPageFeature {
         var average: Double
         var sum: Double = 0
         let totalCount = Double(repository.fetchAll().count)
-        for rate in stride(from: 0.5, to: 5.0, by: 0.5) {
+        for rate in stride(from: 0.5, to: 5.5, by: 0.5) {
             let count = Double(repository.getRateCount(rate: rate))
             data.append(.init(rate: rate, count: count/totalCount))
-            print(count, rate)
+            
             sum += (count * rate)
         }
         
         average = sum / totalCount
-        print(sum, totalCount, average)
+        
         return .merge([
             .send(.setRateData(data)),
             .send(.setAvarageRate(average))

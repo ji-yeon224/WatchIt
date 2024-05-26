@@ -12,7 +12,7 @@ struct MediaDetailView: View {
     
     @Perception.Bindable var store: StoreOf<MediaDetailFeature> = WatchItApp.store.scope(state: \.detail, action: \.detail)
     
-    
+    @State private var isSavedItem: Bool = false
     private var id: Int
     private var title: String
     private var type: MediaType
@@ -29,7 +29,7 @@ struct MediaDetailView: View {
         WithPerceptionTracking {
             ScrollView {
                 
-                MovieInfoView(details: store.state.details)
+                MovieInfoView(details: store.state.details, isSaved: $store.wishSaved.sending(\.setWishSaved))
                     .padding(.bottom, 20)
                 Divider()
                 
