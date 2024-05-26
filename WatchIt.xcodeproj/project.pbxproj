@@ -135,6 +135,7 @@
 		CE219CBE2BD0EEA90061D9D3 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		CE219CC22BD0F92F0061D9D3 /* Crew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
 		CE219CC42BD0FBDE0061D9D3 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		CE24D5272C03349000DF9C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE35DA132C0029E2008A8C4E /* WishItemFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemFeature.swift; sourceTree = "<group>"; };
 		CE492FA72BC90DC200C5F1DC /* WatchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE492FAA2BC90DC200C5F1DC /* WatchItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchItApp.swift; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 		CE492FA92BC90DC200C5F1DC /* WatchIt */ = {
 			isa = PBXGroup;
 			children = (
+				CE24D5272C03349000DF9C91 /* Info.plist */,
 				CE492FC02BC91E2C00C5F1DC /* Network */,
 				CE492FB92BC9175B00C5F1DC /* Model */,
 				CE77F8C22BCA577000010151 /* Utility */,
@@ -848,9 +850,11 @@
 				DEVELOPMENT_TEAM = DJP8DYB9HG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchIt/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -880,9 +884,11 @@
 				DEVELOPMENT_TEAM = DJP8DYB9HG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchIt/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
