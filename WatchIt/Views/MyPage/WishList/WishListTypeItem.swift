@@ -14,6 +14,8 @@ struct WishListTypeItem: View {
         NavigationLink(value: MyPageDestination.wish(title)) {
             VStack {
                 Image(image)
+                    .resizable()
+                    .frame(width: 65, height: 65)
                 Text(title.buttonTitle)
             }
         }
